@@ -31,13 +31,13 @@ public class DungeonCrawl extends Application {
       int dx = 0;
       int dy = 0;
       
-      if (event.getCode() == KeyCode.UP) {
+      if (event.getCode() == KeyCode.W) {
         dy = -BLOCK_SIZE;
-      } else if (event.getCode() == KeyCode.DOWN) {
+      } else if (event.getCode() == KeyCode.S) {
         dy = BLOCK_SIZE;
-      } else if (event.getCode() == KeyCode.LEFT) {
+      } else if (event.getCode() == KeyCode.A) {
         dx = -BLOCK_SIZE;
-      } else if (event.getCode() == KeyCode.RIGHT) {
+      } else if (event.getCode() == KeyCode.D) {
         dx = BLOCK_SIZE;
       }
       
