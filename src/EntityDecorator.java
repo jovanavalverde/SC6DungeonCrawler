@@ -9,8 +9,9 @@ public class EntityDecorator implements Entity{
     }
 
     @Override
-    public int calDamage(EntityDecorator Man) { // may change var name
-        int endDam = Man.entDamage * entityLvL; //Calculations will change
+    public int[] calDamage(EntityDecorator Man) { //Contents may be moved to Enemy.java and Boss.java
+        int[] endDam = new int[1];
+        endDam[0] = Man.entDamage * entityLvL; //Calculations will change
         return(endDam);
     }
 
