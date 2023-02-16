@@ -1,3 +1,6 @@
+/*
+Sprites: At least one small sprite for each player class.(Mage, Rogue, and Warrior)
+ */
 public class Player implements Entity{
 
     int playHP;
