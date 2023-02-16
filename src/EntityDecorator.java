@@ -6,6 +6,12 @@ public class EntityDecorator implements Entity{
     @Override
     public void changeHP(int change) {
         HP = HP + change;
+        /*
+        if(HP < 0){
+            HP = 0;
+        }
+        */
+
     }
 
     @Override
