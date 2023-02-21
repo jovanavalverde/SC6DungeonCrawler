@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.geometry.Insets;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -25,33 +27,24 @@ import java.awt.*;
 public class controllerClass {
 
     @FXML
-    private Button upB;
-    @FXML
-    private Button downB;
-    @FXML
-    private Button leftB;
-    @FXML
-    private Button rightB;
-    @FXML
     private Rectangle fred;
     @FXML
     private Button startBtn;
     @FXML
-    private Rectangle coverScreen;
+    private Rectangle gameScreen;
 
     private Image sprite = new Image("playerTestSprite.png");
+    private Image dungImg = new Image("beansBowl.png");
 
-    public void setSprite(){
+
+
+    public void initialize(){
         fred.setFill(new ImagePattern(sprite));
-        coverScreen.setTranslateY(1000);
-        startBtn.setTranslateY(1000);
-    }
-    public void startGame(ActionEvent actionEvent) {
-        setSprite();
+        gameScreen.setFill(new ImagePattern(dungImg));
 
     }
 
-
+//--------------------Move Button Methods
     public void moveUp(ActionEvent actionEvent) {
         fred.setTranslateY(fred.getTranslateY()-fred.getWidth());
     }

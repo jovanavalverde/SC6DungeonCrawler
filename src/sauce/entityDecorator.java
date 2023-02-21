@@ -1,4 +1,4 @@
-public class EntityDecorator implements Entity{
+public class entityDecorator implements entity {
     int HP;
     int[] entDamRange = new int[2];
     int spriteNum;//Just a placeholder for now as we do not yet know assigning sprites to entities will work.
