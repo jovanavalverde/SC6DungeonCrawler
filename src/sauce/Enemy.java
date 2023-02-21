@@ -1,7 +1,7 @@
 /*
 Sprites: Several small bad guy sprites (Goblins, ghouls, slimes, etc...)
  */
-public class Enemy extends EntityDecorator{
+public class Enemy extends entityDecorator {
 
 
     public Enemy (int health, int damMin, int damMax){
