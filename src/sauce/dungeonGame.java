@@ -19,12 +19,19 @@ static String newScreen = currentScreen;
 
     @Override
     public void start(Stage window) throws Exception {
+
+        /* -----Skipping Start Screen for Testing Purposes. -----Restore before publish-----
         Parent start = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("startScreen.fxml")));
         window.setTitle("Super Duper Dungeon");
         Scene startScreen = new Scene(start);
         window.setScene(startScreen);
         window.show();
-
+*/
+        Parent start = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("dungeonGame.fxml")));
+        window.setTitle("Super Duper Dungeon");
+        Scene game = new Scene(start);
+        window.setScene(game);
+        window.show();
 
 
 

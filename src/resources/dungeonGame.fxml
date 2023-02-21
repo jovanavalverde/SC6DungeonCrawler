@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerClass">
@@ -10,7 +11,9 @@
       <Pane layoutX="362.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="950.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="340.0" AnchorPane.topAnchor="10.0">
          <children>
             <Rectangle fx:id="gameScreen" arcHeight="5.0" arcWidth="5.0" fill="#25282c" height="680.0" stroke="BLACK" strokeType="INSIDE" width="950.0" />
-            <Rectangle fx:id="fred" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="468.0" layoutY="531.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+            <Rectangle fx:id="fred" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="40.0" layoutY="610.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+            <Circle fx:id="testDot1" fill="DODGERBLUE" layoutX="55.0" layoutY="625.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="testDot11" fill="DODGERBLUE" layoutX="55.0" layoutY="502.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
       <Button layoutX="1205.0" layoutY="496.0" mnemonicParsing="false" onAction="#moveRight" prefHeight="65.0" prefWidth="90.0" text="right" />

@@ -34,7 +34,7 @@ public class controllerClass {
     private Rectangle gameScreen;
 
     private Image sprite = new Image("playerTestSprite.png");
-    private Image dungImg = new Image("beansBowl.png");
+    private Image dungImg = new Image("Dungoen Background.png");
 
 
 
@@ -46,16 +46,24 @@ public class controllerClass {
 
 //--------------------Move Button Methods
     public void moveUp(ActionEvent actionEvent) {
-        fred.setTranslateY(fred.getTranslateY()-fred.getWidth());
+//        fred.setTranslateY(fred.getTranslateY()-fred.getWidth());
+        fred.setTranslateY(fred.getTranslateY()-123);
+        System.out.println(fred.getTranslateX() + ","+fred.getTranslateY());//Test code. -----Delete before publish-----
     }
     public void moveDown(ActionEvent actionEvent) {
-        fred.setTranslateY(fred.getTranslateY()+fred.getWidth());
+//        fred.setTranslateY(fred.getTranslateY()-fred.getWidth());
+        fred.setTranslateY(fred.getTranslateY()+123);
+        System.out.println(fred.getTranslateX() + ","+fred.getTranslateY());//Test code. -----Delete before publish-----
     }
     public void moveLeft(ActionEvent actionEvent) {
-        fred.setTranslateX(fred.getTranslateX()-fred.getWidth());
+//        fred.setTranslateY(fred.getTranslateY()-fred.getWidth());
+        fred.setTranslateX(fred.getTranslateX()-123);
+        System.out.println(fred.getTranslateX() + ","+fred.getTranslateY());//Test code. -----Delete before publish-----
     }
     public void moveRight(ActionEvent actionEvent) {
-        fred.setTranslateX(fred.getTranslateX()+fred.getWidth());
+//        fred.setTranslateY(fred.getTranslateY()-fred.getWidth());
+        fred.setTranslateX(fred.getTranslateX()+123);
+        System.out.println(fred.getTranslateX() + ","+fred.getTranslateY());//Test code. -----Delete before publish-----
     }
 
 
