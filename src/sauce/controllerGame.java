@@ -1,30 +1,11 @@
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
-import javafx.geometry.Insets;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.layout.GridPane;
-import javafx.scene.control.Label;
-import javafx.stage.Stage;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Paint;
 import javafx.scene.paint.ImagePattern;
 
-
-
-import java.awt.*;
-
-public class controllerClass {
+public class controllerGame {
 
     @FXML
     private Rectangle fred;
@@ -32,11 +13,15 @@ public class controllerClass {
     private Button startBtn;
     @FXML
     private Rectangle gameScreen;
+    private appDungGame app;
 
     private Image sprite = new Image("playerTestSprite.png");
     private Image dungImg = new Image("Dungoen Background.png");
 
 
+    public void setApp(appDungGame app){
+        this.app = app;
+    }
 
     public void initialize(){
         fred.setFill(new ImagePattern(sprite));
