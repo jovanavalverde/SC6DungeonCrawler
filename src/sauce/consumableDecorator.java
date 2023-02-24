@@ -1,3 +1,3 @@
-public class consumableDecorator implements Item{
+public class consumableDecorator implements item {
 
 }
