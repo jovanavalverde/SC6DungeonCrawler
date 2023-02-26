@@ -6,10 +6,12 @@ public class player implements entity {
     int playHP;
     int playMP = 100;
     int armorPT;
+    itemGearDecorator[] playerInventory = new itemGearDecorator[13];
+    int[] playerPotions = new int[2];//First value is amount of healing potions and second is amount of mana potions.
     itemWeapon eqItemWeapon;
     itemArmor eqItemArmor;//For now, there will only be one equipable armor piece. Rather than a "Helmet","Gauntlet","Shield" etc...
-    String playClass = "default";//Other Player classes are yet to be created. So this is just a placeholder.
-    int spriteNum;//Just a placeholder for now as we do not yet know assigning sprites to entities will work.
+    String playClass = "mage";//Other Player classes are yet to be created. So this is just a placeholder.
+    int playerSprite;//Just a placeholder for now as we do not yet know assigning sprites to entities will work.
 
     @Override
     public void changeHP(int change) {

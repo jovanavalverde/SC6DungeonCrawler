@@ -1,8 +1,11 @@
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+
 /*
 Sprites: Multiple small sprites for full armor sets.(Not individual armor pieces.) And no shields.
 Need to look like wizard robes, light armor, and heavy armor.
 */
-public class itemArmor implements item {
+public class itemArmor extends itemGearDecorator {
 /*
 This class is going to need a constructor that has two parameters. One to determine
 armor type(Robe, Leather, Metal). And one to assign armor points. Then we will want variables called
@@ -14,9 +17,10 @@ something like "armorPT" and "Evasiveness". The constructor will need an if stat
     int armorPT;
     String armorType;
 
-    public itemArmor(int armorPT, String type) {//String type can only equal "robe", "light", "heavy".
+    public void setStats(int armorPT, String type, Image sprite) {//String type can only equal "robe", "light", "heavy".
         this.armorPT = armorPT;
         this.armorType = type;
+        this.itemSprite = sprite;
     }
 }
 
