@@ -1,13 +1,16 @@
+import javafx.scene.image.Image;
+
 /*
 Sprites: Several small bad guy sprites (Goblins, ghouls, slimes, etc...)
  */
 public class entEnemy extends entityDecorator {
 
-
-    public entEnemy(int health, int damMin, int damMax){
+Image entSprite;
+    public entEnemy(int health, int damMin, int damMax, Image entSprite){
         this.HP = health;
         this.entDamRange[0] = damMin;
         this.entDamRange[1] = damMax;
+        this.entSprite = entSprite;
     }
 
 

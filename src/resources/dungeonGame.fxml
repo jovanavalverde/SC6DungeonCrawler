@@ -20,5 +20,6 @@
       <Button layoutX="1105.0" layoutY="436.0" mnemonicParsing="false" onAction="#moveUp" prefHeight="65.0" prefWidth="90.0" text="up" />
       <Button layoutX="1005.0" layoutY="496.0" mnemonicParsing="false" onAction="#moveLeft" prefHeight="65.0" prefWidth="90.0" text="left" />
       <Button layoutX="1105.0" layoutY="566.0" mnemonicParsing="false" onAction="#moveDown" prefHeight="65.0" prefWidth="90.0" text="down" />
+      <Button fx:id="invBtn" layoutX="1095.0" layoutY="69.0" mnemonicParsing="false" onAction="#openInventory" prefHeight="65.0" prefWidth="90.0" text="Open Inventory" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>
