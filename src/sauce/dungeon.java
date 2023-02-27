@@ -2,26 +2,32 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 
 public class dungeon {
-    //This whole class may be deleted depending on how Java FX is going to be built.
 
 
 
+//--------------------Weapon Objects--------------------
     static itemWeapon lvl0W = new itemWeapon();
     static itemWeapon lvl1W = new itemWeapon();
     static itemWeapon lvl2W = new itemWeapon();
     static itemWeapon lvl3W = new itemWeapon();
     static itemWeapon lvl4W = new itemWeapon();
-//--------------------XXX--------------------
+//--------------------Armor Objects--------------------
     static itemArmor lvl0A = new itemArmor();
     static itemArmor lvl1A = new itemArmor();
     static itemArmor lvl2A = new itemArmor();
     static itemArmor lvl3A = new itemArmor();
     static itemArmor lvl4A = new itemArmor();
+//--------------------Enemy Objects--------------------
+
+    /*Enemy classes and objects need to be reconfigured like the armor and weapons.*/
+
+//--------------------XXX--------------------
+
 
 
     //All values in the "create" methods will be changed in accordance to balancing
     public static void createWeapons(player player){
-
+        /*This method detects the players class then sets the stats of the weapons in accordance.*/
         if (player.playClass == "mage"){
             lvl0W.setStats(20,30,"staff",(new Image("testSprite2.png")));
             lvl1W.setStats(30,40,"staff",(new Image("testSprite2.png")));
@@ -46,6 +52,7 @@ public class dungeon {
     }
 
     public static void createArmor(player player){
+        /*This method detects the players class then sets the stats of the armor in accordance.*/
         if (player.playClass == "mage"){
             lvl0A.setStats(25, "robe",(new Image("testSprite2.png")));
             lvl1A.setStats(35, "robe",(new Image("testSprite2.png")));
