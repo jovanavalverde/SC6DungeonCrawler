@@ -5,24 +5,28 @@ public class player implements entity {
 
     int playHP;
     int playMP = 100;
-    int armorPT;
-    itemGearDecorator[] playerInventory = new itemGearDecorator[13];
+
+    itemGearDecorator[] playerInventory = new itemGearDecorator[13];/*For organization purposes,
+                                                                   playerInventory[0] will remain empty.*/
+
     int[] playerPotions = new int[2];//First value is amount of healing potions and second is amount of mana potions.
     itemWeapon eqItemWeapon;
     itemArmor eqItemArmor;//For now, there will only be one equipable armor piece. Rather than a "Helmet","Gauntlet","Shield" etc...
-    String playClass = "mage";//Other Player classes are yet to be created. So this is just a placeholder.
-    int playerSprite;//Just a placeholder for now as we do not yet know assigning sprites to entities will work.
+    String playClass = "mage";//Must manually set for testing, until player selection is created.
+    int playerSprite;//Just a placeholder for now.
 
     @Override
     public void changeHP(int change) {
-
-        double bla = change/(0.2*armorPT);
+        /*This method will both change the player's health, and determine
+        how much damage is negated from armor. Subject to balancing.*/
+        double bla = change/(0.2*eqItemArmor.armorPT);
         playHP = playHP + (int)(bla);
     }
 
     @Override
     public int[] calDamage() {
-
+        /*This method is used to calculate how much damage the player will deal.
+        Returns an array rather than a single int due to daggers being two attacks rather than one*/
         if (eqItemWeapon.weaponType == "sword"){
             return calSwordAtk();
         } else if (eqItemWeapon.weaponType == "daggers") {
@@ -37,6 +41,7 @@ public class player implements entity {
 
     }
     //---------------------Equip Items Methods--------------------
+    /*These methods will just take an armor or weapon object and assign it to the players equipped gear variable*/
     public void equipArmor(itemArmor N){
         eqItemArmor = N;
     }
@@ -44,6 +49,7 @@ public class player implements entity {
         eqItemWeapon = N;
     }
     //--------------------Determine attack strength Methods--------------------
+    /*These methods are used in calDamage() for specific weapon type damage calculation.*/
     public int[] calSwordAtk(){
         int[] endDam = new int[1];
         endDam[0] = eqItemWeapon.calItemDamage();

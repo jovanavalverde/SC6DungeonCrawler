@@ -11,11 +11,17 @@ public class appDungGame extends Application {
 
 
 private Stage window;
+
+/*sceneArray[] will hold the two scenes that will be frequently reused(The game screen and the inventory screen).*/
 private Scene[] sceneArray = new Scene[2];
+
+
 public void setScreen(Scene s){
+    /*Sets the current scene that is being displayed in the game window.*/
     this.window.setScene(s);
 }
 public Scene getScene(int n){
+    /*Simple "getter" method to retrieve the game or inventory scenes from sceneArray[]*/
     return sceneArray[n];
 }
 
