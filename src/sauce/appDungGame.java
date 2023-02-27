@@ -8,6 +8,7 @@ import java.util.Objects;
 
 
 public class appDungGame extends Application {
+    /*This is the actual app that is launched in Main.java.*/
 
 
 private Stage window;

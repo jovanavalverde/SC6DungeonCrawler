@@ -11,6 +11,7 @@ public class itemArmor extends itemGearDecorator {
     int armorPT;
     String armorType;//Can only equal "robe", "light", "heavy".
 
+
 /*Due to loading errors, the constructor as been turned into a method to be later called after the instances are made.*/
     public void setStats(int armorPT, String type, Image sprite) {
         /*This method takes several parameters that assigns the armor points, armor type, and sprite to the instance*/

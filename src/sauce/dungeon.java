@@ -2,7 +2,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 
 public class dungeon {
-
+/*This Class will hold all the item and enemy objects, as well as the methods to set their stats.*/
 
 
 //--------------------Weapon Objects--------------------
@@ -19,13 +19,13 @@ public class dungeon {
     static itemArmor lvl4A = new itemArmor();
 //--------------------Enemy Objects--------------------
 
-    /*Enemy classes and objects need to be reconfigured like the armor and weapons.*/
+    /*Enemy constructors and objects need to be reconfigured like the armor and weapons.*/
 
 //--------------------XXX--------------------
 
 
 
-    //All values in the "create" methods will be changed in accordance to balancing
+//--------------------All values in the "create" methods will be changed in accordance to balancing--------------------
     public static void createWeapons(player player){
         /*This method detects the players class then sets the stats of the weapons in accordance.*/
         if (player.playClass == "mage"){
