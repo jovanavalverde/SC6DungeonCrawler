@@ -5,7 +5,7 @@ Sprites: At least one Smallish sprite that looks like a dungeon boss. (It doesn'
 actually matter what it looks like just make sure it's slightly bigger than regular enemies.)
  */
 public class entBoss extends entityDecorator {
-    //May be deleted based on how Enemy.java ends up.
+
     Image entSprite;
     public entBoss(int health, int damMin, int damMax, Image entSprite){
         this.HP = health;

@@ -11,6 +11,7 @@ public class itemWeapon extends itemGearDecorator {
     int[] damRange = new int[2];//Once assigned, damRange[0] must be minimum damage and damRange[1] must be maximum.
     String weaponType;//Can only be assigned as "sword", "daggers", "staff".
 
+
 /*Due to loading errors, the constructor as been turned into a method to be later called after the instances are made.*/
     public void setStats(int damMin, int damMax, String type, Image sprite){
         /*This method takes several parameters that assigns the damage range, weapon type, and sprite to the instance*/
