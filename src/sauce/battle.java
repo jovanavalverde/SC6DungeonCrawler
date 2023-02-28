@@ -13,13 +13,13 @@ public class battle {
             playerAttack(); //This needs to assigned to a button in javafx
             //methods are called for testing
 
-            if(Main.character.playHP == 0 && opponent.HP == 0){
+            if(Main.character.playHP == 0 || opponent.HP == 0){
                 fight = endBattle();
             }
 
             enemyAttack();
 
-            if(Main.character.playHP == 0 && opponent.HP == 0){
+            if(Main.character.playHP == 0 || opponent.HP == 0){
                 fight = endBattle();
             }
 
