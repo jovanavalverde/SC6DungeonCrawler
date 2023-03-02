@@ -17,8 +17,11 @@ public class dungeon {
     static itemArmor lvl3A = new itemArmor();
     static itemArmor lvl4A = new itemArmor();
 //--------------------Enemy Objects--------------------
-
-    /*Enemy constructors and objects need to be reconfigured like the armor and weapons.*/
+    static entEnemy lvl0E = new entEnemy();
+    static entEnemy lvl1E = new entEnemy();
+    static entEnemy lvl2E = new entEnemy();
+    static entEnemy lvl3E = new entEnemy();
+    static entEnemy lvl4E = new entEnemy();
 
 //--------------------XXX--------------------
 
@@ -76,11 +79,11 @@ public class dungeon {
     }
 
     public static void createEnemies(){
-        entEnemy lvl0E = new entEnemy(200,10,30,(new Image("testSprites/testSprite2.png")));
-        entEnemy lvl1E = new entEnemy(300,20,30,(new Image("testSprites/testSprite2.png")));
-        entEnemy lvl2E = new entEnemy(400,30,40,(new Image("testSprites/testSprite2.png")));
-        entEnemy lvl3E = new entEnemy(500,40,50,(new Image("testSprites/testSprite2.png")));
-        entEnemy lvl4E = new entEnemy(600,50,60,(new Image("testSprites/testSprite2.png")));
+        lvl0E.setStats(200,10,30,(new Image("testSprites/testSprite2.png")));
+        lvl1E.setStats(300,20,30,(new Image("testSprites/testSprite2.png")));
+        lvl2E.setStats(400,30,40,(new Image("testSprites/testSprite2.png")));
+        lvl3E.setStats(500,40,50,(new Image("testSprites/testSprite2.png")));
+        lvl4E.setStats(600,50,60,(new Image("testSprites/testSprite2.png")));
     }
 
     public static void createBoss(){
