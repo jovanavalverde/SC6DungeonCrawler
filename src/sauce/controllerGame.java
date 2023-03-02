@@ -1,6 +1,5 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
@@ -16,7 +15,7 @@ public class controllerGame {
     private appDungGame app;
     private controllerInventory invControl;
 
-    private Image sprite = new Image("playerTestSprite.png");
+    private Image sprite = new Image("testSprites/playerTestSprite.png");
     private Image dungImg = new Image("Dungoen Background.png");//Don't judge me I'm dyslexic.
 
 
