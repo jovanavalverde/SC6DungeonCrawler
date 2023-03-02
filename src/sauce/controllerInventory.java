@@ -87,5 +87,13 @@ public class controllerInventory {
 
     public void useItem(ActionEvent actionEvent) {
         /*This method will equip the weapon/armor piece and drink the potion when clicked.*/
+        for (int n = 0; n <= 12; n++) {
+/*
+            if (actionEvent.getSource() == invButtons[n]) {
+                if (){
+
+                }
+            }*/
+        }
     }
 }

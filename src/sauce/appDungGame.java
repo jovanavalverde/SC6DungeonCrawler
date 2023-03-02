@@ -56,6 +56,7 @@ public Scene getScene(int n){
         Main.character.equipArmor(dungeon.lvl1A);
         Main.character.playerInventory[1]= dungeon.lvl2A;
         Main.character.playerInventory[2]= dungeon.lvl2W;
+        Main.character.playerInventory[3]= dungeon.lvl4A;
 
 
         window.show();
