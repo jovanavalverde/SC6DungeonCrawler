@@ -42,6 +42,11 @@ public Scene getScene(int n){
         Scene startScr = new Scene(start);
         window.setScene(startScr);
 
+        Parent battle = battleLoader.load();
+        window.setTitle("Super Duper Dungeon");
+        Scene battleScr = new Scene(battle);
+        window.setScene(battleScr);
+
         controllerStart startControl = startLoader.getController();
         controllerGame gameControl = gameLoader.getController();
         controllerInventory invControl = invLoader.getController();
