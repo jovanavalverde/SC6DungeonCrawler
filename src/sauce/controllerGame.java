@@ -15,7 +15,7 @@ public class controllerGame {
     private appDungGame app;
     private controllerInventory invControl;
 
-    private Image sprite = new Image("testSprites/playerTestSprite.png");
+    private Image sprite = new Image("realSprites/mage.png");
     private Image dungImg = new Image("Dungoen Background.png");//Don't judge me I'm dyslexic.
 
 
