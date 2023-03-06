@@ -38,7 +38,15 @@ public class controllerInventory {
     @FXML
     private Button slot11;
     @FXML
-    private Button slot12;//All inventory Buttons
+    private Button slot12;
+    @FXML
+    private Button slotEqAr;
+    @FXML
+    private Button slotEqWe; //All inventory Buttons
+    @FXML
+    private Rectangle healthBar;
+    @FXML
+    private Rectangle manaBar;
 
 
     public void setApp(appDungGame app,controllerGame gameControl){
@@ -64,6 +72,9 @@ public class controllerInventory {
         invButtons[11] = slot11;
         invButtons[12] = slot12;//Setting Buttons to invButtons[]
         updateInv();
+
+
+
     }
 
     public void closeInventory(ActionEvent actionEvent) {
@@ -82,18 +93,42 @@ public class controllerInventory {
                 invButtons[n].setGraphic(img);
             }
         }
+        ImageView img = new ImageView(Main.character.eqItemWeapon.itemSprite);
+        img.setPreserveRatio(true);
+        img.fitWidthProperty().bind(slot1.widthProperty());
+        img.fitHeightProperty().bind(slot1.heightProperty());
+        slotEqWe.setGraphic(img);
+
+        ImageView img2 = new ImageView(Main.character.eqItemArmor.itemSprite);
+        img2.setPreserveRatio(true);
+        img2.fitWidthProperty().bind(slot1.widthProperty());
+        img2.fitHeightProperty().bind(slot1.heightProperty());
+        slotEqAr.setGraphic(img2);
+
+        healthBar.setWidth(400*(Main.character.playHP/100.0));//100 being the current max health,
+                                                              //and 400 being the pixel length of the bar.
+        manaBar.setWidth(400*(Main.character.playMP/100.0));//100 being the current max mana,
+        //and 400 being the pixel length of the bar.
     }
 
 
     public void useItem(ActionEvent actionEvent) {
         /*This method will equip the weapon/armor piece and drink the potion when clicked.*/
         for (int n = 0; n <= 12; n++) {
-/*
-            if (actionEvent.getSource() == invButtons[n]) {
-                if (){
 
+            if (actionEvent.getSource() == invButtons[n]) {
+                if (Main.character.playerInventory[n] instanceof itemWeapon){
+                    itemWeapon hold = Main.character.eqItemWeapon;
+                    Main.character.eqItemWeapon = (itemWeapon) Main.character.playerInventory[n];
+                    Main.character.playerInventory[n] = hold;
+                } else if (Main.character.playerInventory[n] instanceof itemArmor) {
+                    itemArmor hold = Main.character.eqItemArmor;
+                    Main.character.eqItemArmor = (itemArmor) Main.character.playerInventory[n];
+                    Main.character.playerInventory[n] = hold;
                 }
-            }*/
+            }
         }
+        updateInv();
     }
+
 }
