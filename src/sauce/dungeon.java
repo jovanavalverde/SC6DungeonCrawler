@@ -31,11 +31,11 @@ public class dungeon {
     public static void createWeapons(player player){
         /*This method detects the players class then sets the stats of the weapons in accordance.*/
         if (player.playClass == "mage"){
-            lvl0W.setStats(20,30,"staff",(new Image("realSprites/staff.png")));
-            lvl1W.setStats(30,40,"staff",(new Image("realSprites/staff.png")));
-            lvl2W.setStats(40,50,"staff",(new Image("realSprites/staff.png")));
-            lvl3W.setStats(50,60,"staff",(new Image("realSprites/staff.png")));
-            lvl4W.setStats(60,70,"staff",(new Image("realSprites/staff.png")));
+            lvl0W.setStats(20,30,"staff",(new Image("testSprites/testStaff0.png")));
+            lvl1W.setStats(30,40,"staff",(new Image("testSprites/testStaff1.png")));
+            lvl2W.setStats(40,50,"staff",(new Image("testSprites/testStaff2.png")));
+            lvl3W.setStats(50,60,"staff",(new Image("testSprites/testStaff3.png")));
+            lvl4W.setStats(60,70,"staff",(new Image("testSprites/testStaff4.png")));
         } else if (player.playClass == "warrior"){
             lvl0W.setStats(10,20,"sword",(new Image("realSprites/sword.png")));
             lvl1W.setStats(20,30,"sword",(new Image("realSprites/sword.png")));
@@ -56,11 +56,11 @@ public class dungeon {
     public static void createArmor(player player){
         /*This method detects the players class then sets the stats of the armor in accordance.*/
         if (player.playClass == "mage"){
-            lvl0A.setStats(25, "robe",(new Image("realSprites/robes.png")));
-            lvl1A.setStats(35, "robe",(new Image("realSprites/robes.png")));
-            lvl2A.setStats(45, "robe",(new Image("realSprites/robes.png")));
-            lvl3A.setStats(55, "robe",(new Image("realSprites/robes.png")));
-            lvl4A.setStats(65, "robe",(new Image("realSprites/robes.png")));
+            lvl0A.setStats(25, "robe",(new Image("testSprites/testRobes0.png")));
+            lvl1A.setStats(35, "robe",(new Image("testSprites/testRobes1.png")));
+            lvl2A.setStats(45, "robe",(new Image("testSprites/testRobes2.png")));
+            lvl3A.setStats(55, "robe",(new Image("testSprites/testRobes3.png")));
+            lvl4A.setStats(65, "robe",(new Image("testSprites/testRobes4.png")));
         } else if (player.playClass == "rogue"){
             lvl0A.setStats(50, "light",(new Image("realSprites/light.png")));
             lvl1A.setStats(60, "light",(new Image("realSprites/light.png")));

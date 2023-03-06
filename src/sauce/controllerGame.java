@@ -12,6 +12,10 @@ public class controllerGame {
     private Rectangle fred;//Fred is the rectangle that will be the player.
     @FXML
     private Rectangle gameScreen;
+    @FXML
+    private Rectangle healthBar;
+    @FXML
+    private Rectangle manaBar;
     private appDungGame app;
     private controllerInventory invControl;
 
@@ -30,6 +34,7 @@ public class controllerGame {
         /*Code within the Initialize method will run once the fxml is loaded.*/
         fred.setFill(new ImagePattern(sprite));
         gameScreen.setFill(new ImagePattern(dungImg));
+        updateBars();
     }
 
 //--------------------Move Button Methods--------------------
@@ -56,5 +61,13 @@ public class controllerGame {
 
         app.setScreen(app.getScene(1));
         invControl.updateInv();
+    }
+
+    public void updateBars(){
+        healthBar.setWidth(400*(Main.character.playHP/100.0));//100 being the current max health,
+        //and 400 being the pixel length of the bar.
+
+        manaBar.setWidth(400*(Main.character.playMP/100.0));//100 being the current max mana,
+        //and 400 being the pixel length of the bar.
     }
 }
