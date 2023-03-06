@@ -4,6 +4,10 @@ image or sprite, try to save it as we may use it in animations.
  */
 public class battle {
 
+
+    dungeon x1 = new dungeon();
+    dungeon x2 = new dungeon();
+
     entEnemy opponent;
 
     public void battleStart( int enemyDam){
