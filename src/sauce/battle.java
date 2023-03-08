@@ -8,52 +8,46 @@ public class battle {
     dungeon x1 = new dungeon();
     dungeon x2 = new dungeon();
 
-    entEnemy opponent;
-
-    public void battleStart( int enemyDam){
-        boolean fight = true;
-
-        while(fight) {
-            playerAttack(); //This needs to assigned to a button in javafx
-            //methods are called for testing
-
-            if(Main.character.playHP == 0 || opponent.HP == 0){
-                fight = endBattle();
-            }
-
-            enemyAttack();
-
-            if(Main.character.playHP == 0 || opponent.HP == 0){
-                fight = endBattle();
-            }
+    static entEnemy opponent = dungeon.lvl0E;
 
 
+
+    public static void enemyAttack(){
+        int[] damArray = opponent.calDamage();
+
+        Main.character.changeHP(damArray[0]);
+
+        System.out.println("Health: " + Main.character.playHP);
+
+        if (Main.character.playHP == 0) {
+            endBattle();
         }
     }
 
-    public void enemyAttack(){
-        int[] damArray = opponent.calDamage();
-        Main.character.changeHP(damArray[0]);
-
-    }
-
-    public void playerAttack(){
+    public static void playerAttack(){
         int[] damArray = Main.character.calDamage();
 
         for(int n = 0; n != damArray.length; n++ ){
             opponent.changeHP(damArray[n]); //Needs to update health observer/ health bar
         }
+        System.out.println("Enemy Health: " + opponent.HP);
+
+        if (opponent.HP == 0) {
+            endBattle();
+        }else {
+            enemyAttack();
+        }
 
     }
 
-    public boolean endBattle() {
+    public static void endBattle() {
     if(Main.character.playHP == 0){
-        return false;
+        System.out.println("You died.");
         }else if(opponent.HP == 0){
-        return false;
+        System.out.println("Enemy died.");
         }else {
         System.out.println("Error endBattle() was incorrectly called.");
-        return false;
+
     }
 
     }
