@@ -18,6 +18,7 @@ public class controllerGame {
     private Rectangle manaBar;
     private appDungGame app;
     private controllerInventory invControl;
+    private controllerBattle battleControl;
 
     private Image sprite = new Image("realSprites/mage.png");
     private Image dungImg = new Image("Dungoen Background.png");//Don't judge me I'm dyslexic.
@@ -28,6 +29,7 @@ public class controllerGame {
         And sets invControl to the inventoryScreen.fxml controller, so it can be altered from this controller.*/
         this.app = app;
         this.invControl = invControl;
+        this.battleControl = battleControl;
     }
 
     public void initialize(){
