@@ -63,6 +63,7 @@ public class controllerGame {
 
         app.setScreen(app.getScene(1));
         invControl.updateInv();
+        updateBars();
     }
 
     public void updateBars(){

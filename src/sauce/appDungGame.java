@@ -50,18 +50,21 @@ public Scene getScene(int n){
 
         //uncomment to test battle scene
 
-        Parent battle = battleLoader.load();
+        Parent battle1 = battleLoader.load();
         window.setTitle("Super Duper Battle");
-        Scene battleScr = new Scene(battle);
+        Scene battleScr = new Scene(battle1);
         window.setScene(battleScr);
 
 
         controllerStart startControl = startLoader.getController();
         controllerGame gameControl = gameLoader.getController();
         controllerInventory invControl = invLoader.getController();
+        controllerBattle battleControl = battleLoader.getController();
         invControl.setApp(this,gameControl);
         gameControl.setApp(this,invControl);
         startControl.setApp(this);
+        battleControl.setApp(this,gameControl);
+        battle.setApp(battleControl);
 
 
 
