@@ -49,7 +49,6 @@ public Scene getScene(int n){
         window.setScene(startScr);
 
         //uncomment to test battle scene
-
         Parent battle = battleLoader.load();
         window.setTitle("Super Duper Battle");
         Scene battleScr = new Scene(battle);
@@ -64,7 +63,8 @@ public Scene getScene(int n){
         startControl.setApp(this);
 
 
-
+        dungeon.createWeapons(Main.character);
+        dungeon.createArmor(Main.character);
 
 
 
