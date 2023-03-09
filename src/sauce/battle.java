@@ -4,8 +4,8 @@ image or sprite, try to save it as we may use it in animations.
  */
 public class battle {
 
-
     dungeon x1 = new dungeon();
+
     dungeon x2 = new dungeon();
 
     static entEnemy opponent = dungeon.lvl0E;
@@ -15,7 +15,7 @@ public class battle {
     public static void enemyAttack(){
         int[] damArray = opponent.calDamage();
 
-        Main.character.changeHP(damArray[0]);
+        Main.character.changeHP(-damArray[0]);
 
         System.out.println("Health: " + Main.character.playHP);
 
@@ -28,7 +28,7 @@ public class battle {
         int[] damArray = Main.character.calDamage();
 
         for(int n = 0; n != damArray.length; n++ ){
-            opponent.changeHP(damArray[n]); //Needs to update health observer/ health bar
+            opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
         }
         System.out.println("Enemy Health: " + opponent.HP);
 

@@ -39,18 +39,22 @@ public Scene getScene(int n){
         sceneArray[0] =  new Scene(gameLoader.load());
         sceneArray[1] =  new Scene(invLoader.load());
 
+        dungeon.createWeapons(Main.character);
+        dungeon.createArmor(Main.character);
+        dungeon.createEnemies();
+
         Parent start = startLoader.load();
         window.setTitle("Super Duper Dungeon");
         Scene startScr = new Scene(start);
         window.setScene(startScr);
 
         //uncomment to test battle scene
-        /*
+
         Parent battle = battleLoader.load();
         window.setTitle("Super Duper Battle");
         Scene battleScr = new Scene(battle);
         window.setScene(battleScr);
-        */
+
 
         controllerStart startControl = startLoader.getController();
         controllerGame gameControl = gameLoader.getController();
@@ -60,8 +64,7 @@ public Scene getScene(int n){
         startControl.setApp(this);
 
 
-        dungeon.createWeapons(Main.character);
-        dungeon.createArmor(Main.character);
+
 
 
 

@@ -13,6 +13,6 @@
       <Button layoutX="353.0" layoutY="589.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="210.0" text="Inventory" />
       <Rectangle fx:id="healthBar" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="20.0" layoutX="116.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
       <Rectangle fx:id="manaBar" arcHeight="5.0" arcWidth="5.0" fill="#29b4ff" height="20.0" layoutX="116.0" layoutY="177.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
-      <Rectangle fx:id="eHealthBar" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="20.0" layoutX="785.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
+      <Rectangle fx:id="enemyHealthBar" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="20.0" layoutX="785.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
    </children>
 </AnchorPane>
