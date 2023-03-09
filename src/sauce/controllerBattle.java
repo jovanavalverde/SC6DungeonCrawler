@@ -16,9 +16,9 @@ public class controllerBattle {
     @FXML
     private Rectangle manaBar;
     @FXML
-    private Circle playerPos;
+    private Rectangle playerPos;
     @FXML
-    private Circle enemyPos;
+    private Rectangle enemyPos;
     @FXML
     private Button buttonAttack;
     private Image sprite = new Image("realSprites/mage.png");
@@ -39,6 +39,8 @@ public class controllerBattle {
     public void initialize(){
         /*Code within the Initialize method will run once the fxml is loaded.*/
         updateBars();
+        playerPos.setFill(new ImagePattern(new Image("realSprites/mage.png")));
+        enemyPos.setFill(new ImagePattern(new Image("realSprites/ghoul.png")));
     }
 
 
@@ -55,8 +57,9 @@ public class controllerBattle {
     }
 
     public void endBattle(){
-        app.setScreen(app.getScene(0));
         gameControl.updateBars();
+
+        app.setScreen(app.getScene(0));
     }
 
 
