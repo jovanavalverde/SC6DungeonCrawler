@@ -3,8 +3,6 @@ Sprites: These are very low priority. If anyone comes across some "Slash" or "Ma
 image or sprite, try to save it as we may use it in animations.
  */
 public class battle {
-
-
     static entEnemy opponent = dungeon.lvl0E;
     private static controllerBattle battleControl;
 
@@ -44,7 +42,9 @@ public class battle {
     }
 
     public static void endBattle() {
-    if(Main.character.playHP == 0){
+        Main.character.playMP = 100;
+
+        if(Main.character.playHP == 0){
         System.out.println("You died.");
         battleControl.endBattle();
         }else if(opponent.HP == 0){
@@ -54,6 +54,7 @@ public class battle {
         System.out.println("Error endBattle() was incorrectly called.");
 
     }
+
 
     }
 }
