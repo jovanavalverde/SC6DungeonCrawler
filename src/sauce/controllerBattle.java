@@ -26,8 +26,13 @@ public class controllerBattle {
     @FXML
     void playerAttack(ActionEvent event){
         battle.playerAttack();
+        updateBars();
     }
 
+    public void initialize(){
+        /*Code within the Initialize method will run once the fxml is loaded.*/
+        updateBars();
+    }
 
 
     public void updateBars(){
@@ -37,7 +42,7 @@ public class controllerBattle {
         manaBar.setWidth(400*(Main.character.playMP/100.0));//100 being the current max mana,
         //and 400 being the pixel length of the bar.
 
-        //enemyHealthBar.setWidth(400*(Main.character.enemyHP/100.0));//100 being the current max mana,
+        enemyHealthBar.setWidth(400*battle.opponent.HP/200.0);//100 being the current max mana,
         //and 400 being the pixel length of the bar.
 
     }
