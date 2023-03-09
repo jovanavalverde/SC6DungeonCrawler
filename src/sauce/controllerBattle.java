@@ -16,9 +16,9 @@ public class controllerBattle {
     @FXML
     private Rectangle manaBar;
     @FXML
-    private Circle playerPos;
+    private Rectangle playerPos;
     @FXML
-    private Circle enemyPos;
+    private Rectangle enemyPos;
     @FXML
     private Button buttonAttack;
     private Image sprite = new Image("realSprites/mage.png");
@@ -26,8 +26,22 @@ public class controllerBattle {
     @FXML
     void playerAttack(ActionEvent event){
         battle.playerAttack();
+        updateBars();
     }
 
+    public void setApp(appDungGame app,controllerGame gameControl){
+        /*This method sets the app variable to appDungGame application so the window can be changed.
+        And sets invControl to the inventoryScreen.fxml controller, so it can be altered from this controller.*/
+        this.app = app;
+        this.gameControl = gameControl;
+    }
+
+    public void initialize(){
+        /*Code within the Initialize method will run once the fxml is loaded.*/
+        updateBars();
+        playerPos.setFill(new ImagePattern(new Image("realSprites/mage.png")));
+        enemyPos.setFill(new ImagePattern(new Image("realSprites/ghoul.png")));
+    }
 
 
     public void updateBars(){
@@ -37,9 +51,15 @@ public class controllerBattle {
         manaBar.setWidth(400*(Main.character.playMP/100.0));//100 being the current max mana,
         //and 400 being the pixel length of the bar.
 
-        //enemyHealthBar.setWidth(400*(Main.character.enemyHP/100.0));//100 being the current max mana,
+        enemyHealthBar.setWidth(400*battle.opponent.HP/200.0);//100 being the current max mana,
         //and 400 being the pixel length of the bar.
 
+    }
+
+    public void endBattle(){
+        gameControl.updateBars();
+
+        app.setScreen(app.getScene(0));
     }
 
 
