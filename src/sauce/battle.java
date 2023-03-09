@@ -44,6 +44,7 @@ public class battle {
     }
 
     public static void endBattle() {
+        Main.character.playMP = 100;
     if(Main.character.playHP == 0){
         System.out.println("You died.");
         battleControl.endBattle();
@@ -54,6 +55,7 @@ public class battle {
         System.out.println("Error endBattle() was incorrectly called.");
 
     }
+
 
     }
 }
