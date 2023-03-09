@@ -29,6 +29,13 @@ public class controllerBattle {
         updateBars();
     }
 
+    public void setApp(appDungGame app,controllerGame gameControl){
+        /*This method sets the app variable to appDungGame application so the window can be changed.
+        And sets invControl to the inventoryScreen.fxml controller, so it can be altered from this controller.*/
+        this.app = app;
+        this.gameControl = gameControl;
+    }
+
     public void initialize(){
         /*Code within the Initialize method will run once the fxml is loaded.*/
         updateBars();
@@ -45,6 +52,11 @@ public class controllerBattle {
         enemyHealthBar.setWidth(400*battle.opponent.HP/200.0);//100 being the current max mana,
         //and 400 being the pixel length of the bar.
 
+    }
+
+    public void endBattle(){
+        app.setScreen(app.getScene(0));
+        gameControl.updateBars();
     }
 
 

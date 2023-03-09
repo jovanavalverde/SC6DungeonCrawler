@@ -7,7 +7,6 @@ public class entityDecorator implements entity {
     public void changeHP(int change) {
         /*Basic method that changes entity HP based on the parameter.*/
         HP = HP + change;
-
         if(HP < 0){
             HP = 0;
         }
