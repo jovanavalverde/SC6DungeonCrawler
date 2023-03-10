@@ -20,7 +20,6 @@ public class controllerGame {
     private controllerInventory invControl;
     private controllerBattle battleControl;
 
-    private Image sprite = new Image("realSprites/mage.png");
     private Image dungImg = new Image("Dungoen Background.png");//Don't judge me I'm dyslexic.
 
 
@@ -32,9 +31,20 @@ public class controllerGame {
         this.battleControl = battleControl;
     }
 
+    public void setFred(){
+        if (Main.character.playClass == "mage"){
+            fred.setFill(new ImagePattern(new Image("realSprites/mage.png")));
+        } else if (Main.character.playClass == "rogue") {
+            fred.setFill(new ImagePattern(new Image("realSprites/rogue.png")));
+        } else if (Main.character.playClass == "warrior") {
+            fred.setFill(new ImagePattern(new Image("realSprites/warrior.png")));
+        }else {
+            System.out.println("Error, playClass not set properly.");
+        }
+    }
+
     public void initialize(){
         /*Code within the Initialize method will run once the fxml is loaded.*/
-        fred.setFill(new ImagePattern(sprite));
         gameScreen.setFill(new ImagePattern(dungImg));
         updateBars();
     }
