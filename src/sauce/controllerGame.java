@@ -83,4 +83,8 @@ public class controllerGame {
         manaBar.setWidth(400*(Main.character.playMP/100.0));//100 being the current max mana,
         //and 400 being the pixel length of the bar.
     }
+
+    public void testBattle(ActionEvent actionEvent) {
+        app.setScreen(app.getScene(2));
+    }
 }
