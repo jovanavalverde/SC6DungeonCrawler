@@ -29,5 +29,10 @@
          <font>
             <Font size="18.0" />
          </font></Button>
+      <Button layoutX="1007.0" layoutY="181.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#testBattle" prefHeight="85.0" prefWidth="110.0" text="Test Battle" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

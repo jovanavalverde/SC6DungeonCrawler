@@ -14,7 +14,7 @@ public class appDungGame extends Application {
 private Stage window;
 
 /*sceneArray[] will hold the two scenes that will be frequently reused(The game screen and the inventory screen).*/
-private Scene[] sceneArray = new Scene[2];
+private Scene[] sceneArray = new Scene[3];
 
 
 public void setScreen(Scene s){
@@ -38,9 +38,8 @@ public Scene getScene(int n){
 
         sceneArray[0] =  new Scene(gameLoader.load());
         sceneArray[1] =  new Scene(invLoader.load());
+        sceneArray[2] = new Scene(battleLoader.load());
 
-        dungeon.createWeapons(Main.character);
-        dungeon.createArmor(Main.character);
         dungeon.createEnemies();
 
         Parent start = startLoader.load();
@@ -49,11 +48,9 @@ public Scene getScene(int n){
         window.setScene(startScr);
 
         //uncomment to test battle scene
+//
 
-        Parent battle1 = battleLoader.load();
-        window.setTitle("Super Duper Battle");
-        Scene battleScr = new Scene(battle1);
-        window.setScene(battleScr);
+
 
 
         controllerStart startControl = startLoader.getController();
@@ -62,7 +59,7 @@ public Scene getScene(int n){
         controllerBattle battleControl = battleLoader.getController();
         invControl.setApp(this,gameControl);
         gameControl.setApp(this,invControl);
-        startControl.setApp(this);
+        startControl.setApp(this, gameControl);
         battleControl.setApp(this,gameControl);
         battle.setApp(battleControl);
 

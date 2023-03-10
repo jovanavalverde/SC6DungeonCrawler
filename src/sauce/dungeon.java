@@ -37,17 +37,17 @@ public class dungeon {
             lvl3W.setStats(50,60,"staff",(new Image("testSprites/testStaff3.png")));
             lvl4W.setStats(60,70,"staff",(new Image("testSprites/testStaff4.png")));
         } else if (player.playClass == "warrior"){
-            lvl0W.setStats(10,20,"sword",(new Image("realSprites/sword.png")));
-            lvl1W.setStats(20,30,"sword",(new Image("realSprites/sword.png")));
-            lvl2W.setStats(30,40,"sword",(new Image("realSprites/sword.png")));
-            lvl3W.setStats(40,50,"sword",(new Image("realSprites/sword.png")));
-            lvl4W.setStats(50,60,"sword",(new Image("realSprites/sword.png")));
+            lvl0W.setStats(10,20,"sword",(new Image("testSprites/sword0.png")));
+            lvl1W.setStats(20,30,"sword",(new Image("testSprites/sword1.png")));
+            lvl2W.setStats(30,40,"sword",(new Image("testSprites/sword2.png")));
+            lvl3W.setStats(40,50,"sword",(new Image("testSprites/sword3.png")));
+            lvl4W.setStats(50,60,"sword",(new Image("testSprites/sword4.png")));
         }else if (player.playClass == "rogue"){
-            lvl0W.setStats(5,10,"daggers",(new Image("realSprites/daggers.png")));
-            lvl1W.setStats(10,15,"daggers",(new Image("realSprites/daggers.png")));
-            lvl2W.setStats(15,20,"daggers",(new Image("realSprites/daggers.png")));
-            lvl3W.setStats(20,25,"daggers",(new Image("realSprites/daggers.png")));
-            lvl4W.setStats(25,30,"daggers",(new Image("realSprites/daggers.png")));
+            lvl0W.setStats(5,10,"daggers",(new Image("testSprites/daggers0.png")));
+            lvl1W.setStats(10,15,"daggers",(new Image("testSprites/daggers1.png")));
+            lvl2W.setStats(15,20,"daggers",(new Image("testSprites/daggers2.png")));
+            lvl3W.setStats(20,25,"daggers",(new Image("testSprites/daggers3.png")));
+            lvl4W.setStats(25,30,"daggers",(new Image("testSprites/daggers4.png")));
         }else {
             System.out.println("playClass not set to correct value.");
         }
@@ -62,17 +62,17 @@ public class dungeon {
             lvl3A.setStats(55, "robe",(new Image("testSprites/testRobes3.png")));
             lvl4A.setStats(65, "robe",(new Image("testSprites/testRobes4.png")));
         } else if (player.playClass == "rogue"){
-            lvl0A.setStats(50, "light",(new Image("realSprites/light.png")));
-            lvl1A.setStats(60, "light",(new Image("realSprites/light.png")));
-            lvl2A.setStats(70, "light",(new Image("realSprites/light.png")));
-            lvl3A.setStats(80, "light",(new Image("realSprites/light.png")));
-            lvl4A.setStats(90, "light",(new Image("realSprites/light.png")));
+            lvl0A.setStats(50, "light",(new Image("testSprites/light0.png")));
+            lvl1A.setStats(60, "light",(new Image("testSprites/light1.png")));
+            lvl2A.setStats(70, "light",(new Image("testSprites/light2.png")));
+            lvl3A.setStats(80, "light",(new Image("testSprites/light3.png")));
+            lvl4A.setStats(90, "light",(new Image("testSprites/light4.png")));
         }else if (player.playClass == "warrior"){
-            lvl0A.setStats(80, "heavy",(new Image("realSprites/heavy.png")));
-            lvl1A.setStats(90, "heavy",(new Image("realSprites/heavy.png")));
-            lvl2A.setStats(100, "heavy",(new Image("realSprites/heavy.png")));
-            lvl3A.setStats(110, "heavy",(new Image("realSprites/heavy.png")));
-            lvl4A.setStats(120, "heavy",(new Image("realSprites/heavy.png")));
+            lvl0A.setStats(80, "heavy",(new Image("testSprites/heavy0.png")));
+            lvl1A.setStats(90, "heavy",(new Image("testSprites/heavy1.png")));
+            lvl2A.setStats(100, "heavy",(new Image("testSprites/heavy2.png")));
+            lvl3A.setStats(110, "heavy",(new Image("testSprites/heavy3.png")));
+            lvl4A.setStats(120, "heavy",(new Image("testSprites/heavy4.png")));
         }else {
             System.out.println("playClass not set to correct value.");
         }

@@ -12,7 +12,7 @@ public class player implements entity {
     int[] playerPotions = new int[2];//First value is amount of healing potions and second is amount of mana potions.
     itemWeapon eqItemWeapon;
     itemArmor eqItemArmor;//For now, there will only be one equipable armor piece. Rather than a "Helmet","Gauntlet","Shield" etc...
-    String playClass = "mage";//Must manually set for testing, until player selection is created.
+    String playClass = "default";
     int playerSprite;//Just a placeholder for now.
 
     @Override
