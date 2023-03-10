@@ -18,8 +18,8 @@ public class controllerGame {
     private Rectangle manaBar;
     private appDungGame app;
     private controllerInventory invControl;
+    private controllerBattle battleControl;
 
-    private Image sprite = new Image("realSprites/mage.png");
     private Image dungImg = new Image("Dungoen Background.png");//Don't judge me I'm dyslexic.
 
 
@@ -28,11 +28,23 @@ public class controllerGame {
         And sets invControl to the inventoryScreen.fxml controller, so it can be altered from this controller.*/
         this.app = app;
         this.invControl = invControl;
+        this.battleControl = battleControl;
+    }
+
+    public void setFred(){
+        if (Main.character.playClass == "mage"){
+            fred.setFill(new ImagePattern(new Image("realSprites/mage.png")));
+        } else if (Main.character.playClass == "rogue") {
+            fred.setFill(new ImagePattern(new Image("realSprites/rogue.png")));
+        } else if (Main.character.playClass == "warrior") {
+            fred.setFill(new ImagePattern(new Image("realSprites/warrior.png")));
+        }else {
+            System.out.println("Error, playClass not set properly.");
+        }
     }
 
     public void initialize(){
         /*Code within the Initialize method will run once the fxml is loaded.*/
-        fred.setFill(new ImagePattern(sprite));
         gameScreen.setFill(new ImagePattern(dungImg));
         updateBars();
     }
@@ -61,6 +73,7 @@ public class controllerGame {
 
         app.setScreen(app.getScene(1));
         invControl.updateInv();
+        updateBars();
     }
 
     public void updateBars(){
@@ -69,5 +82,9 @@ public class controllerGame {
 
         manaBar.setWidth(400*(Main.character.playMP/100.0));//100 being the current max mana,
         //and 400 being the pixel length of the bar.
+    }
+
+    public void testBattle(ActionEvent actionEvent) {
+        app.setScreen(app.getScene(2));
     }
 }

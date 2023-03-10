@@ -3,8 +3,8 @@ Sprites: At least one small sprite for each player class.(Mage, Rogue, and Warri
  */
 public class player implements entity {
 
-    int playHP = 10;
-    int playMP = 90;
+    int playHP = 100;
+    int playMP = 100;
 
     itemGearDecorator[] playerInventory = new itemGearDecorator[13];/*For organization purposes,
                                                                    playerInventory[0] will remain empty.*/
@@ -12,7 +12,7 @@ public class player implements entity {
     int[] playerPotions = new int[2];//First value is amount of healing potions and second is amount of mana potions.
     itemWeapon eqItemWeapon;
     itemArmor eqItemArmor;//For now, there will only be one equipable armor piece. Rather than a "Helmet","Gauntlet","Shield" etc...
-    String playClass = "mage";//Must manually set for testing, until player selection is created.
+    String playClass = "default";
     int playerSprite;//Just a placeholder for now.
 
     @Override
@@ -21,6 +21,9 @@ public class player implements entity {
         how much damage is negated from armor. Subject to balancing.*/
         double bla = change/(0.2*eqItemArmor.armorPT);
         playHP = playHP + (int)(bla);
+        if (playHP < 0){
+            playHP = 0;
+        }
     }
 
     @Override

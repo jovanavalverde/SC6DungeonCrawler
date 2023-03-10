@@ -113,8 +113,8 @@
          </children>
       </TextFlow>
       <Rectangle fx:id="hBarFrame" arcHeight="5.0" arcWidth="5.0" fill="#66727c" height="26.0" layoutX="882.0" layoutY="169.0" stroke="BLACK" strokeType="INSIDE" width="406.0" />
-      <Rectangle fx:id="healthBar" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="20.0" layoutX="885.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
+      <Rectangle fx:id="healthBar" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="20.0" layoutX="885.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" width="400.0" AnchorPane.leftAnchor="885.0" />
       <Rectangle fx:id="mBarFrame" arcHeight="5.0" arcWidth="5.0" fill="#66727c" height="26.0" layoutX="882.0" layoutY="216.0" stroke="BLACK" strokeType="INSIDE" width="406.0" />
-      <Rectangle fx:id="manaBar" arcHeight="5.0" arcWidth="5.0" fill="#29b4ff" height="20.0" layoutX="885.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
+      <Rectangle fx:id="manaBar" arcHeight="5.0" arcWidth="5.0" fill="#29b4ff" height="20.0" layoutX="885.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE" width="400.0" AnchorPane.leftAnchor="885.0" />
    </children>
 </AnchorPane>

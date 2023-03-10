@@ -5,56 +5,57 @@ image or sprite, try to save it as we may use it in animations.
 public class battle {
 
 
-    dungeon x1 = new dungeon();
-    dungeon x2 = new dungeon();
+    static entEnemy opponent = dungeon.lvl0E;
+    private static controllerBattle battleControl;
 
-    entEnemy opponent;
+    public static void setApp(controllerBattle battleControl){
+        /*This method sets the app variable to appDungGame application so the window can be changed.
+        And sets invControl to the inventoryScreen.fxml controller, so it can be altered from this controller.*/
 
-    public void battleStart( int enemyDam){
-        boolean fight = true;
+        battle.battleControl = battleControl;
+    }
 
-        while(fight) {
-            playerAttack(); //This needs to assigned to a button in javafx
-            //methods are called for testing
+    public static void enemyAttack(){
+        int[] damArray = opponent.calDamage();
 
-            if(Main.character.playHP == 0 || opponent.HP == 0){
-                fight = endBattle();
-            }
+        Main.character.changeHP(-damArray[0]);
 
-            enemyAttack();
+        System.out.println("Health: " + Main.character.playHP);
 
-            if(Main.character.playHP == 0 || opponent.HP == 0){
-                fight = endBattle();
-            }
-
-
+        if (Main.character.playHP == 0) {
+            endBattle();
         }
     }
 
-    public void enemyAttack(){
-        int[] damArray = opponent.calDamage();
-        Main.character.changeHP(damArray[0]);
-
-    }
-
-    public void playerAttack(){
+    public static void playerAttack(){
         int[] damArray = Main.character.calDamage();
 
         for(int n = 0; n != damArray.length; n++ ){
-            opponent.changeHP(damArray[n]); //Needs to update health observer/ health bar
+            opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
+        }
+        System.out.println("Enemy Health: " + opponent.HP);
+
+        if (opponent.HP == 0) {
+            endBattle();
+        }else {
+            enemyAttack();
         }
 
     }
 
-    public boolean endBattle() {
+    public static void endBattle() {
+        Main.character.playMP = 100;
     if(Main.character.playHP == 0){
-        return false;
+        System.out.println("You died.");
+        battleControl.endBattle();
         }else if(opponent.HP == 0){
-        return false;
+        System.out.println("Enemy died.");
+        battleControl.endBattle();
         }else {
         System.out.println("Error endBattle() was incorrectly called.");
-        return false;
+
     }
+
 
     }
 }
