@@ -11,10 +11,28 @@
       <Glow />
    </effect>
    <children>
-      <Rectangle fx:id="startBackground" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="700.0" stroke="BLACK" strokeType="INSIDE" width="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Button layoutX="541.0" layoutY="14.0" mnemonicParsing="false" onAction="#startGame" text="Start">
+      <Rectangle fx:id="startBackground" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="700.0" layoutX="3.0" layoutY="13.0" stroke="#c6c6c6" strokeType="INSIDE" width="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button fx:id="startButton" layoutX="532.5" layoutY="50.0" mnemonicParsing="false" onAction="#startGame" prefHeight="125.0" prefWidth="225.0" text="Start">
          <font>
             <Font size="64.0" />
+         </font>
+      </Button>
+      <Rectangle fx:id="rogue" arcHeight="5.0" arcWidth="5.0" fill="#1fff45" height="300.0" layoutX="79.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="300.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="100.0" />
+      <Rectangle fx:id="mage" arcHeight="5.0" arcWidth="5.0" fill="#1fff45" height="300.0" layoutX="407.0" layoutY="226.0" stroke="BLACK" strokeType="INSIDE" width="300.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="500.0" />
+      <Rectangle fx:id="warrior" arcHeight="5.0" arcWidth="5.0" fill="#1fff45" height="300.0" layoutX="808.0" layoutY="186.0" stroke="BLACK" strokeType="INSIDE" width="300.0" AnchorPane.bottomAnchor="150.0" AnchorPane.rightAnchor="100.0" />
+      <Button fx:id="rogueButton" layoutX="239.0" layoutY="606.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectClass" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #89ff5a;" text="Rogue" textAlignment="CENTER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="100.0">
+         <font>
+            <Font name="Arial Bold" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="mageButton" layoutX="249.0" layoutY="616.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectClass" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #20deff;" text="Mage" textAlignment="CENTER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="500.0">
+         <font>
+            <Font name="Arial Bold" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="warriorButton" layoutX="259.0" layoutY="626.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectClass" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: c6c6c6;" text="Warrior" textAlignment="CENTER" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="100.0">
+         <font>
+            <Font name="Arial Bold" size="36.0" />
          </font>
       </Button>
    </children>
