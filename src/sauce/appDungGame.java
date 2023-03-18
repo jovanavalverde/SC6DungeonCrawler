@@ -28,27 +28,28 @@ public Scene getScene(int n){
 
     @Override
     public void start(Stage window) throws Exception {
-        Main.character.equipWeapon(dungeon.lvl0W);
-        Main.character.equipArmor(dungeon.lvl0A);
+        Main.character.equipWeapon(dungeon.lvl4W);
+        Main.character.equipArmor(dungeon.lvl4A);
         this.window = window;
         FXMLLoader startLoader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("startScreen.fxml")));
         FXMLLoader gameLoader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("dungeonGame.fxml")));
         FXMLLoader invLoader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("inventoryScreen.fxml")));
         FXMLLoader battleLoader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("battleScreen.fxml")));
 
+        dungeon.createEnemies();
+        dungeon.createRooms();
+
         sceneArray[0] =  new Scene(gameLoader.load());
         sceneArray[1] =  new Scene(invLoader.load());
         sceneArray[2] = new Scene(battleLoader.load());
 
-        dungeon.createEnemies();
+
 
         Parent start = startLoader.load();
         window.setTitle("Super Duper Dungeon");
         Scene startScr = new Scene(start);
         window.setScene(startScr);
 
-        //uncomment to test battle scene
-//
 
 
 
@@ -70,7 +71,7 @@ public Scene getScene(int n){
 
         Main.character.playerInventory[1]= dungeon.lvl2A;
         Main.character.playerInventory[2]= dungeon.lvl2W;
-        Main.character.playerInventory[3]= dungeon.lvl4A;
+
 
 
         window.show();

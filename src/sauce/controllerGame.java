@@ -19,6 +19,8 @@ public class controllerGame {
     private appDungGame app;
     private controllerInventory invControl;
     private controllerBattle battleControl;
+    public room currentRoom;
+    public int[] fredCord = new int[2];
 
     private Image dungImg = new Image("Dungoen Background.png");//Don't judge me I'm dyslexic.
 
@@ -47,26 +49,76 @@ public class controllerGame {
         /*Code within the Initialize method will run once the fxml is loaded.*/
         gameScreen.setFill(new ImagePattern(dungImg));
         updateBars();
+        currentRoom = dungeon.allRooms[0];
     }
 
 //--------------------Move Button Methods--------------------
     public void moveUp(ActionEvent actionEvent) {
-        fred.setTranslateY(fred.getTranslateY()-123);
-        System.out.println(fred.getTranslateX() + ","+fred.getTranslateY());//Test code. -----Delete before publish-----
+        if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
+
+            if (attemptMove(1, "y")) {
+                fred.setTranslateY(fred.getTranslateY() - 123);
+            }
+        }else {
+            System.out.println("Opponent not defeated.");
+        }
     }
     public void moveDown(ActionEvent actionEvent) {
-        fred.setTranslateY(fred.getTranslateY()+123);
-        System.out.println(fred.getTranslateX() + ","+fred.getTranslateY());//Test code. -----Delete before publish-----
+        if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
+            if (attemptMove(-1, "y")) {
+                fred.setTranslateY(fred.getTranslateY() + 123);
+            }
+        }else {
+            System.out.println("Opponent not defeated.");
+        }
     }
     public void moveLeft(ActionEvent actionEvent) {
-        fred.setTranslateX(fred.getTranslateX()-123);
-        System.out.println(fred.getTranslateX() + ","+fred.getTranslateY());//Test code. -----Delete before publish-----
+        if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
+            if (attemptMove(-1, "x")) {
+                fred.setTranslateX(fred.getTranslateX() - 123);
+            }
+        }else {
+            System.out.println("Opponent not defeated.");
+        }
     }
     public void moveRight(ActionEvent actionEvent) {
-        fred.setTranslateX(fred.getTranslateX()+123);
-        System.out.println(fred.getTranslateX() + ","+fred.getTranslateY());//Test code. -----Delete before publish-----
+        if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
+            if (attemptMove(1, "x")) {
+                fred.setTranslateX(fred.getTranslateX() + 123);
+            }
+        }else {
+            System.out.println("Opponent not defeated.");
+        }
     }
+    private boolean attemptMove(int n, String t){
+        int newCord;
+        if(t == "x"){
+            newCord = currentRoom.location[0]+n;
+            for(int i = 0; i< dungeon.allRooms.length; i++){
 
+                if(dungeon.allRooms[i].location[0] == newCord && dungeon.allRooms[i].location[1] == currentRoom.location[1]){
+                    System.out.println("X:"+i+"Room cords:"+dungeon.allRooms[i].location[0]+","+dungeon.allRooms[i].location[1]);
+                    System.out.printf(newCord+"\n");
+                    currentRoom = dungeon.allRooms[i];
+                    return true;
+                }
+            }
+        } else if (t == "y") {
+            newCord = currentRoom.location[1]+n;
+            for(int i = 0; i< dungeon.allRooms.length; i++){
+
+                if(dungeon.allRooms[i].location[1] == newCord && dungeon.allRooms[i].location[0] == currentRoom.location[0]){
+                    System.out.println("Y:"+i+"Room cords:"+dungeon.allRooms[i].location[0]+","+dungeon.allRooms[i].location[1]);
+                    System.out.printf(newCord+"\n");
+                    currentRoom = dungeon.allRooms[i];
+                    return true;
+                }
+            }
+        }
+            System.out.println("That's a wall, probably...");
+            return false;
+
+    }
 
     public void openInventory(ActionEvent actionEvent) {
         /*This method is assigned to a button in the game screen to swap the window to the inventory screen.*/

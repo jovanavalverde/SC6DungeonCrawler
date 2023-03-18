@@ -50,6 +50,7 @@ public class battle {
         battleControl.endBattle();
         }else if(opponent.HP == 0){
         System.out.println("Enemy died.");
+        opponent.addLoot();
         battleControl.endBattle();
         }else {
         System.out.println("Error endBattle() was incorrectly called.");
