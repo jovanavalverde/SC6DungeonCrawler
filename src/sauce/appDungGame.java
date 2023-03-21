@@ -59,7 +59,7 @@ public Scene getScene(int n){
         controllerInventory invControl = invLoader.getController();
         controllerBattle battleControl = battleLoader.getController();
         invControl.setApp(this,gameControl);
-        gameControl.setApp(this,invControl);
+        gameControl.setApp(this,invControl, battleControl);
         startControl.setApp(this, gameControl);
         battleControl.setApp(this,gameControl);
         battle.setApp(battleControl);
