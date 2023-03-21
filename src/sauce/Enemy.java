@@ -50,5 +50,5 @@ public class Enemy {
         this.enemyImage.setImage(new Image("dead_enemy.png"));
     }
 }
-/*/
+*/
 //generate simple enemy behavior for a java 2d dungeon crawl using scenebuilder and javafx intellij//

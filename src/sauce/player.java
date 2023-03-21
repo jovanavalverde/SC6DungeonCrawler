@@ -13,7 +13,6 @@ public class player implements entity {
     itemWeapon eqItemWeapon;
     itemArmor eqItemArmor;//For now, there will only be one equipable armor piece. Rather than a "Helmet","Gauntlet","Shield" etc...
     String playClass = "default";
-    int playerSprite;//Just a placeholder for now.
 
     @Override
     public void changeHP(int change) {
