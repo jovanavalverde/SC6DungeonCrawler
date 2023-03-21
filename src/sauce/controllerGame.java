@@ -25,7 +25,7 @@ public class controllerGame {
     private Image dungImg = new Image("Dungoen Background.png");//Don't judge me I'm dyslexic.
 
 
-    public void setApp(appDungGame app,controllerInventory invControl){
+    public void setApp(appDungGame app,controllerInventory invControl, controllerBattle battleControl){
         /*This method sets the app variable to appDungGame application so the window can be changed.
         And sets invControl to the inventoryScreen.fxml controller, so it can be altered from this controller.*/
         this.app = app;
@@ -137,6 +137,8 @@ public class controllerGame {
     }
 
     public void testBattle(ActionEvent actionEvent) {
+        battle.opponent = (entEnemy) currentRoom.opponent;
+        battleControl.updateBars();
         app.setScreen(app.getScene(2));
     }
 }

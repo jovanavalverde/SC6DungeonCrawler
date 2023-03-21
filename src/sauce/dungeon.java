@@ -106,13 +106,13 @@ public static room[] allRooms = new room[13];
         allRooms[1] = new room(1,0,1);
         allRooms[2] = new room(lvl0E,2,0,2);
         allRooms[3] = new room(3,0,3);
-        allRooms[4] = new room(lvl0E,4,0,4);
+        allRooms[4] = new room(lvl1E,4,0,4);
         allRooms[5] = new room(5,1,4);
-        allRooms[6] = new room(lvl0E,6,2,4);
+        allRooms[6] = new room(lvl2E,6,2,4);
         allRooms[7] = new room(7,3,4);
-        allRooms[8] = new room(lvl0E,8,4,4);
+        allRooms[8] = new room(lvl3E,8,4,4);
         allRooms[9] = new room(9,5,4);
-        allRooms[10] = new room(lvl0E,10,6,4);
+        allRooms[10] = new room(lvl4E,10,6,4);
         allRooms[11] = new room(11,6,3);
         allRooms[12] = new room(12,6,2);
 
