@@ -9,11 +9,12 @@ Image entSprite;
 item[] loot = new item[4];
 
     public void setStats(int health, int damMin, int damMax, Image entSprite, item[] loot){
-        this.HP = health;
+        this.maxHP = health;
         this.entDamRange[0] = damMin;
         this.entDamRange[1] = damMax;
         this.entSprite = entSprite;
         this.loot = loot;
+        this.HP = this.maxHP;
     }
 
     public void addLoot(){
