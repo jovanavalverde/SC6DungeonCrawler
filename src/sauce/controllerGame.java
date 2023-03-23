@@ -148,6 +148,7 @@ public class controllerGame {
         if (currentRoom.opponent != null && !currentRoom.opponent.lootCollected) {
             battle.opponent = (entEnemy) currentRoom.opponent;
             battleControl.updateBars();
+            battleControl.updateText();
             app.setScreen(app.getScene(2));
         }else {
             System.out.println("There is no enemy in this room.");
