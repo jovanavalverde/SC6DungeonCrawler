@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerBattle">
    <children>
@@ -13,5 +16,21 @@
       <Rectangle fx:id="playerPos" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="186.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
       <Rectangle fx:id="enemyPos" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="885.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
       <Button layoutX="490.0" layoutY="570.0" mnemonicParsing="false" onAction="#useManaPotion" prefHeight="82.0" prefWidth="200.0" text="ManaPotion" />
+      <Text fx:id="playHPText" layoutX="263.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="playMPText" layoutX="263.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="enHPText" layoutX="973.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="battleText" layoutX="835.0" layoutY="529.0" prefHeight="122.0" prefWidth="276.0" />
    </children>
 </AnchorPane>

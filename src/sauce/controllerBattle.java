@@ -1,6 +1,7 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -10,6 +11,7 @@ import javafx.scene.text.Text;
 
 public class controllerBattle {
 
+    public TextArea battleText;
     private controllerGame gameControl;
     private appDungGame app;
     @FXML
@@ -25,11 +27,12 @@ public class controllerBattle {
     @FXML
     private Button buttonAttack;
     @FXML
-    private Text testText;
+    private Text playHPText;
     @FXML
-    private Text enemyHP;
+    private Text playMPText;
     @FXML
-
+    private Text enHPText;
+    @FXML
     private Image sprite = new Image("realSprites/mage.png");
 
     @FXML
@@ -68,7 +71,14 @@ public class controllerBattle {
     }
 
     public void updateText(){
-        
+
+        playHPText.setText("HP: " + Main.character.playHP + "/" + Main.character.playMaxHP);
+        playMPText.setText("MP: " + Main.character.playMP + "/" + Main.character.playMaxMP);
+
+        enHPText.setText("HP: " + battle.opponent.HP + "/" + battle.opponent.maxHP);
+
+        //battleText.appendText("You delt: damage!\n");
+
 
 
     }
