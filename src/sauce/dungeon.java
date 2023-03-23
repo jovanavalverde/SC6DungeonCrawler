@@ -22,7 +22,8 @@ public class dungeon {
     static entEnemy lvl2E = new entEnemy();
     static entEnemy lvl3E = new entEnemy();
     static entEnemy lvl4E = new entEnemy();
-
+//--------------------Room--------------------
+public static room[] allRooms = new room[13];
 //--------------------XXX--------------------
 
 
@@ -79,12 +80,42 @@ public class dungeon {
     }
 
     public static void createEnemies(){
+        item[] lvl0L = new item[4];//This is empty for now due to the lvl0 weapon and armor being pre-acquired.
+        item[] lvl1L = new item[4];
+        lvl1L[0] = lvl1W;
+        lvl1L[1] = lvl1A;
+        item[] lvl2L = new item[4];
+        lvl2L[0] = lvl2W;
+        lvl2L[1] = lvl2A;
+        item[] lvl3L = new item[4];
+        lvl3L[0] = lvl3W;
+        lvl3L[1] = lvl3A;
+        item[] lvl4L = new item[4];
+        lvl4L[0] = lvl4W;
+        lvl4L[1] = lvl4A;
+        lvl0E.setStats(200,10,30,(new Image("testSprites/testSprite2.png")),lvl0L);
+        lvl1E.setStats(300,20,30,(new Image("testSprites/testSprite2.png")),lvl1L);
+        lvl2E.setStats(400,30,40,(new Image("testSprites/testSprite2.png")),lvl2L);
+        lvl3E.setStats(500,40,50,(new Image("testSprites/testSprite2.png")),lvl3L);
+        lvl4E.setStats(600,50,60,(new Image("testSprites/testSprite2.png")),lvl4L);
+    }
 
-        lvl0E.setStats(200,10,30,(new Image("testSprites/testSprite2.png")));
-        lvl1E.setStats(300,20,30,(new Image("testSprites/testSprite2.png")));
-        lvl2E.setStats(400,30,40,(new Image("testSprites/testSprite2.png")));
-        lvl3E.setStats(500,40,50,(new Image("testSprites/testSprite2.png")));
-        lvl4E.setStats(600,50,60,(new Image("testSprites/testSprite2.png")));
+    public static void createRooms(){
+        //For testing purposes, all rooms are filled with lvl0E enemy.
+        allRooms[0] = new room(0,0,0);
+        allRooms[1] = new room(1,0,1);
+        allRooms[2] = new room(lvl0E,2,0,2);
+        allRooms[3] = new room(3,0,3);
+        allRooms[4] = new room(lvl1E,4,0,4);
+        allRooms[5] = new room(5,1,4);
+        allRooms[6] = new room(lvl2E,6,2,4);
+        allRooms[7] = new room(7,3,4);
+        allRooms[8] = new room(lvl3E,8,4,4);
+        allRooms[9] = new room(9,5,4);
+        allRooms[10] = new room(lvl4E,10,6,4);
+        allRooms[11] = new room(11,6,3);
+        allRooms[12] = new room(12,6,2);
+
     }
 
     public static void createBoss(){
