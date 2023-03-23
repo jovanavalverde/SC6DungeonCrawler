@@ -6,6 +6,7 @@ public class player implements entity {
     int playHP = 100;
     int playMaxHP = 100;
     int playMP = 100;
+    int playMaxMP = 100;
 
     itemGearDecorator[] playerInventory = new itemGearDecorator[13];/*For organization purposes,
                                                                    playerInventory[0] will remain empty.*/
@@ -32,6 +33,14 @@ public class player implements entity {
             playHP = playMaxHP;
         }
         System.out.println("Drunk 100 HP potion");
+    }
+
+    public void useManaPotion(){
+        playMP = playMP + 100;
+        if (playMP > playMaxMP){
+            playMP = playMaxMP;
+
+        }
     }
 
     @Override
