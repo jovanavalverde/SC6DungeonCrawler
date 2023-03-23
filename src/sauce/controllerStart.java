@@ -27,6 +27,7 @@ public class controllerStart {
 private appDungGame app;
 
 controllerGame gameControl;
+controllerBattle battleControl;
 @FXML
 private Rectangle startBackground;
 
@@ -43,10 +44,11 @@ private Rectangle startBackground;
     }
 
 
-public void setApp(appDungGame app, controllerGame gameControl){
+public void setApp(appDungGame app, controllerGame gameControl, controllerBattle battleControl){
     /*This method sets the app variable to appDungGame application so the window can be changed.*/
     this.app = app;
     this.gameControl = gameControl;
+    this.battleControl = battleControl;
 }
 
     public void startGame(){
@@ -55,6 +57,16 @@ public void setApp(appDungGame app, controllerGame gameControl){
         dungeon.createWeapons(Main.character);
         dungeon.createArmor(Main.character);
         gameControl.setFred();
+        if (Main.character.playClass == "mage"){
+            battleControl.sprite = (new ImagePattern(new Image("realSprites/mage.png")));
+        } else if (Main.character.playClass == "rogue") {
+            battleControl.sprite = (new ImagePattern(new Image("realSprites/rogue.png")));
+        } else if (Main.character.playClass == "warrior") {
+            battleControl.sprite = (new ImagePattern(new Image("realSprites/warrior.png")));
+        }else {
+            System.out.println("Error, playClass not set properly.");
+        }
+        battleControl.playerPos.setFill(battleControl.sprite);
     }
 
     public void selectClass(ActionEvent actionEvent) {
