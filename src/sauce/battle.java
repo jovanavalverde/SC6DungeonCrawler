@@ -37,7 +37,7 @@ public class battle {
         for(int n = 0; n != damArray.length; n++ ){
             opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
         }
-        battleControl.updateText();
+
         System.out.println("Enemy Health: " + opponent.HP);
 
         if (opponent.HP == 0) {
