@@ -1,10 +1,13 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.text.Text;
 
 public class controllerGame {
+
     /*This is the controller class for dungeonGame.fxml.*/
 
 
@@ -16,6 +19,9 @@ public class controllerGame {
     private Rectangle healthBar;
     @FXML
     private Rectangle manaBar;
+
+
+
     private appDungGame app;
     private controllerInventory invControl;
     private controllerBattle battleControl;
@@ -137,8 +143,12 @@ public class controllerGame {
     }
 
     public void testBattle(ActionEvent actionEvent) {
-        battle.opponent = (entEnemy) currentRoom.opponent;
-        battleControl.updateBars();
-        app.setScreen(app.getScene(2));
+        if (currentRoom.opponent != null && !currentRoom.opponent.lootCollected) {
+            battle.opponent = (entEnemy) currentRoom.opponent;
+            battleControl.updateBars();
+            app.setScreen(app.getScene(2));
+        }else {
+            System.out.println("There is no enemy in this room.");
+        }
     }
 }

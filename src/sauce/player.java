@@ -4,6 +4,7 @@ Sprites: At least one small sprite for each player class.(Mage, Rogue, and Warri
 public class player implements entity {
 
     int playHP = 100;
+    int playMaxHP = 100;
     int playMP = 100;
 
     itemGearDecorator[] playerInventory = new itemGearDecorator[13];/*For organization purposes,
