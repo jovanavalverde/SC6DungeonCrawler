@@ -35,5 +35,6 @@
       </Button>
       <TextArea fx:id="textATest" layoutX="1150.0" layoutY="181.0" prefHeight="118.0" prefWidth="110.0" text="&lt;---&#10;&#10;Opponent must be &#10;defeated to move &#10;past #2." />
       <Text fx:id="textBeans" layoutX="1062.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Button fx:id="healthButn" layoutX="1007.0" layoutY="39.0" mnemonicParsing="false" onAction="#drinkHealth" prefHeight="86.0" prefWidth="110.0" text="Button" />
    </children>
 </AnchorPane>

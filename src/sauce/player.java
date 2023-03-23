@@ -26,6 +26,14 @@ public class player implements entity {
         }
     }
 
+    public void useHealthPotion(){
+        playHP = playHP + 100;
+        if (playHP > playMaxHP) {
+            playHP = playMaxHP;
+        }
+        System.out.println("Drunk 100 HP potion");
+    }
+
     @Override
     public int[] calDamage() {
         /*This method is used to calculate how much damage the player will deal.
