@@ -6,7 +6,10 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.text.Text;
+
 public class controllerBattle {
+
     private controllerGame gameControl;
     private appDungGame app;
     @FXML
@@ -21,6 +24,12 @@ public class controllerBattle {
     private Rectangle enemyPos;
     @FXML
     private Button buttonAttack;
+    @FXML
+    private Text testText;
+    @FXML
+    private Text enemyHP;
+    @FXML
+
     private Image sprite = new Image("realSprites/mage.png");
 
     @FXML
@@ -39,20 +48,29 @@ public class controllerBattle {
     public void initialize(){
         /*Code within the Initialize method will run once the fxml is loaded.*/
         updateBars();
+        updateText();
+
         playerPos.setFill(new ImagePattern(new Image("realSprites/mage.png")));
-        enemyPos.setFill(new ImagePattern(new Image("realSprites/ghoul.png")));
+        enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
     }
 
 
     public void updateBars(){
-        healthBar.setWidth(400*(Main.character.playHP/100.0));//100 being the current max health,
+        healthBar.setWidth(400.0*(Main.character.playHP/100.0));//100 being the current max health,
         //and 400 being the pixel length of the bar.
 
-        manaBar.setWidth(400*(Main.character.playMP/100.0));//100 being the current max mana,
+        manaBar.setWidth(400.0*(Main.character.playMP/100.0));//100 being the current max mana,
         //and 400 being the pixel length of the bar.
 
-        enemyHealthBar.setWidth(400*battle.opponent.HP/200.0);//100 being the current max mana,
-        //and 400 being the pixel length of the bar.
+        enemyHealthBar.setWidth(400.0*battle.opponent.HP/battle.opponent.maxHP);
+        //400 being the pixel length of the bar.
+
+    }
+
+    public void updateText(){
+        
+    testText.setText("Player HP: " + Main.character.playHP);
+    enemyHP.setText("Enemy HP: " + battle.opponent.HP);
 
     }
 

@@ -15,13 +15,17 @@ public class battle {
         battle.battleControl = battleControl;
     }
 
+    public static void updateBattle(entEnemy newOpponent){
+        opponent = newOpponent;
+        battleControl.updateBars();
+    }
+
     public static void enemyAttack(){
         int[] damArray = opponent.calDamage();
 
         Main.character.changeHP(-damArray[0]);
-
         System.out.println("Health: " + Main.character.playHP);
-
+        battleControl.updateText();
         if (Main.character.playHP == 0) {
             endBattle();
         }
@@ -33,6 +37,7 @@ public class battle {
         for(int n = 0; n != damArray.length; n++ ){
             opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
         }
+        battleControl.updateText();
         System.out.println("Enemy Health: " + opponent.HP);
 
         if (opponent.HP == 0) {
