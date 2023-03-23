@@ -69,8 +69,7 @@ public class controllerBattle {
 
     public void updateText(){
         
-    testText.setText("Player HP: " + Main.character.playHP);
-    enemyHP.setText("Enemy HP: " + battle.opponent.HP);
+
 
     }
 
