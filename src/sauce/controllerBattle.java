@@ -63,4 +63,9 @@ public class controllerBattle {
     }
 
 
+    public void useManaPotion(ActionEvent actionEvent) {
+        Main.character.useManaPotion();
+        System.out.println("You used a 100 Mana Potion");
+        updateBars();
+    }
 }

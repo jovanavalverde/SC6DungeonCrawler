@@ -12,5 +12,6 @@
       <Rectangle fx:id="enemyHealthBar" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="20.0" layoutX="785.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
       <Rectangle fx:id="playerPos" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="186.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
       <Rectangle fx:id="enemyPos" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="885.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+      <Button layoutX="490.0" layoutY="570.0" mnemonicParsing="false" onAction="#useManaPotion" prefHeight="82.0" prefWidth="200.0" text="ManaPotion" />
    </children>
 </AnchorPane>
