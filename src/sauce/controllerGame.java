@@ -1,5 +1,6 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
@@ -7,6 +8,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Text;
 
 public class controllerGame {
+    public Button healthButn;
 
     /*This is the controller class for dungeonGame.fxml.*/
 
@@ -151,5 +153,10 @@ public class controllerGame {
         }else {
             System.out.println("There is no enemy in this room.");
         }
+    }
+
+    public void drinkHealth(ActionEvent actionEvent) {
+        Main.character.useHealthPotion();
+        updateBars();
     }
 }
