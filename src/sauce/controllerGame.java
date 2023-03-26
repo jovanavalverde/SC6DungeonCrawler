@@ -8,8 +8,6 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Text;
 
 public class controllerGame {
-    public Button healthButn;
-
     /*This is the controller class for dungeonGame.fxml.*/
 
 
@@ -28,9 +26,8 @@ public class controllerGame {
     private controllerInventory invControl;
     private controllerBattle battleControl;
     public room currentRoom;
-    public int[] fredCord = new int[2];
 
-    private Image dungImg = new Image("Dungoen Background.png");//Don't judge me I'm dyslexic.
+    private final Image dungImg = new Image("Dungoen Background.png");//Don't judge me I'm dyslexic.
 
 
     public void setApp(appDungGame app,controllerInventory invControl, controllerBattle battleControl){
@@ -137,11 +134,9 @@ public class controllerGame {
     }
 
     public void updateBars(){
-        healthBar.setWidth(400*(Main.character.playHP/100.0));//100 being the current max health,
-        //and 400 being the pixel length of the bar.
+        healthBar.setWidth(400.0*Main.character.playHP/Main.character.playMaxMP);//400 being the pixel length of the bar.
 
-        manaBar.setWidth(400*(Main.character.playMP/100.0));//100 being the current max mana,
-        //and 400 being the pixel length of the bar.
+        manaBar.setWidth(400.0*Main.character.playMP/Main.character.playMaxMP);//400 being the pixel length of the bar.
     }
 
     public void testBattle(ActionEvent actionEvent) {

@@ -59,14 +59,11 @@ public class controllerBattle {
 
 
     public void updateBars(){
-        healthBar.setWidth(400.0*(Main.character.playHP/100.0));//100 being the current max health,
-        //and 400 being the pixel length of the bar.
+        healthBar.setWidth(400.0*Main.character.playHP/Main.character.playMaxHP);//400 being the pixel length of the bar.
 
-        manaBar.setWidth(400.0*(Main.character.playMP/100.0));//100 being the current max mana,
-        //and 400 being the pixel length of the bar.
+        manaBar.setWidth(400.0*Main.character.playMP/Main.character.playMaxMP);//400 being the pixel length of the bar.
 
-        enemyHealthBar.setWidth(400.0*battle.opponent.HP/battle.opponent.maxHP);
-        //400 being the pixel length of the bar.
+        enemyHealthBar.setWidth(400.0*battle.opponent.HP/battle.opponent.maxHP);//400 being the pixel length of the bar.
 
     }
 

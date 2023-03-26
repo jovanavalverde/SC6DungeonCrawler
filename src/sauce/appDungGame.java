@@ -28,8 +28,8 @@ public Scene getScene(int n){
 
     @Override
     public void start(Stage window) throws Exception {
-        Main.character.equipWeapon(dungeon.lvl4W);
-        Main.character.equipArmor(dungeon.lvl4A);
+        Main.character.equipWeapon(dungeon.lvl0W);
+        Main.character.equipArmor(dungeon.lvl0A);
         this.window = window;
         FXMLLoader startLoader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("startScreen.fxml")));
         FXMLLoader gameLoader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("dungeonGame.fxml")));
@@ -58,10 +58,11 @@ public Scene getScene(int n){
         controllerGame gameControl = gameLoader.getController();
         controllerInventory invControl = invLoader.getController();
         controllerBattle battleControl = battleLoader.getController();
-        invControl.setApp(this,gameControl);
-        gameControl.setApp(this,invControl, battleControl);
+        invControl.setApp(this, gameControl);
+        gameControl.setApp(this, invControl, battleControl);
         startControl.setApp(this, gameControl, battleControl);
         battleControl.setApp(this,gameControl);
+        Main.setApp(this, invControl, battleControl, gameControl);
         battle.setApp(battleControl);
 
 
@@ -69,8 +70,7 @@ public Scene getScene(int n){
 
 
 
-        Main.character.playerInventory[1]= dungeon.lvl2A;
-        Main.character.playerInventory[2]= dungeon.lvl2W;
+
 
 
 

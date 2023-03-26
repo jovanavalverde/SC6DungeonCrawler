@@ -4,7 +4,7 @@ Runtime:
 --module-path "./lib" --add-modules javafx.controls,javafx.fxml
 
 How to get rid of the red imports and errors:
-1. Click on the cog wheel in the top left(sometimes looks like yellow up arrow).
+1. Click on the cog wheel in the top right(sometimes looks like yellow up arrow).
 2. Then open project structure.
 3. Open the libraries tab on the left.
 4. Press the plus sign at the top, then the java option.
