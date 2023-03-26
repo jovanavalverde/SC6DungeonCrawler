@@ -11,7 +11,8 @@ public class player implements entity {
     itemGearDecorator[] playerInventory = new itemGearDecorator[13];/*For organization purposes,
                                                                    playerInventory[0] will remain empty.*/
 
-    int[] playerPotions = new int[2];//First value is amount of healing potions and second is amount of mana potions.
+    int[] playerPotions = {0,0};//First value is amount of healing potions and second is amount of mana potions.
+
     itemWeapon eqItemWeapon;
     itemArmor eqItemArmor;//For now, there will only be one equipable armor piece. Rather than a "Helmet","Gauntlet","Shield" etc...
     String playClass = "default";
@@ -20,7 +21,7 @@ public class player implements entity {
     public void changeHP(int change) {
         /*This method will both change the player's health, and determine
         how much damage is negated from armor. Subject to balancing.*/
-        double bla = change/(0.2*eqItemArmor.armorPT);
+        double bla = change/(eqItemArmor.armorPT*0.1);
         playHP = playHP + (int)(bla);
         if (playHP < 0){
             playHP = 0;
@@ -33,14 +34,15 @@ public class player implements entity {
             playHP = playMaxHP;
         }
         System.out.println("Drunk 100 HP potion");
+        this.playerPotions[0]--;
     }
 
     public void useManaPotion(){
         playMP = playMP + 100;
         if (playMP > playMaxMP){
             playMP = playMaxMP;
-
         }
+        this.playerPotions[1]--;
     }
 
     @Override
@@ -54,9 +56,7 @@ public class player implements entity {
         } else if (eqItemWeapon.weaponType == "staff") {
             return calMagicAtk();
         }else {
-            int[] errorArray = new int[1];
-            errorArray[0] = 555;
-            return errorArray;
+            return new int[]{555};
         }
 
     }

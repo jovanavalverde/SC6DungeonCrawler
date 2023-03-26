@@ -21,7 +21,7 @@ item[] loot = new item[4];
         /*This method will scan the loot array and scan the player inventory then add
         the loot to the open slots of the players inventory. Skipping all null slots.*/
         if(!lootCollected) {
-            for (int n = 0; n <= 3; n++) {
+            for (int n = 0; n < loot.length; n++) {
 
                 if (loot[n] != null) {
 

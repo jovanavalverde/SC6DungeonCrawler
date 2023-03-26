@@ -58,7 +58,7 @@
                   <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
                </padding>
             </Button>
-            <Button fx:id="slot11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#useItem" prefHeight="200.0" prefWidth="200.0">
+            <Button fx:id="manaSlot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#drinkPotion" prefHeight="200.0" prefWidth="200.0">
                <padding>
                   <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
                </padding>
@@ -77,7 +77,7 @@
                   <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
                </padding>
             </Button>
-            <Button fx:id="slot12" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#useItem" prefHeight="200.0" prefWidth="200.0">
+            <Button fx:id="healthSlot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#drinkPotion" prefHeight="200.0" prefWidth="200.0">
                <padding>
                   <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
                </padding>
