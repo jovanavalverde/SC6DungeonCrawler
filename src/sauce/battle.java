@@ -8,6 +8,9 @@ public class battle {
     static entEnemy opponent = dungeon.lvl0E;
     private static controllerBattle battleControl;
 
+    int[] damageDelt;
+    int[] damageTaken;
+
     public static void setApp(controllerBattle battleControl){
         /*This method sets the app variable to appDungGame application so the window can be changed.
         And sets invControl to the inventoryScreen.fxml controller, so it can be altered from this controller.*/
@@ -26,6 +29,7 @@ public class battle {
         Main.character.changeHP(-damArray[0]);
         System.out.println("Health: " + Main.character.playHP);
         battleControl.updateText();
+
         if (Main.character.playHP == 0) {
             endBattle();
         }
@@ -36,6 +40,7 @@ public class battle {
 
         for(int n = 0; n != damArray.length; n++ ){
             opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
+
         }
 
         System.out.println("Enemy Health: " + opponent.HP);

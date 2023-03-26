@@ -2,8 +2,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.ImageView;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
@@ -77,11 +75,10 @@ public class controllerBattle {
 
         enHPText.setText("HP: " + battle.opponent.HP + "/" + battle.opponent.maxHP);
 
-        //battleText.appendText("You delt: damage!\n");
-
-
 
     }
+
+
 
     public void endBattle(){
         gameControl.updateBars();
