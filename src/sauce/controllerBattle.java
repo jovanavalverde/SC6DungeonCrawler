@@ -21,7 +21,7 @@ public class controllerBattle {
     @FXML
     public Rectangle playerPos;
     @FXML
-    private Rectangle enemyPos;
+    Rectangle enemyPos;
     @FXML
     private Button buttonAttack;
     @FXML
