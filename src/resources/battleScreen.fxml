@@ -32,5 +32,6 @@
          </font>
       </Text>
       <TextArea fx:id="battleText" layoutX="835.0" layoutY="529.0" prefHeight="122.0" prefWidth="276.0" />
+      <Button layoutX="490.0" layoutY="488.0" mnemonicParsing="false" onAction="#useHealthPotion" prefHeight="82.0" prefWidth="200.0" text="Health Potion" />
    </children>
 </AnchorPane>
