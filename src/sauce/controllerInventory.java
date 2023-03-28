@@ -5,8 +5,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.text.Text;
 
 public class controllerInventory {
+
     /*This is the controller class for inventoryScreen.fxml.*/
 
     private appDungGame app;
@@ -39,6 +41,8 @@ public class controllerInventory {
     private Button manaSlot;
     @FXML
     private Button healthSlot;
+    public Text manaText;
+    public Text healthText;
     @FXML
     private Button slotEqAr;
     @FXML
@@ -47,6 +51,7 @@ public class controllerInventory {
     private Rectangle healthBar;
     @FXML
     private Rectangle manaBar;
+
 
 
     public void setApp(appDungGame app,controllerGame gameControl){
@@ -77,13 +82,13 @@ public class controllerInventory {
         invButtons[14] = slotEqAr;}//Setting Buttons to invButtons[], 13 = eqWeapon, 14 = eqArmor.
         updateInv();
 
-        {ImageView img = new ImageView("testSprites/beansBowl.png");//We don't have a health potion sprite yet.
+        {ImageView img = new ImageView("realSprites/Healing_Potion.png");//We don't have a health potion sprite yet.
         img.setPreserveRatio(true);
         img.fitWidthProperty().bind(slot1.widthProperty());
         img.fitHeightProperty().bind(slot1.heightProperty());
         healthSlot.setGraphic(img);
 
-        ImageView img2 = new ImageView("testSprites/playerTestSprite.png");//We don't have a mana potion sprite yet.
+        ImageView img2 = new ImageView("realSprites/Mana_Potion.png");//We don't have a mana potion sprite yet.
         img2.setPreserveRatio(true);
         img2.fitWidthProperty().bind(slot1.widthProperty());
         img2.fitHeightProperty().bind(slot1.heightProperty());
@@ -121,6 +126,8 @@ public class controllerInventory {
         img2.fitWidthProperty().bind(slot1.widthProperty());
         img2.fitHeightProperty().bind(slot1.heightProperty());
         slotEqAr.setGraphic(img2);}//Updates the equipped gear buttons
+        healthText.setText(String.valueOf(Main.character.playerPotions[0]));
+        manaText.setText(String.valueOf(Main.character.playerPotions[1]));
 
         healthBar.setWidth(400.0*Main.character.playHP/Main.character.playMaxHP);//400 being the pixel length of the bar.
 
