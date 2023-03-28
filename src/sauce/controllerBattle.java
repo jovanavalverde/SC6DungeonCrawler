@@ -19,7 +19,7 @@ public class controllerBattle {
     @FXML
     private Rectangle manaBar;
     @FXML
-    private Rectangle playerPos;
+    public Rectangle playerPos;
     @FXML
     private Rectangle enemyPos;
     @FXML
@@ -30,8 +30,8 @@ public class controllerBattle {
     private Text playMPText;
     @FXML
     private Text enHPText;
-    @FXML
-    private Image sprite = new Image("realSprites/mage.png");
+
+    public ImagePattern sprite;
 
     @FXML
     void playerAttack(ActionEvent event){
@@ -51,7 +51,7 @@ public class controllerBattle {
         updateBars();
         updateText();
 
-        playerPos.setFill(new ImagePattern(new Image("realSprites/mage.png")));
+        playerPos.setFill(sprite);
         enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
     }
 
