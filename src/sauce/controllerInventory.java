@@ -13,7 +13,7 @@ public class controllerInventory {
 
     private controllerGame gameControl;
 
-    private Button[] invButtons = new Button[13];
+    private Button[] invButtons = new Button[15];
 
     @FXML
     private Button slot1;
@@ -36,9 +36,9 @@ public class controllerInventory {
     @FXML
     private Button slot10;
     @FXML
-    private Button slot11;
+    private Button manaSlot;
     @FXML
-    private Button slot12;
+    private Button healthSlot;
     @FXML
     private Button slotEqAr;
     @FXML
@@ -59,7 +59,9 @@ public class controllerInventory {
     public void initialize(){
 /*Code within the Initialize method will run once the fxml is loaded.*/
 
-        invButtons[1] = slot1;
+
+
+        {invButtons[1] = slot1;
         invButtons[2] = slot2;
         invButtons[3] = slot3;
         invButtons[4] = slot4;
@@ -69,22 +71,36 @@ public class controllerInventory {
         invButtons[8] = slot8;
         invButtons[9] = slot9;
         invButtons[10] = slot10;
-        invButtons[11] = slot11;
-        invButtons[12] = slot12;//Setting Buttons to invButtons[]
+        invButtons[11] = manaSlot;
+        invButtons[12] = healthSlot;
+        invButtons[13] = slotEqWe;
+        invButtons[14] = slotEqAr;}//Setting Buttons to invButtons[], 13 = eqWeapon, 14 = eqArmor.
         updateInv();
 
+        {ImageView img = new ImageView("testSprites/beansBowl.png");//We don't have a health potion sprite yet.
+        img.setPreserveRatio(true);
+        img.fitWidthProperty().bind(slot1.widthProperty());
+        img.fitHeightProperty().bind(slot1.heightProperty());
+        healthSlot.setGraphic(img);
+
+        ImageView img2 = new ImageView("testSprites/playerTestSprite.png");//We don't have a mana potion sprite yet.
+        img2.setPreserveRatio(true);
+        img2.fitWidthProperty().bind(slot1.widthProperty());
+        img2.fitHeightProperty().bind(slot1.heightProperty());
+        manaSlot.setGraphic(img2);}//Setting potion button sprites.
 
 
     }
 
     public void closeInventory(ActionEvent actionEvent) {
         /*This method is assigned to a button in the inventory screen to swap the window back to the game screen.*/
+        gameControl.updateBars();
         app.setScreen(app.getScene(0));
     }
 
     public void updateInv(){
         /*This updates the sprites loaded in as inventory slots.*/
-        for (int n = 1; n <= 12; n++) {
+        for (int n = 1; n <= 12; n++) {// 'n' must remain below 13
             if (Main.character.playerInventory[n] != null) {
                 ImageView img = new ImageView(Main.character.playerInventory[n].itemSprite);
                 img.setPreserveRatio(true);
@@ -93,7 +109,8 @@ public class controllerInventory {
                 invButtons[n].setGraphic(img);
             }
         }
-        ImageView img = new ImageView(Main.character.eqItemWeapon.itemSprite);
+
+        {ImageView img = new ImageView(Main.character.eqItemWeapon.itemSprite);
         img.setPreserveRatio(true);
         img.fitWidthProperty().bind(slot1.widthProperty());
         img.fitHeightProperty().bind(slot1.heightProperty());
@@ -103,12 +120,11 @@ public class controllerInventory {
         img2.setPreserveRatio(true);
         img2.fitWidthProperty().bind(slot1.widthProperty());
         img2.fitHeightProperty().bind(slot1.heightProperty());
-        slotEqAr.setGraphic(img2);
+        slotEqAr.setGraphic(img2);}//Updates the equipped gear buttons
 
-        healthBar.setWidth(400*(Main.character.playHP/100.0));//100 being the current max health,
-                                                              //and 400 being the pixel length of the bar.
-        manaBar.setWidth(400*(Main.character.playMP/100.0));//100 being the current max mana,
-        //and 400 being the pixel length of the bar.
+        healthBar.setWidth(400.0*Main.character.playHP/Main.character.playMaxHP);//400 being the pixel length of the bar.
+
+        manaBar.setWidth(400.0*Main.character.playMP/Main.character.playMaxMP);//400 being the pixel length of the bar.
     }
 
 
@@ -131,4 +147,17 @@ public class controllerInventory {
         updateInv();
     }
 
+
+    public void drinkPotion(ActionEvent actionEvent) {
+        if (actionEvent.getSource() == healthSlot){
+            if (Main.character.playerPotions[0] > 0){
+                Main.character.useHealthPotion();
+                updateInv();
+            }else {
+                System.out.println("No health potions left.");
+            }
+        } else if (actionEvent.getSource() == manaSlot) {
+            System.out.println("You cant use mana potions outside of battle.");
+        }
+    }
 }

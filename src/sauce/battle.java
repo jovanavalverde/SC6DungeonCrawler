@@ -57,10 +57,15 @@ public class battle {
         Main.character.playMP = 100;
     if(Main.character.playHP == 0){
         System.out.println("You died.");
+        opponent.HP = opponent.maxHP;
         battleControl.endBattle();
         }else if(opponent.HP == 0){
         System.out.println("Enemy died.");
+
         opponent.addLoot();
+        Main.character.playerPotions[0]++;
+        Main.character.playerPotions[1]++;
+
         battleControl.endBattle();
         }else {
         System.out.println("Error endBattle() was incorrectly called.");
