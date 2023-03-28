@@ -93,4 +93,10 @@ public class controllerBattle {
         updateBars();
         updateText();
     }
+    public void useHealthPotion(ActionEvent actionEvent) {
+        Main.character.useHealthPotion();
+        System.out.println("You used a 100 Health Potion");
+        updateBars();
+        updateText();
+    }
 }
