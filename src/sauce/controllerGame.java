@@ -8,9 +8,10 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Text;
 
 public class controllerGame {
+
     /*This is the controller class for dungeonGame.fxml.*/
 
-
+    public Text winText;
     @FXML
     private Rectangle fred;//Fred is the rectangle that will be the player.
     @FXML
@@ -55,12 +56,12 @@ public class controllerGame {
         gameScreen.setFill(new ImagePattern(dungImg));
         updateBars();
         currentRoom = dungeon.allRooms[0];
+        winText.setTranslateY(500);
     }
 
 //--------------------Move Button Methods--------------------
     public void moveUp(ActionEvent actionEvent) {
         if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
-
             if (attemptMove(1, "y")) {
                 fred.setTranslateY(fred.getTranslateY() - 123);
             }
@@ -105,6 +106,7 @@ public class controllerGame {
                     System.out.println("X:"+i+"Room cords:"+dungeon.allRooms[i].location[0]+","+dungeon.allRooms[i].location[1]);
                     System.out.printf(newCord+"\n");
                     currentRoom = dungeon.allRooms[i];
+                    testWin();
                     return true;
                 }
             }
@@ -116,6 +118,7 @@ public class controllerGame {
                     System.out.println("Y:"+i+"Room cords:"+dungeon.allRooms[i].location[0]+","+dungeon.allRooms[i].location[1]);
                     System.out.printf(newCord+"\n");
                     currentRoom = dungeon.allRooms[i];
+                    testWin();
                     return true;
                 }
             }
@@ -123,6 +126,11 @@ public class controllerGame {
             System.out.println("That's a wall, probably...");
             return false;
 
+    }
+    private void testWin(){
+        if (currentRoom.roomNum == 12){
+            winText.setTranslateY(0);
+        }
     }
 
     public void openInventory(ActionEvent actionEvent) {
@@ -145,6 +153,7 @@ public class controllerGame {
             battleControl.updateBars();
             battleControl.updateText();
             app.setScreen(app.getScene(2));
+            battleControl.enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
         }else {
             System.out.println("There is no enemy in this room.");
         }

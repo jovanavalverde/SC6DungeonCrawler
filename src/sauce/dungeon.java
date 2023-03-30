@@ -93,11 +93,11 @@ public static room[] allRooms = new room[13];
         item[] lvl4L = new item[2];
         lvl4L[0] = lvl4W;
         lvl4L[1] = lvl4A;
-        lvl0E.setStats(200,10,20,(new Image("testSprites/testSprite2.png")),lvl0L);
-        lvl1E.setStats(300,15,25,(new Image("testSprites/testSprite2.png")),lvl1L);
-        lvl2E.setStats(400,30,40,(new Image("testSprites/testSprite2.png")),lvl2L);
-        lvl3E.setStats(500,40,50,(new Image("testSprites/testSprite2.png")),lvl3L);
-        lvl4E.setStats(600,50,60,(new Image("testSprites/testSprite2.png")),lvl4L);
+        lvl0E.setStats(200,10,20,(new Image("realSprites/slime.png")),lvl0L);
+        lvl1E.setStats(300,15,25,(new Image("realSprites/ghoul.png")),lvl1L);
+        lvl2E.setStats(400,30,40,(new Image("realSprites/goblin.png")),lvl2L);
+        lvl3E.setStats(500,40,50,(new Image("realSprites/Armored_Skeleton.png")),lvl3L);
+        lvl4E.setStats(600,50,60,(new Image("realSprites/boss.png")),lvl4L);
     }
 
     public static void createRooms(){
