@@ -79,7 +79,8 @@ public class controllerBattle {
     public void battleText(int index, Object... args){
 
         String message = String.format(displayMessage.getMessage(index), args);
-        battleText.setText(message);
+        battleText.appendText("************\n");
+        battleText.appendText(message + "\n");
 
     }
 
@@ -93,15 +94,26 @@ public class controllerBattle {
 
 
     public void useManaPotion(ActionEvent actionEvent) {
-        Main.character.useManaPotion();
-        System.out.println("You used a 100 Mana Potion");
-        updateBars();
-        updateText();
+        if(Main.character.playerPotions[1] <= 0) {
+            battleText(6);
+        }else {
+            Main.character.useManaPotion();
+            System.out.println("You used a 100 Mana Potion");
+            updateBars();
+            updateText();
+            battle.enemyAttack();
+        }
     }
     public void useHealthPotion(ActionEvent actionEvent) {
-        Main.character.useHealthPotion();
-        System.out.println("You used a 100 Health Potion");
-        updateBars();
-        updateText();
+        System.out.println(Main.character.playerPotions[0]);
+        if(Main.character.playerPotions[0] <= 0) {
+            battleText(5);
+        } else {
+            Main.character.useHealthPotion();
+            System.out.println("You used a 100 Health Potion");
+            updateBars();
+            updateText();
+            battle.enemyAttack();
+        }
     }
 }
