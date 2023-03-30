@@ -8,7 +8,7 @@ public class displayMessage {
             "You use a health potion and restore %d health!",
             "You use a mana potion and restore %d mana!",
             "You have no health potions left!",
-            "You have no mana potions left!"
+            "You have no mana potions left!",
 
     };
 

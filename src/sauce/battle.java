@@ -27,13 +27,12 @@ public class battle {
         int[] damArray = opponent.calDamage();
 
         Main.character.changeHP(-damArray[0]);
-        damTaken += damArray[0];
+        damTaken = (int)(damArray[0]/(Main.character.eqItemArmor.armorPT*0.1));
 
         battleControl.battleText(2, "Enemy", damTaken);
         System.out.println("Health: " + Main.character.playHP);
         battleControl.updateText();
 
-        damTaken = 0;
 
         if (Main.character.playHP == 0) {
             endBattle();
@@ -43,14 +42,14 @@ public class battle {
     public static void playerAttack(){
         int[] damArray = Main.character.calDamage();
 
-        for(int n = 0; n != damArray.length; n++ ){
+        for(int n = 0; n < damArray.length; n++ ){
             opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
-            damDelt += damArray[n];
+            battleControl.battleText(1, damArray[n]);
         }
 
-        battleControl.battleText(1, damDelt);
+
         System.out.println("Enemy Health: " + opponent.HP);
-        damDelt = 0;
+
 
         if (opponent.HP == 0) {
             endBattle();
