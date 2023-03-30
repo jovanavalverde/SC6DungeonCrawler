@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 public class controllerBattle {
 
     public TextArea battleText;
+    private displayMessage displayMessage = new displayMessage();
     private controllerGame gameControl;
     private appDungGame app;
     @FXML
@@ -50,6 +51,7 @@ public class controllerBattle {
         /*Code within the Initialize method will run once the fxml is loaded.*/
         updateBars();
         updateText();
+        battleText(0);
 
         playerPos.setFill(sprite);
         enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
@@ -72,6 +74,12 @@ public class controllerBattle {
 
         enHPText.setText("HP: " + battle.opponent.HP + "/" + battle.opponent.maxHP);
 
+    }
+
+    public void battleText(int index, Object... args){
+
+        String message = String.format(displayMessage.getMessage(index), args);
+        battleText.setText(message);
 
     }
 
