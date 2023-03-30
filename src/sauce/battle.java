@@ -8,8 +8,8 @@ public class battle {
     static entEnemy opponent = dungeon.lvl0E;
     private static controllerBattle battleControl;
 
-    int[] damageDelt;
-    int[] damageTaken;
+    static int damDelt = 0;
+    static int damTaken = 0;
 
     public static void setApp(controllerBattle battleControl){
         /*This method sets the app variable to appDungGame application so the window can be changed.
@@ -27,8 +27,13 @@ public class battle {
         int[] damArray = opponent.calDamage();
 
         Main.character.changeHP(-damArray[0]);
+        damTaken += damArray[0];
+
+        battleControl.battleText(2, "Enemy", damTaken);
         System.out.println("Health: " + Main.character.playHP);
         battleControl.updateText();
+
+        damTaken = 0;
 
         if (Main.character.playHP == 0) {
             endBattle();
@@ -40,10 +45,12 @@ public class battle {
 
         for(int n = 0; n != damArray.length; n++ ){
             opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
-
+            damDelt += damArray[n];
         }
 
+        battleControl.battleText(1, damDelt);
         System.out.println("Enemy Health: " + opponent.HP);
+        damDelt = 0;
 
         if (opponent.HP == 0) {
             endBattle();
