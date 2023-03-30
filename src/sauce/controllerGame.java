@@ -149,11 +149,7 @@ public class controllerGame {
 
     public void testBattle(ActionEvent actionEvent) {
         if (currentRoom.opponent != null && !currentRoom.opponent.lootCollected) {
-            battle.opponent = (entEnemy) currentRoom.opponent;
-            battleControl.updateBars();
-            battleControl.updateText();
-            app.setScreen(app.getScene(2));
-            battleControl.enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
+            battleControl.buildBattle();
         }else {
             System.out.println("There is no enemy in this room.");
         }

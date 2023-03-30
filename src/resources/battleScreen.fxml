@@ -9,13 +9,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerBattle">
    <children>
-      <Button fx:id="buttonAttack" layoutX="181.0" layoutY="570.0" mnemonicParsing="false" onAction="#playerAttack" prefHeight="82.0" prefWidth="210.0" text="Attack" />
+      <Button fx:id="buttonAttack" layoutX="169.0" layoutY="478.0" mnemonicParsing="false" onAction="#playerAttack" prefHeight="40.0" prefWidth="243.0" text="Attack" />
       <Rectangle fx:id="healthBar" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="20.0" layoutX="116.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
       <Rectangle fx:id="manaBar" arcHeight="5.0" arcWidth="5.0" fill="#29b4ff" height="20.0" layoutX="116.0" layoutY="177.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
       <Rectangle fx:id="enemyHealthBar" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="20.0" layoutX="785.0" layoutY="157.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
       <Rectangle fx:id="playerPos" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="186.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
       <Rectangle fx:id="enemyPos" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="885.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-      <Button layoutX="490.0" layoutY="570.0" mnemonicParsing="false" onAction="#useManaPotion" prefHeight="82.0" prefWidth="200.0" text="ManaPotion" />
+      <Button layoutX="169.0" layoutY="579.0" mnemonicParsing="false" onAction="#useManaPotion" prefHeight="40.0" prefWidth="243.0" text="ManaPotion" />
       <Text fx:id="playHPText" layoutX="263.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
             <Font size="30.0" />
@@ -31,7 +31,10 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <TextArea fx:id="battleText" layoutX="835.0" layoutY="529.0" prefHeight="122.0" prefWidth="276.0" />
-      <Button layoutX="490.0" layoutY="488.0" mnemonicParsing="false" onAction="#useHealthPotion" prefHeight="82.0" prefWidth="200.0" text="Health Potion" />
+      <TextArea fx:id="battleText" layoutX="447.0" layoutY="478.0" prefHeight="200.0" prefWidth="732.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextArea>
+      <Button layoutX="169.0" layoutY="530.0" mnemonicParsing="false" onAction="#useHealthPotion" prefHeight="40.0" prefWidth="243.0" text="Health Potion" />
    </children>
 </AnchorPane>

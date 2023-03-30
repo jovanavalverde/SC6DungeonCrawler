@@ -51,7 +51,6 @@ public class controllerBattle {
         /*Code within the Initialize method will run once the fxml is loaded.*/
         updateBars();
         updateText();
-        battleText(0);
 
         playerPos.setFill(sprite);
         enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
@@ -67,7 +66,19 @@ public class controllerBattle {
 
     }
 
+    public void buildBattle(){
+        battle.opponent = (entEnemy) gameControl.currentRoom.opponent;
+        battleText.setText("");
+        updateBars();
+        updateText();
+        battleText(0);
+        app.setScreen(app.getScene(2));
+        enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
+
+    }
+
     public void updateText(){
+
 
         playHPText.setText("HP: " + Main.character.playHP + "/" + Main.character.playMaxHP);
         playMPText.setText("MP: " + Main.character.playMP + "/" + Main.character.playMaxMP);
@@ -101,6 +112,7 @@ public class controllerBattle {
             System.out.println("You used a 100 Mana Potion");
             updateBars();
             updateText();
+            battleText(4, 100);
             battle.enemyAttack();
         }
     }
@@ -113,6 +125,7 @@ public class controllerBattle {
             System.out.println("You used a 100 Health Potion");
             updateBars();
             updateText();
+            battleText(3, 100);
             battle.enemyAttack();
         }
     }
