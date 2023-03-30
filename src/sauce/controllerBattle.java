@@ -3,13 +3,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Text;
 
 public class controllerBattle {
 
     public TextArea battleText;
+    public Button buttonAttack;
     private displayMessage displayMessage = new displayMessage();
     private controllerGame gameControl;
     private appDungGame app;
@@ -23,8 +23,6 @@ public class controllerBattle {
     public Rectangle playerPos;
     @FXML
     Rectangle enemyPos;
-    @FXML
-    private Button buttonAttack;
     @FXML
     private Text playHPText;
     @FXML
@@ -56,7 +54,6 @@ public class controllerBattle {
         enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
     }
 
-
     public void updateBars(){
         healthBar.setWidth(400.0*Main.character.playHP/Main.character.playMaxHP);//400 being the pixel length of the bar.
 
@@ -66,19 +63,8 @@ public class controllerBattle {
 
     }
 
-    public void buildBattle(){
-        battle.opponent = (entEnemy) gameControl.currentRoom.opponent;
-        battleText.setText("");
-        updateBars();
-        updateText();
-        battleText(0);
-        app.setScreen(app.getScene(2));
-        enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
-
-    }
 
     public void updateText(){
-
 
         playHPText.setText("HP: " + Main.character.playHP + "/" + Main.character.playMaxHP);
         playMPText.setText("MP: " + Main.character.playMP + "/" + Main.character.playMaxMP);
@@ -87,11 +73,21 @@ public class controllerBattle {
 
     }
 
-    public void battleText(int index, Object... args){
+    public void updateBattleText(int index, Object... args){
 
-        String message = String.format(displayMessage.getMessage(index), args);
-        battleText.appendText("************\n");
+        String message = String.format(displayMessage.battleMessage[index], args);
         battleText.appendText(message + "\n");
+
+    }
+
+    public void buildBattle(){
+        battle.opponent = (entEnemy) gameControl.currentRoom.opponent;
+        battleText.setText("");
+        updateBars();
+        updateText();
+        updateBattleText(0);
+        app.setScreen(app.getScene(2));
+        enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
 
     }
 
@@ -106,26 +102,30 @@ public class controllerBattle {
 
     public void useManaPotion(ActionEvent actionEvent) {
         if(Main.character.playerPotions[1] <= 0) {
-            battleText(6);
+            updateBattleText(6);
         }else {
+            battle.turnCount += 1;
             Main.character.useManaPotion();
             System.out.println("You used a 100 Mana Potion");
             updateBars();
             updateText();
-            battleText(4, 100);
+            updateBattleText(7,battle.turnCount);
+            updateBattleText(4, 100);
             battle.enemyAttack();
         }
     }
     public void useHealthPotion(ActionEvent actionEvent) {
         System.out.println(Main.character.playerPotions[0]);
         if(Main.character.playerPotions[0] <= 0) {
-            battleText(5);
+            updateBattleText(5);
         } else {
+            battle.turnCount += 1;
             Main.character.useHealthPotion();
             System.out.println("You used a 100 Health Potion");
             updateBars();
             updateText();
-            battleText(3, 100);
+            updateBattleText(7,battle.turnCount);
+            updateBattleText(3, 100);
             battle.enemyAttack();
         }
     }
