@@ -8,8 +8,8 @@ public class battle {
     static entEnemy opponent = dungeon.lvl0E;
     private static controllerBattle battleControl;
 
-    static int damDelt = 0;
     static int damTaken = 0;
+    public static  int turnCount = 0;
 
     public static void setApp(controllerBattle battleControl){
         /*This method sets the app variable to appDungGame application so the window can be changed.
@@ -18,10 +18,6 @@ public class battle {
         battle.battleControl = battleControl;
     }
 
-    public static void updateBattle(entEnemy newOpponent){
-        opponent = newOpponent;
-        battleControl.updateBars();
-    }
 
     public static void enemyAttack(){
         int[] damArray = opponent.calDamage();
@@ -29,9 +25,12 @@ public class battle {
         Main.character.changeHP(-damArray[0]);
         damTaken = (int)(damArray[0]/(Main.character.eqItemArmor.armorPT*0.1));
 
-        battleControl.battleText(2, "Enemy", damTaken);
+        battleControl.updateBattleText(2, "Enemy", damTaken);
         System.out.println("Health: " + Main.character.playHP);
         battleControl.updateText();
+
+
+
 
 
         if (Main.character.playHP == 0) {
@@ -40,11 +39,14 @@ public class battle {
     }
 
     public static void playerAttack(){
+        turnCount += 1;
+        battleControl.updateBattleText(7,turnCount);
+
         int[] damArray = Main.character.calDamage();
 
         for(int n = 0; n < damArray.length; n++ ){
             opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
-            battleControl.battleText(1, damArray[n]);
+            battleControl.updateBattleText(1, damArray[n]);
         }
 
 
@@ -60,6 +62,7 @@ public class battle {
     }
 
     public static void endBattle() {
+        turnCount = 0;
         Main.character.playMP = 100;
     if(Main.character.playHP == 0){
         System.out.println("You died.");

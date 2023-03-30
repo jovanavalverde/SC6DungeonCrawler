@@ -91,8 +91,17 @@ public class player implements entity {
         }
         return endDam;
     }
-    //--------------------X--------------------
+    //--------------------Special attacks--------------------
 
 
-
+    public int[] fireball(){
+        int[] endDam = new int[1];
+        if (playMP >= 50){
+            endDam[0] = eqItemWeapon.calItemDamage()*2;
+            playMP = playMP - 50;
+        } else {
+            endDam = calMagicAtk();
+        }
+        return endDam;
+    }
 }
