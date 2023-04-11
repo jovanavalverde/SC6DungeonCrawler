@@ -14,7 +14,7 @@ public class appDungGame extends Application {
 private Stage window;
 
 /*sceneArray[] will hold the two scenes that will be frequently reused(The game screen and the inventory screen).*/
-private Scene[] sceneArray = new Scene[2];
+private Scene[] sceneArray = new Scene[3];
 
 
 public void setScreen(Scene s){
@@ -36,30 +36,42 @@ public Scene getScene(int n){
         FXMLLoader invLoader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("inventoryScreen.fxml")));
         FXMLLoader battleLoader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("battleScreen.fxml")));
 
+        dungeon.createEnemies();
+        dungeon.createRooms();
+
         sceneArray[0] =  new Scene(gameLoader.load());
         sceneArray[1] =  new Scene(invLoader.load());
+        sceneArray[2] = new Scene(battleLoader.load());
+
+
 
         Parent start = startLoader.load();
         window.setTitle("Super Duper Dungeon");
         Scene startScr = new Scene(start);
         window.setScene(startScr);
 
+
+
+
+
         controllerStart startControl = startLoader.getController();
         controllerGame gameControl = gameLoader.getController();
         controllerInventory invControl = invLoader.getController();
-        invControl.setApp(this,gameControl);
-        gameControl.setApp(this,invControl);
-        startControl.setApp(this);
+        controllerBattle battleControl = battleLoader.getController();
+        invControl.setApp(this, gameControl);
+        gameControl.setApp(this, invControl, battleControl);
+        startControl.setApp(this, gameControl, battleControl);
+        battleControl.setApp(this,gameControl);
+        Main.setApp(this, invControl, battleControl, gameControl);
+        battle.setApp(battleControl);
 
 
-        dungeon.createWeapons(Main.character);
-        dungeon.createArmor(Main.character);
 
 
 
-        Main.character.playerInventory[1]= dungeon.lvl2A;
-        Main.character.playerInventory[2]= dungeon.lvl2W;
-        Main.character.playerInventory[3]= dungeon.lvl4A;
+
+
+
 
 
         window.show();

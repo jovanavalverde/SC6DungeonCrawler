@@ -5,56 +5,82 @@ image or sprite, try to save it as we may use it in animations.
 public class battle {
 
 
-    dungeon x1 = new dungeon();
-    dungeon x2 = new dungeon();
+    static entEnemy opponent = dungeon.lvl0E;
+    private static controllerBattle battleControl;
 
-    entEnemy opponent;
+    static int damTaken = 0;
+    public static  int turnCount = 0;
 
-    public void battleStart( int enemyDam){
-        boolean fight = true;
+    public static void setApp(controllerBattle battleControl){
+        /*This method sets the app variable to appDungGame application so the window can be changed.
+        And sets invControl to the inventoryScreen.fxml controller, so it can be altered from this controller.*/
 
-        while(fight) {
-            playerAttack(); //This needs to assigned to a button in javafx
-            //methods are called for testing
-
-            if(Main.character.playHP == 0 || opponent.HP == 0){
-                fight = endBattle();
-            }
-
-            enemyAttack();
-
-            if(Main.character.playHP == 0 || opponent.HP == 0){
-                fight = endBattle();
-            }
+        battle.battleControl = battleControl;
+    }
 
 
+    public static void enemyAttack(){
+        int[] damArray = opponent.calDamage();
+
+        Main.character.changeHP(-damArray[0]);
+        damTaken = (int)(damArray[0]/(Main.character.eqItemArmor.armorPT*0.1));
+
+        battleControl.updateBattleText(2, "Enemy", damTaken);
+        System.out.println("Health: " + Main.character.playHP);
+        battleControl.updateText();
+
+
+
+
+
+        if (Main.character.playHP == 0) {
+            endBattle();
         }
     }
 
-    public void enemyAttack(){
-        int[] damArray = opponent.calDamage();
-        Main.character.changeHP(damArray[0]);
+    public static void playerAttack(){
+        turnCount += 1;
+        battleControl.updateBattleText(7,turnCount);
 
-    }
-
-    public void playerAttack(){
         int[] damArray = Main.character.calDamage();
 
-        for(int n = 0; n != damArray.length; n++ ){
-            opponent.changeHP(damArray[n]); //Needs to update health observer/ health bar
+        for(int n = 0; n < damArray.length; n++ ){
+            opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
+            battleControl.updateBattleText(1, damArray[n]);
+        }
+
+
+        System.out.println("Enemy Health: " + opponent.HP);
+
+
+        if (opponent.HP == 0) {
+            endBattle();
+        }else {
+            enemyAttack();
         }
 
     }
 
-    public boolean endBattle() {
+    public static void endBattle() {
+        turnCount = 0;
+        Main.character.playMP = 100;
     if(Main.character.playHP == 0){
-        return false;
+        System.out.println("You died.");
+        opponent.HP = opponent.maxHP;
+        battleControl.endBattle();
         }else if(opponent.HP == 0){
-        return false;
+        System.out.println("Enemy died.");
+
+        opponent.addLoot();
+        Main.character.playerPotions[0]++;
+        Main.character.playerPotions[1]++;
+
+        battleControl.endBattle();
         }else {
         System.out.println("Error endBattle() was incorrectly called.");
-        return false;
+
     }
+
 
     }
 }

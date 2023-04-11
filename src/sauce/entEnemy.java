@@ -6,11 +6,35 @@ Sprites: Several small bad guy sprites (Goblins, ghouls, slimes, etc...)
 public class entEnemy extends entityDecorator {
 
 Image entSprite;
-    public void setStats(int health, int damMin, int damMax, Image entSprite){
-        this.HP = health;
+item[] loot = new item[4];
+
+    public void setStats(int health, int damMin, int damMax, Image entSprite, item[] loot){
+        this.maxHP = health;
         this.entDamRange[0] = damMin;
         this.entDamRange[1] = damMax;
         this.entSprite = entSprite;
+        this.loot = loot;
+        this.HP = this.maxHP;
+    }
+
+    public void addLoot(){
+        /*This method will scan the loot array and scan the player inventory then add
+        the loot to the open slots of the players inventory. Skipping all null slots.*/
+        if(!lootCollected) {
+            for (int n = 0; n < loot.length; n++) {
+
+                if (loot[n] != null) {
+
+                    for (int b = 1; b <= 12; b++) {
+                        if (Main.character.playerInventory[b] == null) {
+                            Main.character.playerInventory[b] = (itemGearDecorator) loot[n];
+                            b = 13;
+                        }
+                    }
+                }
+            }
+            lootCollected = true;
+        }
     }
 
 

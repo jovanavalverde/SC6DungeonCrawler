@@ -3,24 +3,46 @@ Sprites: At least one small sprite for each player class.(Mage, Rogue, and Warri
  */
 public class player implements entity {
 
-    int playHP = 10;
-    int playMP = 90;
+    int playHP = 100;
+    int playMaxHP = 100;
+    int playMP = 100;
+    int playMaxMP = 100;
 
     itemGearDecorator[] playerInventory = new itemGearDecorator[13];/*For organization purposes,
                                                                    playerInventory[0] will remain empty.*/
 
-    int[] playerPotions = new int[2];//First value is amount of healing potions and second is amount of mana potions.
+    int[] playerPotions = {0,0};//First value is amount of healing potions and second is amount of mana potions.
+
     itemWeapon eqItemWeapon;
     itemArmor eqItemArmor;//For now, there will only be one equipable armor piece. Rather than a "Helmet","Gauntlet","Shield" etc...
-    String playClass = "mage";//Must manually set for testing, until player selection is created.
-    int playerSprite;//Just a placeholder for now.
+    String playClass = "default";
 
     @Override
     public void changeHP(int change) {
         /*This method will both change the player's health, and determine
         how much damage is negated from armor. Subject to balancing.*/
-        double bla = change/(0.2*eqItemArmor.armorPT);
+        double bla = change/(eqItemArmor.armorPT*0.1);
         playHP = playHP + (int)(bla);
+        if (playHP < 0){
+            playHP = 0;
+        }
+    }
+
+    public void useHealthPotion(){
+        playHP = playHP + 100;
+        if (playHP > playMaxHP) {
+            playHP = playMaxHP;
+        }
+        System.out.println("Drunk 100 HP potion");
+        this.playerPotions[0]--;
+    }
+
+    public void useManaPotion(){
+        playMP = playMP + 100;
+        if (playMP > playMaxMP){
+            playMP = playMaxMP;
+        }
+        this.playerPotions[1]--;
     }
 
     @Override
@@ -34,9 +56,7 @@ public class player implements entity {
         } else if (eqItemWeapon.weaponType == "staff") {
             return calMagicAtk();
         }else {
-            int[] errorArray = new int[1];
-            errorArray[0] = 555;
-            return errorArray;
+            return new int[]{555};
         }
 
     }
@@ -71,8 +91,17 @@ public class player implements entity {
         }
         return endDam;
     }
-    //--------------------X--------------------
+    //--------------------Special attacks--------------------
 
 
-
+    public int[] fireball(){
+        int[] endDam = new int[1];
+        if (playMP >= 50){
+            endDam[0] = eqItemWeapon.calItemDamage()*2;
+            playMP = playMP - 50;
+        } else {
+            endDam = calMagicAtk();
+        }
+        return endDam;
+    }
 }

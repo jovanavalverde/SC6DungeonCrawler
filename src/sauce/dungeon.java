@@ -22,7 +22,8 @@ public class dungeon {
     static entEnemy lvl2E = new entEnemy();
     static entEnemy lvl3E = new entEnemy();
     static entEnemy lvl4E = new entEnemy();
-
+//--------------------Room--------------------
+public static room[] allRooms = new room[13];
 //--------------------XXX--------------------
 
 
@@ -31,23 +32,23 @@ public class dungeon {
     public static void createWeapons(player player){
         /*This method detects the players class then sets the stats of the weapons in accordance.*/
         if (player.playClass == "mage"){
-            lvl0W.setStats(20,30,"staff",(new Image("testSprites/testStaff0.png")));
-            lvl1W.setStats(30,40,"staff",(new Image("testSprites/testStaff1.png")));
-            lvl2W.setStats(40,50,"staff",(new Image("testSprites/testStaff2.png")));
-            lvl3W.setStats(50,60,"staff",(new Image("testSprites/testStaff3.png")));
-            lvl4W.setStats(60,70,"staff",(new Image("testSprites/testStaff4.png")));
+            lvl0W.setStats(30,40,"staff",(new Image("testSprites/testStaff0.png")));
+            lvl1W.setStats(40,50,"staff",(new Image("testSprites/testStaff1.png")));
+            lvl2W.setStats(50,60,"staff",(new Image("testSprites/testStaff2.png")));
+            lvl3W.setStats(60,70,"staff",(new Image("testSprites/testStaff3.png")));
+            lvl4W.setStats(75,85,"staff",(new Image("testSprites/testStaff4.png")));
         } else if (player.playClass == "warrior"){
-            lvl0W.setStats(10,20,"sword",(new Image("realSprites/sword.png")));
-            lvl1W.setStats(20,30,"sword",(new Image("realSprites/sword.png")));
-            lvl2W.setStats(30,40,"sword",(new Image("realSprites/sword.png")));
-            lvl3W.setStats(40,50,"sword",(new Image("realSprites/sword.png")));
-            lvl4W.setStats(50,60,"sword",(new Image("realSprites/sword.png")));
+            lvl0W.setStats(10,20,"sword",(new Image("testSprites/sword0.png")));
+            lvl1W.setStats(20,30,"sword",(new Image("testSprites/sword1.png")));
+            lvl2W.setStats(30,40,"sword",(new Image("testSprites/sword2.png")));
+            lvl3W.setStats(40,50,"sword",(new Image("testSprites/sword3.png")));
+            lvl4W.setStats(50,60,"sword",(new Image("testSprites/sword4.png")));
         }else if (player.playClass == "rogue"){
-            lvl0W.setStats(5,10,"daggers",(new Image("realSprites/daggers.png")));
-            lvl1W.setStats(10,15,"daggers",(new Image("realSprites/daggers.png")));
-            lvl2W.setStats(15,20,"daggers",(new Image("realSprites/daggers.png")));
-            lvl3W.setStats(20,25,"daggers",(new Image("realSprites/daggers.png")));
-            lvl4W.setStats(25,30,"daggers",(new Image("realSprites/daggers.png")));
+            lvl0W.setStats(10,15,"daggers",(new Image("testSprites/daggers0.png")));
+            lvl1W.setStats(15,20,"daggers",(new Image("testSprites/daggers1.png")));
+            lvl2W.setStats(20,25,"daggers",(new Image("testSprites/daggers2.png")));
+            lvl3W.setStats(25,30,"daggers",(new Image("testSprites/daggers3.png")));
+            lvl4W.setStats(30,35,"daggers",(new Image("testSprites/daggers4.png")));
         }else {
             System.out.println("playClass not set to correct value.");
         }
@@ -60,31 +61,61 @@ public class dungeon {
             lvl1A.setStats(35, "robe",(new Image("testSprites/testRobes1.png")));
             lvl2A.setStats(45, "robe",(new Image("testSprites/testRobes2.png")));
             lvl3A.setStats(55, "robe",(new Image("testSprites/testRobes3.png")));
-            lvl4A.setStats(65, "robe",(new Image("testSprites/testRobes4.png")));
+            lvl4A.setStats(75, "robe",(new Image("testSprites/testRobes4.png")));
         } else if (player.playClass == "rogue"){
-            lvl0A.setStats(50, "light",(new Image("realSprites/light.png")));
-            lvl1A.setStats(60, "light",(new Image("realSprites/light.png")));
-            lvl2A.setStats(70, "light",(new Image("realSprites/light.png")));
-            lvl3A.setStats(80, "light",(new Image("realSprites/light.png")));
-            lvl4A.setStats(90, "light",(new Image("realSprites/light.png")));
+            lvl0A.setStats(40, "light",(new Image("testSprites/light0.png")));
+            lvl1A.setStats(50, "light",(new Image("testSprites/light1.png")));
+            lvl2A.setStats(60, "light",(new Image("testSprites/light2.png")));
+            lvl3A.setStats(70, "light",(new Image("testSprites/light3.png")));
+            lvl4A.setStats(80, "light",(new Image("testSprites/light4.png")));
         }else if (player.playClass == "warrior"){
-            lvl0A.setStats(80, "heavy",(new Image("realSprites/heavy.png")));
-            lvl1A.setStats(90, "heavy",(new Image("realSprites/heavy.png")));
-            lvl2A.setStats(100, "heavy",(new Image("realSprites/heavy.png")));
-            lvl3A.setStats(110, "heavy",(new Image("realSprites/heavy.png")));
-            lvl4A.setStats(120, "heavy",(new Image("realSprites/heavy.png")));
+            lvl0A.setStats(80, "heavy",(new Image("testSprites/heavy0.png")));
+            lvl1A.setStats(90, "heavy",(new Image("testSprites/heavy1.png")));
+            lvl2A.setStats(100, "heavy",(new Image("testSprites/heavy2.png")));
+            lvl3A.setStats(110, "heavy",(new Image("testSprites/heavy3.png")));
+            lvl4A.setStats(120, "heavy",(new Image("testSprites/heavy4.png")));
         }else {
             System.out.println("playClass not set to correct value.");
         }
     }
 
     public static void createEnemies(){
+        item[] lvl0L = new item[2];//This is empty for now due to the lvl0 weapon and armor being pre-acquired.
+        item[] lvl1L = new item[2];
+        lvl1L[0] = lvl1W;
+        lvl1L[1] = lvl1A;
+        item[] lvl2L = new item[2];
+        lvl2L[0] = lvl2W;
+        lvl2L[1] = lvl2A;
+        item[] lvl3L = new item[2];
+        lvl3L[0] = lvl3W;
+        lvl3L[1] = lvl3A;
+        item[] lvl4L = new item[2];
+        lvl4L[0] = lvl4W;
+        lvl4L[1] = lvl4A;
+        lvl0E.setStats(200,10,20,(new Image("realSprites/slime.png")),lvl0L);
+        lvl1E.setStats(300,15,25,(new Image("realSprites/ghoul.png")),lvl1L);
+        lvl2E.setStats(400,30,40,(new Image("realSprites/goblin.png")),lvl2L);
+        lvl3E.setStats(500,40,50,(new Image("realSprites/Armored_Skeleton.png")),lvl3L);
+        lvl4E.setStats(600,50,60,(new Image("realSprites/boss.png")),lvl4L);
+    }
 
-        lvl0E.setStats(200,10,30,(new Image("testSprites/testSprite2.png")));
-        lvl1E.setStats(300,20,30,(new Image("testSprites/testSprite2.png")));
-        lvl2E.setStats(400,30,40,(new Image("testSprites/testSprite2.png")));
-        lvl3E.setStats(500,40,50,(new Image("testSprites/testSprite2.png")));
-        lvl4E.setStats(600,50,60,(new Image("testSprites/testSprite2.png")));
+    public static void createRooms(){
+        //For testing purposes, all rooms are filled with lvl0E enemy.
+        allRooms[0] = new room(0,0,0);
+        allRooms[1] = new room(1,0,1);
+        allRooms[2] = new room(lvl0E,2,0,2);
+        allRooms[3] = new room(3,0,3);
+        allRooms[4] = new room(lvl1E,4,0,4);
+        allRooms[5] = new room(5,1,4);
+        allRooms[6] = new room(lvl2E,6,2,4);
+        allRooms[7] = new room(7,3,4);
+        allRooms[8] = new room(lvl3E,8,4,4);
+        allRooms[9] = new room(9,5,4);
+        allRooms[10] = new room(lvl4E,10,6,4);
+        allRooms[11] = new room(11,6,3);
+        allRooms[12] = new room(12,6,2);
+
     }
 
     public static void createBoss(){
