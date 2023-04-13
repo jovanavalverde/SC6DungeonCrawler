@@ -13,7 +13,7 @@
       <Pane layoutX="362.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="950.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="340.0" AnchorPane.topAnchor="10.0">
          <children>
             <Rectangle fx:id="gameScreen" arcHeight="5.0" arcWidth="5.0" fill="#25282c" height="680.0" stroke="BLACK" strokeType="INSIDE" width="950.0" />
-            <Rectangle fx:id="fred" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="40.0" layoutY="566.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+            <Rectangle fx:id="fred" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
             <Rectangle fx:id="hBarFrame" arcHeight="5.0" arcWidth="5.0" fill="#66727c" height="26.0" layoutX="530.0" layoutY="584.0" stroke="BLACK" strokeType="INSIDE" width="406.0" />
             <Rectangle fx:id="healthBar" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="20.0" layoutX="533.0" layoutY="587.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
             <Rectangle fx:id="mBarFrame" arcHeight="5.0" arcWidth="5.0" fill="#66727c" height="26.0" layoutX="530.0" layoutY="631.0" stroke="BLACK" strokeType="INSIDE" width="406.0" />
@@ -23,6 +23,7 @@
                   <Font size="200.0" />
                </font>
             </Text>
+            <Rectangle fx:id="enemy0" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="22.0" layoutY="53.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
          </children>
       </Pane>
       <Button layoutX="1205.0" layoutY="496.0" mnemonicParsing="false" onAction="#moveRight" prefHeight="65.0" prefWidth="90.0" text="right" />
