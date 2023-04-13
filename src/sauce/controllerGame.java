@@ -63,7 +63,8 @@ public class controllerGame {
     public void moveUp(ActionEvent actionEvent) {
         if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
             if (attemptMove(1, "y")) {
-                fred.setTranslateY(fred.getTranslateY() - 123);
+                fred.setLayoutX(currentRoom.coordinates[0]);
+                fred.setLayoutY(currentRoom.coordinates[1]);
             }
         }else {
             System.out.println("Opponent not defeated.");
@@ -72,7 +73,8 @@ public class controllerGame {
     public void moveDown(ActionEvent actionEvent) {
         if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
             if (attemptMove(-1, "y")) {
-                fred.setTranslateY(fred.getTranslateY() + 123);
+                fred.setLayoutX(currentRoom.coordinates[0]);
+                fred.setLayoutY(currentRoom.coordinates[1]);
             }
         }else {
             System.out.println("Opponent not defeated.");
@@ -81,7 +83,8 @@ public class controllerGame {
     public void moveLeft(ActionEvent actionEvent) {
         if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
             if (attemptMove(-1, "x")) {
-                fred.setTranslateX(fred.getTranslateX() - 123);
+                fred.setLayoutX(currentRoom.coordinates[0]);
+                fred.setLayoutY(currentRoom.coordinates[1]);
             }
         }else {
             System.out.println("Opponent not defeated.");
@@ -90,7 +93,8 @@ public class controllerGame {
     public void moveRight(ActionEvent actionEvent) {
         if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
             if (attemptMove(1, "x")) {
-                fred.setTranslateX(fred.getTranslateX() + 123);
+                fred.setLayoutX(currentRoom.coordinates[0]);
+                fred.setLayoutY(currentRoom.coordinates[1]);
             }
         }else {
             System.out.println("Opponent not defeated.");
@@ -102,24 +106,30 @@ public class controllerGame {
             newCord = currentRoom.location[0]+n;
             for(int i = 0; i< dungeon.allRooms.length; i++){
 
-                if(dungeon.allRooms[i].location[0] == newCord && dungeon.allRooms[i].location[1] == currentRoom.location[1]){
-                    System.out.println("X:"+i+"Room cords:"+dungeon.allRooms[i].location[0]+","+dungeon.allRooms[i].location[1]);
-                    System.out.printf(newCord+"\n");
-                    currentRoom = dungeon.allRooms[i];
-                    testWin();
-                    return true;
+                if (dungeon.allRooms[i] != null) {
+
+                    if (dungeon.allRooms[i].location[0] == newCord && dungeon.allRooms[i].location[1] == currentRoom.location[1]) {
+                        System.out.println("X:" + i + "Room cords:" + dungeon.allRooms[i].location[0] + "," + dungeon.allRooms[i].location[1]);
+                        System.out.printf(newCord + "\n");
+                        currentRoom = dungeon.allRooms[i];
+                        testWin();
+                        return true;
+                    }
                 }
             }
         } else if (t == "y") {
             newCord = currentRoom.location[1]+n;
             for(int i = 0; i< dungeon.allRooms.length; i++){
 
-                if(dungeon.allRooms[i].location[1] == newCord && dungeon.allRooms[i].location[0] == currentRoom.location[0]){
-                    System.out.println("Y:"+i+"Room cords:"+dungeon.allRooms[i].location[0]+","+dungeon.allRooms[i].location[1]);
-                    System.out.printf(newCord+"\n");
-                    currentRoom = dungeon.allRooms[i];
-                    testWin();
-                    return true;
+                if (dungeon.allRooms[i] != null) {
+
+                    if (dungeon.allRooms[i].location[1] == newCord && dungeon.allRooms[i].location[0] == currentRoom.location[0]) {
+                        System.out.println("Y:" + i + "Room cords:" + dungeon.allRooms[i].location[0] + "," + dungeon.allRooms[i].location[1]);
+                        System.out.printf(newCord + "\n");
+                        currentRoom = dungeon.allRooms[i];
+                        testWin();
+                        return true;
+                    }
                 }
             }
         }

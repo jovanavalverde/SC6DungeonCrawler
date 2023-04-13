@@ -1,6 +1,7 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
@@ -28,6 +29,7 @@ private appDungGame app;
 
 controllerGame gameControl;
 controllerBattle battleControl;
+controllerInventory invControl;
 @FXML
 private Rectangle startBackground;
 
@@ -44,11 +46,12 @@ private Rectangle startBackground;
     }
 
 
-public void setApp(appDungGame app, controllerGame gameControl, controllerBattle battleControl){
+public void setApp(appDungGame app, controllerGame gameControl, controllerBattle battleControl, controllerInventory invControl){
     /*This method sets the app variable to appDungGame application so the window can be changed.*/
     this.app = app;
     this.gameControl = gameControl;
     this.battleControl = battleControl;
+    this.invControl = invControl;
 }
 
     public void startGame(){
@@ -67,6 +70,28 @@ public void setApp(appDungGame app, controllerGame gameControl, controllerBattle
             System.out.println("Error, playClass not set properly.");
         }
         battleControl.playerPos.setFill(battleControl.sprite);
+
+        {
+            ImageView img = new ImageView("realSprites/Healing_Potion.png");
+            img.setPreserveRatio(true);
+            img.fitWidthProperty().bind(invControl.manaSlot.widthProperty());
+            img.fitHeightProperty().bind(invControl.manaSlot.heightProperty());
+            invControl.healthSlot.setGraphic(img);
+
+            if (Main.character.playClass == "mage") {
+                ImageView img2 = new ImageView("realSprites/Mana_Potion.png");
+                img2.setPreserveRatio(true);
+                img2.fitWidthProperty().bind(invControl.manaSlot.widthProperty());
+                img2.fitHeightProperty().bind(invControl.manaSlot.heightProperty());
+                invControl.manaSlot.setGraphic(img2);
+            }else {
+                ImageView img2 = new ImageView("realSprites/Stamina_Potion.png");
+                img2.setPreserveRatio(true);
+                img2.fitWidthProperty().bind(invControl.manaSlot.widthProperty());
+                img2.fitHeightProperty().bind(invControl.manaSlot.heightProperty());
+                invControl.manaSlot.setGraphic(img2);
+            }
+        }//Setting potion button sprites.
     }
 
     public void selectClass(ActionEvent actionEvent) {

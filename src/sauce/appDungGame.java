@@ -39,6 +39,9 @@ public Scene getScene(int n){
         dungeon.createEnemies();
         dungeon.createRooms();
 
+        //Uncomment for test run mode
+        //dungeon.testRun();
+
         sceneArray[0] =  new Scene(gameLoader.load());
         sceneArray[1] =  new Scene(invLoader.load());
         sceneArray[2] = new Scene(battleLoader.load());
@@ -60,7 +63,7 @@ public Scene getScene(int n){
         controllerBattle battleControl = battleLoader.getController();
         invControl.setApp(this, gameControl);
         gameControl.setApp(this, invControl, battleControl);
-        startControl.setApp(this, gameControl, battleControl);
+        startControl.setApp(this, gameControl, battleControl, invControl);
         battleControl.setApp(this,gameControl);
         Main.setApp(this, invControl, battleControl, gameControl);
         battle.setApp(battleControl);

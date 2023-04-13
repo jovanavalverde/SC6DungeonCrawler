@@ -38,9 +38,9 @@ public class controllerInventory {
     @FXML
     private Button slot10;
     @FXML
-    private Button manaSlot;
+     Button manaSlot;
     @FXML
-    private Button healthSlot;
+     Button healthSlot;
     public Text manaText;
     public Text healthText;
     @FXML
@@ -82,19 +82,6 @@ public class controllerInventory {
         invButtons[14] = slotEqAr;}//Setting Buttons to invButtons[], 13 = eqWeapon, 14 = eqArmor.
         updateInv();
 
-        {ImageView img = new ImageView("realSprites/Healing_Potion.png");//We don't have a health potion sprite yet.
-        img.setPreserveRatio(true);
-        img.fitWidthProperty().bind(slot1.widthProperty());
-        img.fitHeightProperty().bind(slot1.heightProperty());
-        healthSlot.setGraphic(img);
-
-        ImageView img2 = new ImageView("realSprites/Mana_Potion.png");//We don't have a mana potion sprite yet.
-        img2.setPreserveRatio(true);
-        img2.fitWidthProperty().bind(slot1.widthProperty());
-        img2.fitHeightProperty().bind(slot1.heightProperty());
-        manaSlot.setGraphic(img2);}//Setting potion button sprites.
-
-
     }
 
     public void closeInventory(ActionEvent actionEvent) {
@@ -126,6 +113,7 @@ public class controllerInventory {
         img2.fitWidthProperty().bind(slot1.widthProperty());
         img2.fitHeightProperty().bind(slot1.heightProperty());
         slotEqAr.setGraphic(img2);}//Updates the equipped gear buttons
+
         healthText.setText(String.valueOf(Main.character.playerPotions[0]));
         manaText.setText(String.valueOf(Main.character.playerPotions[1]));
 
@@ -136,7 +124,7 @@ public class controllerInventory {
 
 
     public void useItem(ActionEvent actionEvent) {
-        /*This method will equip the weapon/armor piece and drink the potion when clicked.*/
+        /*This method will equip the weapon/armor piece when clicked.*/
         for (int n = 0; n <= 12; n++) {
 
             if (actionEvent.getSource() == invButtons[n]) {
