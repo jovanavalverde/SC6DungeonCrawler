@@ -70,18 +70,18 @@ public class player implements entity {
     }
     //--------------------Determine attack strength Methods--------------------
     /*These methods are used in calDamage() for specific weapon type damage calculation.*/
-    public int[] calSwordAtk(){
+    private int[] calSwordAtk(){
         int[] endDam = new int[1];
         endDam[0] = eqItemWeapon.calItemDamage();
         return endDam;
     }
-    public int[] calDaggerAtk(){
+    private int[] calDaggerAtk(){
         int[] endDam = new int[2];
         endDam[0] = eqItemWeapon.calItemDamage();
         endDam[1] = eqItemWeapon.calItemDamage();
         return endDam;
     }
-    public int[] calMagicAtk(){//If player MP is not sufficient, attack damage will be reduced to 40%.
+    private int[] calMagicAtk(){//If player MP is not sufficient, attack damage will be reduced to 40%.
         int[] endDam = new int[1];
         if (playMP >= 10){
             endDam[0] = eqItemWeapon.calItemDamage();
@@ -94,7 +94,7 @@ public class player implements entity {
     //--------------------Special attacks--------------------
 
 
-    public int[] fireball(){
+    private int[] fireball(){
         int[] endDam = new int[1];
         if (playMP >= 50){
             endDam[0] = eqItemWeapon.calItemDamage()*2;

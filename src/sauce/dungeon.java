@@ -23,7 +23,7 @@ public class dungeon {
     static entEnemy lvl3E = new entEnemy();
     static entEnemy lvl4E = new entEnemy();
 //--------------------Room--------------------
-public static room[] allRooms = new room[13];
+public static room[] allRooms = new room[14];
 //--------------------XXX--------------------
 
 
@@ -99,22 +99,31 @@ public static room[] allRooms = new room[13];
         lvl3E.setStats(500,40,50,(new Image("realSprites/Armored_Skeleton.png")),lvl3L);
         lvl4E.setStats(600,50,60,(new Image("realSprites/boss.png")),lvl4L);
     }
+    public static void testRun(){
+        lvl0E.HP = 1;
+        lvl1E.HP = 1;
+        lvl2E.HP = 1;
+        lvl3E.HP = 1;
+        lvl4E.HP = 1;
+    }
 
     public static void createRooms(){
         //For testing purposes, all rooms are filled with lvl0E enemy.
-        allRooms[0] = new room(0,0,0);
-        allRooms[1] = new room(1,0,1);
-        allRooms[2] = new room(lvl0E,2,0,2);
-        allRooms[3] = new room(3,0,3);
-        allRooms[4] = new room(lvl1E,4,0,4);
-        allRooms[5] = new room(5,1,4);
-        allRooms[6] = new room(lvl2E,6,2,4);
-        allRooms[7] = new room(7,3,4);
-        allRooms[8] = new room(lvl3E,8,4,4);
-        allRooms[9] = new room(9,5,4);
-        allRooms[10] = new room(lvl4E,10,6,4);
-        allRooms[11] = new room(11,6,3);
-        allRooms[12] = new room(12,6,2);
+        allRooms[0] = new room(0,0,0,55,581);
+        allRooms[1] = new room(1,0,1,55,458);
+        allRooms[2] = new room(lvl0E,2,0,2,54,335);
+        allRooms[3] = new room(3,0,3,54,212);
+        allRooms[4] = new room(lvl1E,4,0,4,54,89);
+        allRooms[5] = new room(5,1,4,177,89);
+        allRooms[6] = new room(lvl2E,6,2,4,300,89);
+        allRooms[7] = new room(7,3,4,423,89);
+        allRooms[8] = new room(lvl3E,8,4,4,546,89);
+        allRooms[9] = new room(9,5,4,669,89);
+        allRooms[10] = new room(lvl4E,10,6,4,792,89);
+        allRooms[11] = new room(11,6,3,793,212);
+        allRooms[12] = new room(12,6,2,792,337);
+
+
 
     }
 
