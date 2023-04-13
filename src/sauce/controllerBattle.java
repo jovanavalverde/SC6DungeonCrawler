@@ -37,13 +37,11 @@ public class controllerBattle {
     void playerAttack(ActionEvent event){
 
         battle.playerAttack();
-        updateBars();
     }
 
     @FXML
     void playerSpecialAttack(ActionEvent event){
        battle.playerSpecialAttack();
-       updateBars();
     }
 
     public void setApp(appDungGame app,controllerGame gameControl){
