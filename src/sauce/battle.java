@@ -2,6 +2,7 @@
 Sprites: These are very low priority. If anyone comes across some "Slash" or "Magic strike"
 image or sprite, try to save it as we may use it in animations.
  */
+
 public class battle {
 
 
@@ -19,19 +20,16 @@ public class battle {
     }
 
 
-    public static void enemyAttack(){
+    public static void enemyAttack() {
         int[] damArray = opponent.calDamage();
 
+        //Main.timeDelay(1000);
         Main.character.changeHP(-damArray[0]);
         damTaken = (int)(damArray[0]/(Main.character.eqItemArmor.armorPT*0.1));
 
         battleControl.updateBattleText(2, "Enemy", damTaken);
-        System.out.println("Health: " + Main.character.playHP);
+        //System.out.println("Health: " + Main.character.playHP);
         battleControl.updateText();
-
-
-
-
 
         if (Main.character.playHP == 0) {
             endBattle();
@@ -47,11 +45,10 @@ public class battle {
         for(int n = 0; n < damArray.length; n++ ){
             opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
             battleControl.updateBattleText(1, damArray[n]);
+            battleControl.updateBars();
         }
 
-
-        System.out.println("Enemy Health: " + opponent.HP);
-
+        //System.out.println("Enemy Health: " + opponent.HP);
 
         if (opponent.HP == 0) {
             endBattle();
@@ -59,6 +56,26 @@ public class battle {
             enemyAttack();
         }
 
+    }
+
+    public static void playerSpecialAttack(){
+        turnCount += 1;
+        battleControl.updateBattleText(7,turnCount);
+
+        int[] damArray = Main.character.calDamage(); //needs to be changed to calSpecialDamage() when method is created
+
+        for(int n = 0; n < damArray.length; n++ ){
+            opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
+            battleControl.updateBattleText(1, damArray[n]);
+        }
+
+        //System.out.println("Enemy Health: " + opponent.HP);
+
+        if (opponent.HP == 0) {
+            endBattle();
+        }else {
+            enemyAttack();
+        }
     }
 
     public static void endBattle() {

@@ -25,6 +25,15 @@ public class Main {
         return ranDam;
     }
 
+    public static void timeDelay(int x)  {
+
+        try {
+            Thread.sleep(x);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 
 

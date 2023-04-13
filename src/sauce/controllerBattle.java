@@ -2,6 +2,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Text;
@@ -34,8 +35,15 @@ public class controllerBattle {
 
     @FXML
     void playerAttack(ActionEvent event){
+
         battle.playerAttack();
         updateBars();
+    }
+
+    @FXML
+    void playerSpecialAttack(ActionEvent event){
+       battle.playerSpecialAttack();
+       updateBars();
     }
 
     public void setApp(appDungGame app,controllerGame gameControl){
