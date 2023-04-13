@@ -60,15 +60,8 @@ public void setApp(appDungGame app, controllerGame gameControl, controllerBattle
         dungeon.createWeapons(Main.character);
         dungeon.createArmor(Main.character);
         gameControl.setFred();
-        if (Main.character.playClass == "mage"){
-            battleControl.sprite = (new ImagePattern(new Image("realSprites/mage.png")));
-        } else if (Main.character.playClass == "rogue") {
-            battleControl.sprite = (new ImagePattern(new Image("realSprites/rogue.png")));
-        } else if (Main.character.playClass == "warrior") {
-            battleControl.sprite = (new ImagePattern(new Image("realSprites/warrior.png")));
-        }else {
-            System.out.println("Error, playClass not set properly.");
-        }
+        gameControl.setFloor1();
+
         battleControl.playerPos.setFill(battleControl.sprite);
 
         {

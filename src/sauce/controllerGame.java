@@ -39,21 +39,9 @@ public class controllerGame {
         this.battleControl = battleControl;
     }
 
-    public void setFred(){
-        if (Main.character.playClass == "mage"){
-            fred.setFill(new ImagePattern(new Image("realSprites/mage.png")));
-        } else if (Main.character.playClass == "rogue") {
-            fred.setFill(new ImagePattern(new Image("realSprites/rogue.png")));
-        } else if (Main.character.playClass == "warrior") {
-            fred.setFill(new ImagePattern(new Image("realSprites/warrior.png")));
-        }else {
-            System.out.println("Error, playClass not set properly.");
-        }
-    }
 
     public void initialize(){
         /*Code within the Initialize method will run once the fxml is loaded.*/
-        gameScreen.setFill(new ImagePattern(dungImg));
         updateBars();
         currentRoom = dungeon.allRooms[0];
         winText.setTranslateY(500);
@@ -109,8 +97,6 @@ public class controllerGame {
                 if (dungeon.allRooms[i] != null) {
 
                     if (dungeon.allRooms[i].location[0] == newCord && dungeon.allRooms[i].location[1] == currentRoom.location[1]) {
-                        System.out.println("X:" + i + "Room cords:" + dungeon.allRooms[i].location[0] + "," + dungeon.allRooms[i].location[1]);
-                        System.out.printf(newCord + "\n");
                         currentRoom = dungeon.allRooms[i];
                         testWin();
                         return true;
@@ -124,8 +110,6 @@ public class controllerGame {
                 if (dungeon.allRooms[i] != null) {
 
                     if (dungeon.allRooms[i].location[1] == newCord && dungeon.allRooms[i].location[0] == currentRoom.location[0]) {
-                        System.out.println("Y:" + i + "Room cords:" + dungeon.allRooms[i].location[0] + "," + dungeon.allRooms[i].location[1]);
-                        System.out.printf(newCord + "\n");
                         currentRoom = dungeon.allRooms[i];
                         testWin();
                         return true;
@@ -141,6 +125,27 @@ public class controllerGame {
         if (currentRoom.roomNum == 12){
             winText.setTranslateY(0);
         }
+    }
+//--------------------Loaders--------------------
+    public void setFred(){
+        if (Main.character.playClass == "mage"){
+            fred.setFill(new ImagePattern(new Image("realSprites/mage.png")));
+            battleControl.sprite = (new ImagePattern(new Image("realSprites/mage.png")));
+        } else if (Main.character.playClass == "rogue") {
+            fred.setFill(new ImagePattern(new Image("realSprites/rogue.png")));
+            battleControl.sprite = (new ImagePattern(new Image("realSprites/rogue.png")));
+        } else if (Main.character.playClass == "warrior") {
+            fred.setFill(new ImagePattern(new Image("realSprites/warrior.png")));
+            battleControl.sprite = (new ImagePattern(new Image("realSprites/warrior.png")));
+        }else {
+            System.out.println("Error, playClass not set properly.");
+        }
+        fred.setLayoutX(currentRoom.coordinates[0]);
+        fred.setLayoutY(currentRoom.coordinates[1]);
+    }
+    public void setFloor1(){
+        gameScreen.setFill(new ImagePattern(dungImg));
+
     }
 
     public void openInventory(ActionEvent actionEvent) {
@@ -165,8 +170,5 @@ public class controllerGame {
         }
     }
 
-    public void drinkHealth(ActionEvent actionEvent) {
-        Main.character.useHealthPotion();
-        updateBars();
-    }
+
 }
