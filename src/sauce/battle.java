@@ -3,6 +3,8 @@ Sprites: These are very low priority. If anyone comes across some "Slash" or "Ma
 image or sprite, try to save it as we may use it in animations.
  */
 
+import java.util.TimerTask;
+
 public class battle {
 
 
@@ -23,17 +25,24 @@ public class battle {
     public static void enemyAttack() {
         int[] damArray = opponent.calDamage();
 
-        //Main.timeDelay(1000);
-        Main.character.changeHP(-damArray[0]);
-        damTaken = (int)(damArray[0]/(Main.character.eqItemArmor.armorPT*0.1));
+        TimerTask emAtkTask = new TimerTask() {
+            @Override
+            public void run() {
+                Main.character.changeHP(-damArray[0]);
+                damTaken = (int)(damArray[0]/(Main.character.eqItemArmor.armorPT*0.1));
 
-        battleControl.updateBattleText(2, "Enemy", damTaken);
-        //System.out.println("Health: " + Main.character.playHP);
-        battleControl.updateText();
+                battleControl.updateBattleText(2, "Enemy", damTaken);
+                //System.out.println("Health: " + Main.character.playHP);
+                battleControl.updateText();
 
-        if (Main.character.playHP == 0) {
-            endBattle();
-        }
+                if (Main.character.playHP == 0) {
+                    endBattle();
+                }
+            }
+        };
+        Main.timeDelay(emAtkTask, 3000);
+
+
     }
 
     public static void playerAttack(){
@@ -46,6 +55,8 @@ public class battle {
             opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
             battleControl.updateBattleText(1, damArray[n]);
             battleControl.updateBars();
+
+            System.out.println("play loop");
         }
 
         //System.out.println("Enemy Health: " + opponent.HP);
