@@ -1,11 +1,14 @@
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
+
+
 
 public class controllerBattle {
 
@@ -32,6 +35,9 @@ public class controllerBattle {
     private Text enHPText;
 
     public ImagePattern sprite;
+    @FXML
+    private Rectangle attAni;
+
 
     @FXML
     void playerAttack(ActionEvent event){
@@ -41,7 +47,11 @@ public class controllerBattle {
 
     @FXML
     void playerSpecialAttack(ActionEvent event){
-       battle.playerSpecialAttack();
+        attAni.setFill(new ImagePattern(new Image("realSprites/magic.png")));
+        if(battle.doTurn == true) {
+        battle.playerSpecialAttack();
+        animation.magicAttackAnimation(attAni);
+        }
     }
 
     public void setApp(appDungGame app,controllerGame gameControl){
@@ -55,6 +65,7 @@ public class controllerBattle {
         /*Code within the Initialize method will run once the fxml is loaded.*/
         updateBars();
         updateText();
+        attAni.setOpacity(0);
 
         playerPos.setFill(sprite);
         enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
@@ -135,4 +146,5 @@ public class controllerBattle {
             battle.enemyAttack();
         }
     }
+
 }
