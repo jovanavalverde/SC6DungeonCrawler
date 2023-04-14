@@ -36,21 +36,27 @@ public class controllerBattle {
 
     public ImagePattern sprite;
     @FXML
-    private Rectangle attAni;
+    private Rectangle magicAni;
+    @FXML
+    private Rectangle swordAni;
 
 
     @FXML
     void playerAttack(ActionEvent event){
-
-        battle.playerAttack();
+        swordAni.setFill(new ImagePattern(new Image("realSprites/sword.png")));
+        if(battle.doTurn == true) {
+            battle.playerAttack();
+            animation.swordAttackAnimation(swordAni);
+        }
     }
 
     @FXML
     void playerSpecialAttack(ActionEvent event){
-        attAni.setFill(new ImagePattern(new Image("realSprites/magic.png")));
+        magicAni.setFill(new ImagePattern(new Image("realSprites/magic.png")));
         if(battle.doTurn == true) {
         battle.playerSpecialAttack();
-        animation.magicAttackAnimation(attAni);
+        animation.magicAttackAnimation(magicAni);
+
         }
     }
 
@@ -65,7 +71,8 @@ public class controllerBattle {
         /*Code within the Initialize method will run once the fxml is loaded.*/
         updateBars();
         updateText();
-        attAni.setOpacity(0);
+        magicAni.setOpacity(0);
+        swordAni.setOpacity(0);
 
         playerPos.setFill(sprite);
         enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
@@ -118,32 +125,40 @@ public class controllerBattle {
 
 
     public void useManaPotion(ActionEvent actionEvent) {
-        if(Main.character.playerPotions[1] <= 0) {
-            updateBattleText(6);
-        }else {
-            battle.turnCount += 1;
-            Main.character.useManaPotion();
-            System.out.println("You used a 100 Mana Potion");
-            updateBars();
-            updateText();
-            updateBattleText(7,battle.turnCount);
-            updateBattleText(4, 100);
-            battle.enemyAttack();
+        if(battle.doTurn == true) { //doTurn check is to stop being able to spam buttons over and over
+            battle.doTurn = false;
+            if (Main.character.playerPotions[1] <= 0) {
+                updateBattleText(6);
+                battle.doTurn = true;
+            } else {
+                battle.turnCount += 1;
+                Main.character.useManaPotion();
+                System.out.println("You used a 100 Mana Potion");
+                updateBars();
+                updateText();
+                updateBattleText(7, battle.turnCount);
+                updateBattleText(4, 100);
+                battle.enemyAttack();
+            }
         }
     }
     public void useHealthPotion(ActionEvent actionEvent) {
         System.out.println(Main.character.playerPotions[0]);
-        if(Main.character.playerPotions[0] <= 0) {
-            updateBattleText(5);
-        } else {
-            battle.turnCount += 1;
-            Main.character.useHealthPotion();
-            System.out.println("You used a 100 Health Potion");
-            updateBars();
-            updateText();
-            updateBattleText(7,battle.turnCount);
-            updateBattleText(3, 100);
-            battle.enemyAttack();
+        if (battle.doTurn == true) { //doTurn check is to stop being able to spam buttons over and over
+            battle.doTurn = false;
+            if (Main.character.playerPotions[0] <= 0) {
+                updateBattleText(5);
+                battle.doTurn = true;
+            } else {
+                battle.turnCount += 1;
+                Main.character.useHealthPotion();
+                System.out.println("You used a 100 Health Potion");
+                updateBars();
+                updateText();
+                updateBattleText(7, battle.turnCount);
+                updateBattleText(3, 100);
+                battle.enemyAttack();
+            }
         }
     }
 

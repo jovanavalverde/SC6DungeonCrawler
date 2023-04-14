@@ -43,14 +43,15 @@ public class battle {
                 }
             }
         };
-        Main.timeDelay(emAtkTask, 3000);
+        Main.timeDelay(emAtkTask, 2000);
 
 
     }
 
     public static void playerAttack(){
         System.out.println(doTurn);
-        if(doTurn == true) {
+
+        if(doTurn == true) { //doTurn check is to stop being able to spam buttons over and over
             doTurn = false;
             System.out.println(doTurn);
             turnCount += 1;
@@ -78,7 +79,7 @@ public class battle {
     }
 
     public static void playerSpecialAttack(){
-        if(doTurn == true) {
+        if(doTurn == true) { //doTurn check is to stop being able to spam buttons over and over
             doTurn = false;
             turnCount += 1;
             battleControl.updateBattleText(7, turnCount);

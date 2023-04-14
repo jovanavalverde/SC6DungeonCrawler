@@ -34,5 +34,31 @@ public class animation {
         timeline.play();
     }
 
+    public static void swordAttackAnimation(Rectangle attAni) {
+        double startX = 0;
+        double startY = 0;
+        double endX = 200;
+        double endY = 200;
+
+        attAni.setTranslateX(startX);
+        attAni.setTranslateY(startY);
+
+        attAni.setOpacity(1);
+
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.seconds(0), new KeyValue(attAni.translateXProperty(), startX)),
+                new KeyFrame(Duration.seconds(0), new KeyValue(attAni.translateYProperty(), startY)),
+                new KeyFrame(Duration.seconds(.5), new KeyValue(attAni.translateXProperty(), endX)),
+                new KeyFrame(Duration.seconds(.5), new KeyValue(attAni.translateYProperty(), endY)),
+                new KeyFrame(Duration.seconds(1), new KeyValue(attAni.opacityProperty(), 0))
+        );
+        timeline.setOnFinished(event -> {
+            attAni.setTranslateX(startX);
+            attAni.setTranslateY(startY);
+        });
+
+        timeline.play();
+    }
+
 
 }
