@@ -69,7 +69,8 @@ public class controllerBattle {
 
     public void initialize(){
         /*Code within the Initialize method will run once the fxml is loaded.*/
-        updateBars();
+        updatePlayerBars();
+        updateEnemyBars();
         updateText();
         magicAni.setOpacity(0);
         swordAni.setOpacity(0);
@@ -78,13 +79,16 @@ public class controllerBattle {
         enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
     }
 
-    public void updateBars(){
+    public void updatePlayerBars(){
         healthBar.setWidth(400.0*Main.character.playHP/Main.character.playMaxHP);//400 being the pixel length of the bar.
 
         manaBar.setWidth(400.0*Main.character.playMP/Main.character.playMaxMP);//400 being the pixel length of the bar.
 
-        enemyHealthBar.setWidth(400.0*battle.opponent.HP/battle.opponent.maxHP);//400 being the pixel length of the bar.
 
+    }
+
+    public void updateEnemyBars(){
+        enemyHealthBar.setWidth(400.0*battle.opponent.HP/battle.opponent.maxHP);//400 being the pixel length of the bar.
     }
 
 
@@ -107,7 +111,8 @@ public class controllerBattle {
     public void buildBattle(){
         battle.opponent = (entEnemy) gameControl.currentRoom.opponent;
         battleText.setText("");
-        updateBars();
+        updatePlayerBars();
+        updateEnemyBars();
         updateText();
         updateBattleText(0);
         app.setScreen(app.getScene(2));
@@ -134,7 +139,7 @@ public class controllerBattle {
                 battle.turnCount += 1;
                 Main.character.useManaPotion();
                 System.out.println("You used a 100 Mana Potion");
-                updateBars();
+                updatePlayerBars();
                 updateText();
                 updateBattleText(7, battle.turnCount);
                 updateBattleText(4, 100);
@@ -153,7 +158,7 @@ public class controllerBattle {
                 battle.turnCount += 1;
                 Main.character.useHealthPotion();
                 System.out.println("You used a 100 Health Potion");
-                updateBars();
+                updatePlayerBars();
                 updateText();
                 updateBattleText(7, battle.turnCount);
                 updateBattleText(3, 100);
