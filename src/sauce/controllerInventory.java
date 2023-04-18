@@ -48,9 +48,9 @@ public class controllerInventory {
     @FXML
     private Button slotEqWe; //All inventory Buttons
     @FXML
-    private Rectangle healthBar;
+     Rectangle healthBar;
     @FXML
-    private Rectangle manaBar;
+     Rectangle manaBar;
 
 
 

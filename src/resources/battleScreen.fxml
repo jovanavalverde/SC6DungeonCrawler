@@ -37,7 +37,7 @@
          </font></TextArea>
       <Button layoutX="169.0" layoutY="578.0" mnemonicParsing="false" onAction="#useHealthPotion" prefHeight="40.0" prefWidth="243.0" text="Health Potion" textAlignment="CENTER" />
       <Button fx:id="buttonSpecialAttack" layoutX="169.0" layoutY="529.0" mnemonicParsing="false" onAction="#playerSpecialAttack" prefHeight="40.0" prefWidth="243.0" text="Special Attack" textAlignment="CENTER" />
-      <Rectangle fx:id="magicAni" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="83.0" layoutX="400.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
+      <Rectangle fx:id="magicAni" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="83.0" layoutX="405.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
       <Rectangle fx:id="swordAni" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="83.0" layoutX="842.0" layoutY="217.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
    </children>
 </AnchorPane>
