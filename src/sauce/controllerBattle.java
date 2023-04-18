@@ -19,7 +19,7 @@ public class controllerBattle {
     @FXML
     private Rectangle enemyHealthBar;
     @FXML
-    private Rectangle manaBar;
+     Rectangle manaBar;
     @FXML
     public Rectangle playerPos;
     @FXML

@@ -21,7 +21,7 @@ public class battle {
         battle.battleControl = battleControl;
     }
 
-
+static TimerTask emAtkTask;
     public static void enemyAttack() {
         int[] damArray = opponent.calDamage();
 
@@ -43,9 +43,11 @@ public class battle {
         Main.timeDelay(emAtkTask, 3000);
 
 
+
     }
 
     public static void playerAttack(){
+
         turnCount += 1;
         battleControl.updateBattleText(7,turnCount);
 
@@ -55,8 +57,6 @@ public class battle {
             opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
             battleControl.updateBattleText(1, damArray[n]);
             battleControl.updateBars();
-
-            System.out.println("play loop");
         }
 
         //System.out.println("Enemy Health: " + opponent.HP);

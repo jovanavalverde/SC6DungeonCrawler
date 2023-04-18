@@ -40,7 +40,7 @@ public Scene getScene(int n){
         dungeon.createRooms();
 
         //Uncomment for test run mode
-        //dungeon.testRun();
+        dungeon.testRun();
 
         sceneArray[0] =  new Scene(gameLoader.load());
         sceneArray[1] =  new Scene(invLoader.load());
