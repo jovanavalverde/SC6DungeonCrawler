@@ -22,13 +22,13 @@ public class animation {
 
     public static void magicAttackAnimation(Rectangle attAni) {
         double startX = 0;
-        double endX = startX + 400; // move the rectangle 400 pixels to the right
+        double endX = startX + 410; // move the rectangle 400 pixels to the right
         attAni.setOpacity(1);
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0), new KeyValue(attAni.translateXProperty(), startX)),
-                new KeyFrame(Duration.seconds(1), new KeyValue(attAni.translateXProperty(), endX)),
-                new KeyFrame(Duration.seconds(2), new KeyValue(attAni.opacityProperty(), 0))
+                new KeyFrame(Duration.seconds(.5), new KeyValue(attAni.translateXProperty(), endX)),
+                new KeyFrame(Duration.seconds(1), new KeyValue(attAni.opacityProperty(), 0))
         );
 
         timeline.play();

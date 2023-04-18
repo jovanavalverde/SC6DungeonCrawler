@@ -27,6 +27,7 @@ static TimerTask emAtkTask;
     public static void enemyAttack() {
         int[] damArray = opponent.calDamage();
         System.out.println(doTurn);
+
         TimerTask emAtkTask = new TimerTask() {
             @Override
             public void run() {
@@ -36,6 +37,7 @@ static TimerTask emAtkTask;
                 battleControl.updateBattleText(2, "Enemy", damTaken);
                 //System.out.println("Health: " + Main.character.playHP);
                 battleControl.updateText();
+                battleControl.updatePlayerBars();
                 doTurn = true;
                 System.out.println(doTurn);
                 if (Main.character.playHP == 0) {
@@ -60,6 +62,13 @@ static TimerTask emAtkTask;
 
 
 
+            for (int n = 0; n < damArray.length; n++) {
+                opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
+                battleControl.updateBattleText(1, damArray[n]);
+                battleControl.updatePlayerBars();
+
+
+
                 //System.out.println("play loop");
             }
 
@@ -71,7 +80,8 @@ static TimerTask emAtkTask;
                 enemyAttack();
             }
         }
-        battleControl.updateBars();
+        battleControl.updateEnemyBars();
+        battleControl.updateText();
     }
 
     public static void playerSpecialAttack(){
@@ -85,6 +95,7 @@ static TimerTask emAtkTask;
             for (int n = 0; n < damArray.length; n++) {
                 opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
                 battleControl.updateBattleText(1, damArray[n]);
+                battleControl.updatePlayerBars();
             }
 
             //System.out.println("Enemy Health: " + opponent.HP);
@@ -95,7 +106,8 @@ static TimerTask emAtkTask;
                 enemyAttack();
             }
         }
-        battleControl.updateBars();
+        battleControl.updateEnemyBars();
+        battleControl.updateText();
     }
 
 
