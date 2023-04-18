@@ -45,8 +45,8 @@ public class controllerBattle {
     void playerAttack(ActionEvent event){
         swordAni.setFill(new ImagePattern(new Image("realSprites/sword.png")));
         if(battle.doTurn == true) {
-            battle.playerAttack();
             animation.swordAttackAnimation(swordAni);
+            battle.playerAttack();
         }
     }
 
@@ -54,8 +54,8 @@ public class controllerBattle {
     void playerSpecialAttack(ActionEvent event){
         magicAni.setFill(new ImagePattern(new Image("realSprites/magic.png")));
         if(battle.doTurn == true) {
-        battle.playerSpecialAttack();
-        animation.magicAttackAnimation(magicAni);
+            animation.magicAttackAnimation(magicAni);
+            battle.playerSpecialAttack();
 
         }
     }
