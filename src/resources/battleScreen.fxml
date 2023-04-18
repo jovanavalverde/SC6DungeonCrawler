@@ -15,7 +15,7 @@
       <Rectangle fx:id="enemyHealthBar" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="20.0" layoutX="785.0" layoutY="177.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
       <Rectangle fx:id="playerPos" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="191.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
       <Rectangle fx:id="enemyPos" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="885.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-      <Button layoutX="169.0" layoutY="579.0" mnemonicParsing="false" onAction="#useManaPotion" prefHeight="40.0" prefWidth="243.0" text="ManaPotion" textAlignment="CENTER" />
+      <Button layoutX="169.0" layoutY="628.0" mnemonicParsing="false" onAction="#useManaPotion" prefHeight="40.0" prefWidth="243.0" text="Mana Potion" textAlignment="CENTER" />
       <Text fx:id="playHPText" layoutX="91.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HP" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
@@ -35,6 +35,9 @@
          <font>
             <Font size="20.0" />
          </font></TextArea>
-      <Button layoutX="169.0" layoutY="530.0" mnemonicParsing="false" onAction="#useHealthPotion" prefHeight="40.0" prefWidth="243.0" text="Health Potion" textAlignment="CENTER" />
+      <Button layoutX="169.0" layoutY="578.0" mnemonicParsing="false" onAction="#useHealthPotion" prefHeight="40.0" prefWidth="243.0" text="Health Potion" textAlignment="CENTER" />
+      <Button fx:id="buttonSpecialAttack" layoutX="169.0" layoutY="529.0" mnemonicParsing="false" onAction="#playerSpecialAttack" prefHeight="40.0" prefWidth="243.0" text="Special Attack" textAlignment="CENTER" />
+      <Rectangle fx:id="magicAni" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="83.0" layoutX="400.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
+      <Rectangle fx:id="swordAni" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="83.0" layoutX="842.0" layoutY="217.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
    </children>
 </AnchorPane>

@@ -1,4 +1,8 @@
 import javafx.application.Application;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 public class Main {
 
 
@@ -25,6 +29,12 @@ public class Main {
         return ranDam;
     }
 
+    public static void timeDelay(TimerTask task, int x)  {
+        Timer timer = new Timer();
+        long delay = x;
+        timer.schedule(task, delay);
+
+    }
 
 
 

@@ -1,10 +1,14 @@
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
+
+
 
 public class controllerBattle {
 
@@ -31,11 +35,29 @@ public class controllerBattle {
     private Text enHPText;
 
     public ImagePattern sprite;
+    @FXML
+    private Rectangle magicAni;
+    @FXML
+    private Rectangle swordAni;
+
 
     @FXML
     void playerAttack(ActionEvent event){
-        battle.playerAttack();
-        updateBars();
+        swordAni.setFill(new ImagePattern(new Image("realSprites/sword.png")));
+        if(battle.doTurn == true) {
+            battle.playerAttack();
+            animation.swordAttackAnimation(swordAni);
+        }
+    }
+
+    @FXML
+    void playerSpecialAttack(ActionEvent event){
+        magicAni.setFill(new ImagePattern(new Image("realSprites/magic.png")));
+        if(battle.doTurn == true) {
+        battle.playerSpecialAttack();
+        animation.magicAttackAnimation(magicAni);
+
+        }
     }
 
     public void setApp(appDungGame app,controllerGame gameControl){
@@ -49,6 +71,8 @@ public class controllerBattle {
         /*Code within the Initialize method will run once the fxml is loaded.*/
         updateBars();
         updateText();
+        magicAni.setOpacity(0);
+        swordAni.setOpacity(0);
 
         playerPos.setFill(sprite);
         enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));
@@ -101,32 +125,41 @@ public class controllerBattle {
 
 
     public void useManaPotion(ActionEvent actionEvent) {
-        if(Main.character.playerPotions[1] <= 0) {
-            updateBattleText(6);
-        }else {
-            battle.turnCount += 1;
-            Main.character.useManaPotion();
-            System.out.println("You used a 100 Mana Potion");
-            updateBars();
-            updateText();
-            updateBattleText(7,battle.turnCount);
-            updateBattleText(4, 100);
-            battle.enemyAttack();
+        if(battle.doTurn == true) { //doTurn check is to stop being able to spam buttons over and over
+            battle.doTurn = false;
+            if (Main.character.playerPotions[1] <= 0) {
+                updateBattleText(6);
+                battle.doTurn = true;
+            } else {
+                battle.turnCount += 1;
+                Main.character.useManaPotion();
+                System.out.println("You used a 100 Mana Potion");
+                updateBars();
+                updateText();
+                updateBattleText(7, battle.turnCount);
+                updateBattleText(4, 100);
+                battle.enemyAttack();
+            }
         }
     }
     public void useHealthPotion(ActionEvent actionEvent) {
         System.out.println(Main.character.playerPotions[0]);
-        if(Main.character.playerPotions[0] <= 0) {
-            updateBattleText(5);
-        } else {
-            battle.turnCount += 1;
-            Main.character.useHealthPotion();
-            System.out.println("You used a 100 Health Potion");
-            updateBars();
-            updateText();
-            updateBattleText(7,battle.turnCount);
-            updateBattleText(3, 100);
-            battle.enemyAttack();
+        if (battle.doTurn == true) { //doTurn check is to stop being able to spam buttons over and over
+            battle.doTurn = false;
+            if (Main.character.playerPotions[0] <= 0) {
+                updateBattleText(5);
+                battle.doTurn = true;
+            } else {
+                battle.turnCount += 1;
+                Main.character.useHealthPotion();
+                System.out.println("You used a 100 Health Potion");
+                updateBars();
+                updateText();
+                updateBattleText(7, battle.turnCount);
+                updateBattleText(3, 100);
+                battle.enemyAttack();
+            }
         }
     }
+
 }
