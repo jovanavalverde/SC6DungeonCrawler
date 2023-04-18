@@ -23,7 +23,7 @@ public class battle {
         battle.battleControl = battleControl;
     }
 
-
+static TimerTask emAtkTask;
     public static void enemyAttack() {
         int[] damArray = opponent.calDamage();
         System.out.println(doTurn);
@@ -46,10 +46,11 @@ public class battle {
         Main.timeDelay(emAtkTask, 2000);
 
 
+
     }
 
     public static void playerAttack(){
-        System.out.println(doTurn);
+
 
         if(doTurn == true) { //doTurn check is to stop being able to spam buttons over and over
             doTurn = false;
@@ -57,12 +58,7 @@ public class battle {
             turnCount += 1;
             battleControl.updateBattleText(7, turnCount);
 
-            int[] damArray = Main.character.calDamage();
 
-            for (int n = 0; n < damArray.length; n++) {
-                opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
-                battleControl.updateBattleText(1, damArray[n]);
-                battleControl.updateBars();
 
                 //System.out.println("play loop");
             }

@@ -2,6 +2,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
@@ -83,8 +85,12 @@ public void setApp(appDungGame app, controllerGame gameControl, controllerBattle
                 img2.fitWidthProperty().bind(invControl.manaSlot.widthProperty());
                 img2.fitHeightProperty().bind(invControl.manaSlot.heightProperty());
                 invControl.manaSlot.setGraphic(img2);
+
+                invControl.manaBar.setFill(Color.valueOf("#48ff2b"));
+                gameControl.manaBar.setFill(Color.valueOf("#48ff2b"));
+                battleControl.manaBar.setFill(Color.valueOf("#48ff2b"));
             }
-        }//Setting potion button sprites.
+        }//Setting potion button and mana/stamina bar.
     }
 
     public void selectClass(ActionEvent actionEvent) {

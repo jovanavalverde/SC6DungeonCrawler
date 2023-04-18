@@ -23,7 +23,9 @@ public class dungeon {
     static entEnemy lvl3E = new entEnemy();
     static entEnemy lvl4E = new entEnemy();
 //--------------------Room--------------------
-public static room[] allRooms = new room[14];
+public static room[] allRooms;
+public static room[] firstFloor = new room[13];
+public static room[] secondFloor = new room[17];
 //--------------------XXX--------------------
 
 
@@ -109,20 +111,39 @@ public static room[] allRooms = new room[14];
 
     public static void createRooms(){
         //For testing purposes, all rooms are filled with lvl0E enemy.
-        allRooms[0] = new room(0,0,0,55,581);
-        allRooms[1] = new room(1,0,1,55,458);
-        allRooms[2] = new room(lvl0E,2,0,2,54,335);
-        allRooms[3] = new room(3,0,3,54,212);
-        allRooms[4] = new room(lvl1E,4,0,4,54,89);
-        allRooms[5] = new room(5,1,4,177,89);
-        allRooms[6] = new room(lvl2E,6,2,4,300,89);
-        allRooms[7] = new room(7,3,4,423,89);
-        allRooms[8] = new room(lvl3E,8,4,4,546,89);
-        allRooms[9] = new room(9,5,4,669,89);
-        allRooms[10] = new room(lvl4E,10,6,4,792,89);
-        allRooms[11] = new room(11,6,3,793,212);
-        allRooms[12] = new room(12,6,2,792,337);
+        firstFloor[0] = new room(0,0,0,55,581);
+        firstFloor[1] = new room(1,0,1,55,458);
+        firstFloor[2] = new room(lvl0E,2,0,2,54,335);
+        firstFloor[3] = new room(3,0,3,54,212);
+        firstFloor[4] = new room(lvl1E,4,0,4,54,89);
+        firstFloor[5] = new room(5,1,4,177,89);
+        firstFloor[6] = new room(lvl2E,6,2,4,300,89);
+        firstFloor[7] = new room(7,3,4,423,89);
+        firstFloor[8] = new room(lvl3E,8,4,4,546,89);
+        firstFloor[9] = new room(9,5,4,669,89);
+        firstFloor[10] = new room(lvl4E,10,6,4,792,89);
+        firstFloor[11] = new room(11,6,3,793,212);
+        firstFloor[12] = new room(12,6,2,792,337);
 
+        allRooms = firstFloor;
+
+        secondFloor[0] = new room(0,0,0,7,7);
+        secondFloor[1] = new room(1,0,-1,7,7);
+        secondFloor[2] = new room(2,0,-2,7,7);
+        secondFloor[3] = new room(3,1,-2,7,7);
+        secondFloor[4] = new room(4,1,1,7,7);
+        secondFloor[5] = new room(5,1,1,7,7);
+        secondFloor[6] = new room(6,1,1,7,7);
+        secondFloor[7] = new room(7,1,1,7,7);
+        secondFloor[8] = new room(1.1,1,1,7,7);
+        secondFloor[9] = new room(1.2,1,1,7,7);
+        secondFloor[10] = new room(10,1,1,7,7);
+        secondFloor[11] = new room(11,1,1,7,7);
+        secondFloor[12] = new room(12,1,1,7,7);
+        secondFloor[13] = new room(13,1,1,7,7);
+        secondFloor[14] = new room(14,1,1,7,7);
+        secondFloor[15] = new room(15,1,1,7,7);
+        secondFloor[16] = new room(16,1,1,7,7);
 
 
     }

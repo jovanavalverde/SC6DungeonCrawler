@@ -17,9 +17,9 @@ public class controllerGame {
     @FXML
     private Rectangle gameScreen;
     @FXML
-    private Rectangle healthBar;
+     Rectangle healthBar;
     @FXML
-    private Rectangle manaBar;
+     Rectangle manaBar;
 
 
 
@@ -124,6 +124,7 @@ public class controllerGame {
     private void testWin(){
         if (currentRoom.roomNum == 12){
             winText.setTranslateY(0);
+            setFloor2();
         }
     }
 //--------------------Loaders--------------------
@@ -145,6 +146,10 @@ public class controllerGame {
     }
     public void setFloor1(){
         gameScreen.setFill(new ImagePattern(dungImg));
+
+    }
+    public void setFloor2(){
+        gameScreen.setFill(new ImagePattern(new Image("Dungoen Floor 2.png")));
 
     }
 
