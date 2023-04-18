@@ -61,6 +61,7 @@ static TimerTask emAtkTask;
             battleControl.updateBattleText(7, turnCount);
 
 
+            int[] damArray = Main.character.calDamage();
 
             for (int n = 0; n < damArray.length; n++) {
                 opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
