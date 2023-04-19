@@ -104,4 +104,27 @@ public class player implements entity {
         }
         return endDam;
     }
+
+
+    private int[] heavyswing(){
+        int[] endDam = new int[1];
+        if (playMP >= 50){
+            endDam[0] = eqItemWeapon.calItemDamage()*2;
+            playMP = playMP - 50;
+        } else {
+            endDam = calMagicAtk();
+        }
+        return endDam;
+    }
+
+    private int[] fastflurry(){
+        int[] endDam = new int[1];
+        if (playMP >= 50){
+            endDam[0] = eqItemWeapon.calItemDamage()*2;
+            playMP = playMP - 50;
+        } else {
+            endDam = calMagicAtk();
+        }
+        return endDam;
+    }
 }
