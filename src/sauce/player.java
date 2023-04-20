@@ -60,6 +60,20 @@ public class player implements entity {
         }
 
     }
+    public int[] calSpecialDamage() {
+        /*This method is used to calculate how much damage the player will deal.
+        Returns an array rather than a single int due to daggers being two attacks rather than one*/
+        if (eqItemWeapon.weaponType == "sword"){
+            return heavySwing();
+        } else if (eqItemWeapon.weaponType == "daggers") {
+            return fastSlurry();
+        } else if (eqItemWeapon.weaponType == "staff") {
+            return fireball();
+        }else {
+            return new int[]{555};
+        }
+
+    }
     //---------------------Equip Items Methods--------------------
     /*These methods will just take an armor or weapon object and assign it to the players equipped gear variable*/
     public void equipArmor(itemArmor N){
@@ -106,24 +120,26 @@ public class player implements entity {
     }
 
 
-    private int[] heavyswing(){
+    private int[] heavySwing(){
         int[] endDam = new int[1];
         if (playMP >= 50){
-            endDam[0] = eqItemWeapon.calItemDamage()*2;
+            endDam[0] = eqItemWeapon.calItemDamage()*4;
             playMP = playMP - 50;
         } else {
-            endDam = calMagicAtk();
+            endDam = calSwordAtk();
         }
         return endDam;
     }
 
-    private int[] fastflurry(){
-        int[] endDam = new int[1];
+    private int[] fastSlurry(){
+        int[] endDam = new int[6];
         if (playMP >= 50){
-            endDam[0] = eqItemWeapon.calItemDamage()*2;
+            for (int n = 0; n<=5; n++){
+                endDam[n] = eqItemWeapon.calItemDamage();
+            }
             playMP = playMP - 50;
         } else {
-            endDam = calMagicAtk();
+            endDam = calDaggerAtk();
         }
         return endDam;
     }
