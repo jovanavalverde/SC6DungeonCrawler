@@ -196,7 +196,7 @@ public class controllerGame {
     public void setFloor2(){
         gameScreen.setFill(new ImagePattern(new Image("Dungoen Floor 2.png")));
         dungeon.allRooms = dungeon.secondFloor;
-        currentRoom = dungeon.allRooms[12];// Must be set to 0!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        currentRoom = dungeon.allRooms[0];
     }
 
     public void openInventory(ActionEvent actionEvent) {
