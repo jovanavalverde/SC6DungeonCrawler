@@ -43,7 +43,7 @@ static TimerTask emAtkTask;
                 if (Main.character.playHP == 0) {
                     endBattle();
                 }
-                Main.timer.cancel();
+                Main.timer.purge();
             }
         };
         Main.timeDelay(emAtkTask, 2000);
@@ -54,7 +54,7 @@ static TimerTask emAtkTask;
     public static void playerAttack(){
 
 
-        if(doTurn == true) { //doTurn check is to stop being able to spam buttons over and over
+        if(doTurn) { //doTurn check is to stop being able to spam buttons over and over
             doTurn = false;
             System.out.println(doTurn);
             turnCount += 1;

@@ -26,6 +26,11 @@ public Scene getScene(int n){
     return sceneArray[n];
 }
 
+@Override
+public void stop(){
+Main.timer.cancel();
+}
+
     @Override
     public void start(Stage window) throws Exception {
         Main.character.equipWeapon(dungeon.lvl0W);
