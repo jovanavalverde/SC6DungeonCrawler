@@ -5,6 +5,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class animation {
+    static double startX = 0;
+    static double startY = 0;
 
 
  /*   public static void attackAnimation(Rectangle attAni){
@@ -19,6 +21,37 @@ public class animation {
     }
 
 */
+    public static void xMovementAnimation(double endX, Rectangle charModel){
+
+        Timeline timeline = new Timeline(
+
+                new KeyFrame(Duration.seconds(0), new KeyValue(charModel.translateXProperty(),startX)) ,
+                new KeyFrame(Duration.seconds(.25), new KeyValue(charModel.translateXProperty(), endX))
+
+                );
+        timeline.setOnFinished(event -> {
+            startX = endX;
+
+        });
+        timeline.play();
+    }
+    public static void yMovementAnimation(double endY, Rectangle charModel){
+
+        Timeline timeline = new Timeline(
+
+                new KeyFrame(Duration.seconds(0), new KeyValue(charModel.translateYProperty(), startY)),
+                new KeyFrame(Duration.seconds(.25), new KeyValue(charModel.translateYProperty(), endY))
+
+                );
+        timeline.setOnFinished(event -> {
+
+            startY = endY;
+        });
+        timeline.play();
+    }
+
+
+
 
     public static void magicAttackAnimation(Rectangle attAni) {
         double startX = 0;
@@ -58,6 +91,10 @@ public class animation {
         });
 
         timeline.play();
+    }
+
+    public static void daggerAttackAnimation(Rectangle attAni){
+
     }
 
 
