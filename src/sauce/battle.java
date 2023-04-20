@@ -28,7 +28,7 @@ static TimerTask emAtkTask;
         int[] damArray = opponent.calDamage();
         System.out.println(doTurn);
 
-        TimerTask emAtkTask = new TimerTask() {
+        emAtkTask = new TimerTask() {
             @Override
             public void run() {
                 Main.character.changeHP(-damArray[0]);
@@ -43,10 +43,10 @@ static TimerTask emAtkTask;
                 if (Main.character.playHP == 0) {
                     endBattle();
                 }
+                Main.timer.cancel();
             }
         };
         Main.timeDelay(emAtkTask, 2000);
-
 
 
     }
