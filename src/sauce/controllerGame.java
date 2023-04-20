@@ -51,8 +51,11 @@ public class controllerGame {
     public void moveUp(ActionEvent actionEvent) {
         if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
             if (attemptMove(1, "y")) {
-                fred.setLayoutX(currentRoom.coordinates[0]);
-                fred.setLayoutY(currentRoom.coordinates[1]);
+                //fred.setLayoutX(currentRoom.coordinates[0]);
+                //fred.setLayoutY(currentRoom.coordinates[1]);
+                double newY = currentRoom.coordinates[1] - fred.getLayoutY();
+
+                animation.yMovementAnimation(newY, fred);
             }
         }else {
             System.out.println("Opponent not defeated.");
@@ -61,8 +64,12 @@ public class controllerGame {
     public void moveDown(ActionEvent actionEvent) {
         if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
             if (attemptMove(-1, "y")) {
-                fred.setLayoutX(currentRoom.coordinates[0]);
-                fred.setLayoutY(currentRoom.coordinates[1]);
+                //fred.setLayoutX(currentRoom.coordinates[0]);
+                //fred.setLayoutY(currentRoom.coordinates[1]);
+
+                double newY = currentRoom.coordinates[1] - fred.getLayoutY();
+
+                animation.yMovementAnimation(newY, fred);
             }
         }else {
             System.out.println("Opponent not defeated.");
@@ -71,8 +78,11 @@ public class controllerGame {
     public void moveLeft(ActionEvent actionEvent) {
         if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
             if (attemptMove(-1, "x")) {
-                fred.setLayoutX(currentRoom.coordinates[0]);
-                fred.setLayoutY(currentRoom.coordinates[1]);
+                //fred.setLayoutX(currentRoom.coordinates[0]);
+                //fred.setLayoutY(currentRoom.coordinates[1]);
+                double newX = currentRoom.coordinates[0] - fred.getLayoutX();
+
+                animation.xMovementAnimation(newX, fred);
             }
         }else {
             System.out.println("Opponent not defeated.");
@@ -81,8 +91,11 @@ public class controllerGame {
     public void moveRight(ActionEvent actionEvent) {
         if (currentRoom.opponent == null || currentRoom.opponent.lootCollected) {
             if (attemptMove(1, "x")) {
-                fred.setLayoutX(currentRoom.coordinates[0]);
-                fred.setLayoutY(currentRoom.coordinates[1]);
+                //fred.setLayoutX(currentRoom.coordinates[0]);
+                //fred.setLayoutY(currentRoom.coordinates[1]);
+                double newX = currentRoom.coordinates[0] - fred.getLayoutX();
+
+                animation.xMovementAnimation(newX, fred);
             }
         }else {
             System.out.println("Opponent not defeated.");
@@ -164,6 +177,7 @@ public class controllerGame {
 
         } else if (currentRoom == dungeon.firstFloor[12]) {
             setFloor2();
+
         }
     }
 //--------------------Loaders--------------------
@@ -196,7 +210,7 @@ public class controllerGame {
     public void setFloor2(){
         gameScreen.setFill(new ImagePattern(new Image("Dungoen Floor 2.png")));
         dungeon.allRooms = dungeon.secondFloor;
-        currentRoom = dungeon.allRooms[0];
+        currentRoom = dungeon.allRooms[0];// Must be set to 0!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
     public void openInventory(ActionEvent actionEvent) {

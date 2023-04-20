@@ -8,7 +8,7 @@ import java.util.TimerTask;
 public class battle {
 
 
-    static entEnemy opponent = dungeon.lvl0E;
+    static entEnemy opponent = dungeon.lvl0E; //sets opponent to a level 0 enemy
     private static controllerBattle battleControl;
 
     static int damTaken = 0;
@@ -60,16 +60,12 @@ static TimerTask emAtkTask;
             turnCount += 1;
             battleControl.updateBattleText(7, turnCount);
 
-
             int[] damArray = Main.character.calDamage();
 
             for (int n = 0; n < damArray.length; n++) {
                 opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
                 battleControl.updateBattleText(1, damArray[n]);
                 battleControl.updatePlayerBars();
-
-
-
                 //System.out.println("play loop");
             }
 

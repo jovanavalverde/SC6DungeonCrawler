@@ -107,6 +107,8 @@ public static room[] secondFloor = new room[17];
         lvl2E.HP = 1;
         lvl3E.HP = 1;
         lvl4E.HP = 1;
+
+
     }
     public static void quickTestRun(){
         lvl0E.lootCollected = true;
