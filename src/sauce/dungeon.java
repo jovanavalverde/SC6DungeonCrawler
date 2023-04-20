@@ -108,6 +108,13 @@ public static room[] secondFloor = new room[17];
         lvl3E.HP = 1;
         lvl4E.HP = 1;
     }
+    public static void quickTestRun(){
+        lvl0E.lootCollected = true;
+        lvl1E.lootCollected = true;
+        lvl2E.lootCollected = true;
+        lvl3E.lootCollected = true;
+        lvl4E.lootCollected = true;
+    }
 
     public static void createRooms(){
         //For testing purposes, all rooms are filled with lvl0E enemy.
@@ -127,23 +134,23 @@ public static room[] secondFloor = new room[17];
 
         allRooms = firstFloor;
 
-        secondFloor[0] = new room(0,0,0,7,7);
-        secondFloor[1] = new room(1,0,-1,7,7);
-        secondFloor[2] = new room(2,0,-2,7,7);
-        secondFloor[3] = new room(3,1,-2,7,7);
-        secondFloor[4] = new room(4,1,1,7,7);
-        secondFloor[5] = new room(5,1,1,7,7);
-        secondFloor[6] = new room(6,1,1,7,7);
-        secondFloor[7] = new room(7,1,1,7,7);
-        secondFloor[8] = new room(1.1,1,1,7,7);
-        secondFloor[9] = new room(1.2,1,1,7,7);
-        secondFloor[10] = new room(10,1,1,7,7);
-        secondFloor[11] = new room(11,1,1,7,7);
-        secondFloor[12] = new room(12,1,1,7,7);
-        secondFloor[13] = new room(13,1,1,7,7);
-        secondFloor[14] = new room(14,1,1,7,7);
-        secondFloor[15] = new room(15,1,1,7,7);
-        secondFloor[16] = new room(16,1,1,7,7);
+        secondFloor[0] = new room(0,0,0,793,311);
+        secondFloor[1] = new room(1,0,-1,792,454);
+        secondFloor[2] = new room(2,-1,-1,666,455);
+        secondFloor[3] = new room(3,-2,-1,531,453);
+        secondFloor[4] = new room(4,-3,-1,385,454);
+        secondFloor[5] = new room(5,-4,-1,271,454);
+        secondFloor[6] = new room(6,-4,0,271,319);
+        secondFloor[7] = new room(7,-4,1,270,84);
+        secondFloor[8] = new room(1.1,0,-2,791,575);
+        secondFloor[9] = new room(1.2,-1,-2,649,577);
+        secondFloor[10] = new room(3.1,-2,0,531,327);
+        secondFloor[11] = new room(3.2,-2,1,531,191);
+        secondFloor[12] = new room(3.3,-1,1,673,190);
+        secondFloor[13] = new room(3.4,0,1,789,190);
+        secondFloor[14] = new room(3.5,0,2,791,69);
+        secondFloor[15] = new room(5.1,-5,-1,128,455);
+        secondFloor[16] = new room(5.2,-4,-2,270,597);
 
 
     }

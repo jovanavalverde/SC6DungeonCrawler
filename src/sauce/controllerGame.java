@@ -6,11 +6,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Text;
+import java.text.DecimalFormat;
 
 public class controllerGame {
 
     /*This is the controller class for dungeonGame.fxml.*/
-
     public Text winText;
     @FXML
     private Rectangle fred;//Fred is the rectangle that will be the player.
@@ -90,6 +90,11 @@ public class controllerGame {
     }
     private boolean attemptMove(int n, String t){
         int newCord;
+        boolean subRoom = false;
+        boolean targetSubRoom = false;
+        if (currentRoom.roomNum%1 != 0){
+            subRoom = true;
+        }
         if(t == "x"){
             newCord = currentRoom.location[0]+n;
             for(int i = 0; i< dungeon.allRooms.length; i++){
@@ -97,22 +102,54 @@ public class controllerGame {
                 if (dungeon.allRooms[i] != null) {
 
                     if (dungeon.allRooms[i].location[0] == newCord && dungeon.allRooms[i].location[1] == currentRoom.location[1]) {
-                        currentRoom = dungeon.allRooms[i];
-                        testWin();
-                        return true;
+
+                        double roomDiff = Math.round((currentRoom.roomNum-dungeon.allRooms[i].roomNum) * 10) / 10.0;
+
+                        if (dungeon.allRooms[i].roomNum%1 != 0){
+                            targetSubRoom = true;
+                        }
+                        if (subRoom || targetSubRoom){
+
+                            if (roomDiff >= -0.1 && roomDiff <= 0.1){
+
+                                currentRoom = dungeon.allRooms[i];
+                                testWin();
+                                return true;
+                            }
+                        }else {
+                            currentRoom = dungeon.allRooms[i];
+                            testWin();
+                            return true;
+                        }
                     }
                 }
             }
-        } else if (t == "y") {
+        } else if (t == "y") {//--------------------------------------------------------------Y-------------------------------------
             newCord = currentRoom.location[1]+n;
             for(int i = 0; i< dungeon.allRooms.length; i++){
 
                 if (dungeon.allRooms[i] != null) {
 
                     if (dungeon.allRooms[i].location[1] == newCord && dungeon.allRooms[i].location[0] == currentRoom.location[0]) {
-                        currentRoom = dungeon.allRooms[i];
-                        testWin();
-                        return true;
+
+                        double roomDiff = Math.round((currentRoom.roomNum-dungeon.allRooms[i].roomNum) * 10) / 10.0;
+
+                        if (dungeon.allRooms[i].roomNum%1 != 0){
+                            targetSubRoom = true;
+                        }
+                        if (subRoom || targetSubRoom){
+
+                            if (roomDiff >= -0.1 && roomDiff <= 0.1){
+
+                                currentRoom = dungeon.allRooms[i];
+                                testWin();
+                                return true;
+                            }
+                        }else {
+                            currentRoom = dungeon.allRooms[i];
+                            testWin();
+                            return true;
+                        }
                     }
                 }
             }
@@ -122,8 +159,10 @@ public class controllerGame {
 
     }
     private void testWin(){
-        if (currentRoom.roomNum == 12){
+        if (currentRoom == dungeon.secondFloor[7]){
             winText.setTranslateY(0);
+
+        } else if (currentRoom == dungeon.firstFloor[12]) {
             setFloor2();
         }
     }
@@ -146,11 +185,18 @@ public class controllerGame {
     }
     public void setFloor1(){
         gameScreen.setFill(new ImagePattern(dungImg));
+        dungeon.allRooms = dungeon.firstFloor;
+        if (currentRoom.roomNum != 0){
+            currentRoom = dungeon.firstFloor[12];
+        }else {
+            currentRoom = dungeon.allRooms[0];
+        }
 
     }
     public void setFloor2(){
         gameScreen.setFill(new ImagePattern(new Image("Dungoen Floor 2.png")));
-
+        dungeon.allRooms = dungeon.secondFloor;
+        currentRoom = dungeon.allRooms[12];// Must be set to 0!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
     public void openInventory(ActionEvent actionEvent) {
