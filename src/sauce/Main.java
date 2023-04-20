@@ -28,9 +28,8 @@ public class Main {
         int ranDam = (int)((Math.random() * ((max+1) - min)) + min);
         return ranDam;
     }
-
+    static Timer timer = new Timer();
     public static void timeDelay(TimerTask task, int x)  {
-        Timer timer = new Timer();
         long delay = x;
         timer.schedule(task, delay);
     }

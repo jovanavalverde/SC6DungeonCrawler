@@ -124,7 +124,6 @@ public class controllerBattle {
 
     public void endBattle(){
         gameControl.updateBars();
-
         app.setScreen(app.getScene(0));
     }
 
