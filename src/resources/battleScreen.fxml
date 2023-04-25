@@ -39,7 +39,7 @@
       <Button fx:id="buttonSpecialAttack" layoutX="169.0" layoutY="529.0" mnemonicParsing="false" onAction="#playerSpecialAttack" prefHeight="40.0" prefWidth="243.0" text="Special Attack" textAlignment="CENTER" />
       <Rectangle fx:id="magicAni" arcHeight="5.0" arcWidth="5.0" fill="#ffb61f" height="83.0" layoutX="405.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
       <Rectangle fx:id="swordAni" arcHeight="5.0" arcWidth="5.0" fill="#2cff1f" height="83.0" layoutX="842.0" layoutY="217.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
-      <Rectangle fx:id="daggerAni1" arcHeight="5.0" arcWidth="5.0" fill="#1fdbff" height="83.0" layoutX="1070.0" layoutY="290.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
-      <Rectangle fx:id="daggerAni" arcHeight="5.0" arcWidth="5.0" fill="#1fdbff" height="83.0" layoutX="985.0" layoutY="207.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
+      <Rectangle fx:id="daggerAni1" arcHeight="5.0" arcWidth="5.0" fill="#1fdbff" height="123.0" layoutX="1028.0" layoutY="268.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="124.0" />
+      <Rectangle fx:id="daggerAni" arcHeight="5.0" arcWidth="5.0" fill="#1fdbff" height="113.0" layoutX="961.0" layoutY="208.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="124.0" />
    </children>
 </AnchorPane>

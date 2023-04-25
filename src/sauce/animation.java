@@ -113,15 +113,17 @@ public class animation {
                 new KeyFrame(Duration.seconds(.5), new KeyValue(attAni.translateYProperty(), endY)),
                 new KeyFrame(Duration.seconds(1), new KeyValue(attAni.opacityProperty(), 0)),
 
-                new KeyFrame(Duration.seconds(.2), new KeyValue(attAni1.translateXProperty(), startX1)),
-                new KeyFrame(Duration.seconds(.2), new KeyValue(attAni1.translateYProperty(), startY1)),
-                new KeyFrame(Duration.seconds(.7), new KeyValue(attAni1.translateXProperty(), endX1)),
-                new KeyFrame(Duration.seconds(.7), new KeyValue(attAni1.translateYProperty(), endY1)),
-                new KeyFrame(Duration.seconds(1.2), new KeyValue(attAni1.opacityProperty(), 0))
+                new KeyFrame(Duration.seconds(0), new KeyValue(attAni1.translateXProperty(), startX1)),
+                new KeyFrame(Duration.seconds(0), new KeyValue(attAni1.translateYProperty(), startY1)),
+                new KeyFrame(Duration.seconds(.5), new KeyValue(attAni1.translateXProperty(), endX1)),
+                new KeyFrame(Duration.seconds(.5), new KeyValue(attAni1.translateYProperty(), endY1)),
+                new KeyFrame(Duration.seconds(1), new KeyValue(attAni1.opacityProperty(), 0))
         );
         timeline.setOnFinished(event -> {
             attAni.setTranslateX(startX);
             attAni.setTranslateY(startY);
+            attAni1.setTranslateX(startX1);
+            attAni1.setTranslateY(startY1);
         });
 
         timeline.play();

@@ -56,28 +56,38 @@ public class controllerBattle {
 
     @FXML
     void playerSpecialAttack(ActionEvent event){
-
-        if(battle.doTurn == true) {
-            if(Main.character.playClass == "mage") {
+    if(Main.character.playMP >= 50) {
+        if (battle.doTurn == true) {
+            if (Main.character.playClass == "mage") {
 
                 animation.magicAttackAnimation(magicAni);
 
-            }else if(Main.character.playClass == "rogue"){
+            } else if (Main.character.playClass == "rogue") {
 
                 animation.daggerAttackAnimation(daggerAni, daggerAni1);
 
-            }else if(Main.character.playClass == "warrior"){
+            } else if (Main.character.playClass == "warrior") {
 
                 animation.swordAttackAnimation(swordAni);
 
-            }else {
-                System.out.println("E:" + 400);
+            } else {
+                System.out.println("Class not set");
             }
 
             battle.playerSpecialAttack();
 
         }
-    }
+            }else if(Main.character.playClass == "mage") {
+                updateBattleText(9, "mana");
+                battle.playerAttack();
+            } else {
+                updateBattleText(9, "stamina");
+                battle.playerAttack();
+            }
+        }
+
+
+
 
     public void setApp(appDungGame app,controllerGame gameControl){
         /*This method sets the app variable to appDungGame application so the window can be changed.

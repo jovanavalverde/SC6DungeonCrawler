@@ -136,6 +136,7 @@ public class player implements entity {
         if (playMP >= 50){
             for (int n = 0; n<=5; n++){
                 endDam[n] = eqItemWeapon.calItemDamage();
+
             }
             playMP = playMP - 50;
         } else {
