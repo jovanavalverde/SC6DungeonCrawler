@@ -1,6 +1,3 @@
-/*
-Sprites: At least one small sprite for each player class.(Mage, Rogue, and Warrior)
- */
 public class player implements entity {
 
     int playHP = 100;
@@ -8,13 +5,13 @@ public class player implements entity {
     int playMP = 100;
     int playMaxMP = 100;
 
-    itemGearDecorator[] playerInventory = new itemGearDecorator[13];/*For organization purposes,
+    itemGearDecorator[] playerInventory = new itemGearDecorator[31];/*For organization purposes,
                                                                    playerInventory[0] will remain empty.*/
 
     int[] playerPotions = {0,0};//First value is amount of healing potions and second is amount of mana potions.
 
     itemWeapon eqItemWeapon;
-    itemArmor eqItemArmor;//For now, there will only be one equipable armor piece. Rather than a "Helmet","Gauntlet","Shield" etc...
+    itemArmor eqItemArmor;
     String playClass = "default";
 
     @Override
@@ -61,8 +58,6 @@ public class player implements entity {
 
     }
     public int[] calSpecialDamage() {
-        /*This method is used to calculate how much damage the player will deal.
-        Returns an array rather than a single int due to daggers being two attacks rather than one*/
         if (eqItemWeapon.weaponType == "sword"){
             return heavySwing();
         } else if (eqItemWeapon.weaponType == "daggers") {
