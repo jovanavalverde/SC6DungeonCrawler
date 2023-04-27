@@ -45,8 +45,9 @@ Main.timer.cancel();
         dungeon.createRooms();
 
         //Uncomment for test run mode
-        //dungeon.testRun();
+        dungeon.testRun();
         //dungeon.quickTestRun();
+        dungeon.testInv();
 
 
         sceneArray[0] =  new Scene(gameLoader.load());

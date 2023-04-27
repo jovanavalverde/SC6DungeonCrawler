@@ -39,7 +39,6 @@ static TimerTask emAtkTask;
                 battleControl.updateText();
                 battleControl.updatePlayerBars();
                 doTurn = true;
-                System.out.println(doTurn);
                 if (Main.character.playHP == 0) {
                     endBattle();
                 }
@@ -56,7 +55,6 @@ static TimerTask emAtkTask;
 
         if(doTurn) { //doTurn check is to stop being able to spam buttons over and over
             doTurn = false;
-            System.out.println(doTurn);
             turnCount += 1;
             battleControl.updateBattleText(7, turnCount);
 
@@ -121,8 +119,6 @@ static TimerTask emAtkTask;
         System.out.println("Enemy died.");
 
         opponent.addLoot();
-        Main.character.playerPotions[0]++;
-        Main.character.playerPotions[1]++;
 
         battleControl.endBattle();
         }else {
