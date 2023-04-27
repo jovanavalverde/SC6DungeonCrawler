@@ -39,26 +39,55 @@ public class controllerBattle {
     private Rectangle magicAni;
     @FXML
     private Rectangle swordAni;
+    @FXML
+    private Rectangle daggerAni;
+    @FXML
+    private Rectangle daggerAni1;
 
 
     @FXML
     void playerAttack(ActionEvent event){
-        swordAni.setFill(new ImagePattern(new Image("realSprites/sword.png")));
+
         if(battle.doTurn == true) {
-            animation.swordAttackAnimation(swordAni);
+
             battle.playerAttack();
         }
     }
 
     @FXML
     void playerSpecialAttack(ActionEvent event){
-        magicAni.setFill(new ImagePattern(new Image("realSprites/magic.png")));
-        if(battle.doTurn == true) {
-            animation.magicAttackAnimation(magicAni);
+    if(Main.character.playMP >= 50) {
+        if (battle.doTurn == true) {
+            if (Main.character.playClass == "mage") {
+
+                animation.magicAttackAnimation(magicAni);
+
+            } else if (Main.character.playClass == "rogue") {
+
+                animation.daggerAttackAnimation(daggerAni, daggerAni1);
+
+            } else if (Main.character.playClass == "warrior") {
+
+                animation.swordAttackAnimation(swordAni);
+
+            } else {
+                System.out.println("Class not set");
+            }
+
             battle.playerSpecialAttack();
 
         }
-    }
+            }else if(Main.character.playClass == "mage") {
+                updateBattleText(9, "mana");
+                battle.playerAttack();
+            } else {
+                updateBattleText(9, "stamina");
+                battle.playerAttack();
+            }
+        }
+
+
+
 
     public void setApp(appDungGame app,controllerGame gameControl){
         /*This method sets the app variable to appDungGame application so the window can be changed.
@@ -74,6 +103,13 @@ public class controllerBattle {
         updateText();
         magicAni.setOpacity(0);
         swordAni.setOpacity(0);
+        daggerAni.setOpacity(0);
+        daggerAni.setOpacity(0);
+        daggerAni1.setOpacity(0);
+        magicAni.setFill(new ImagePattern(new Image("realSprites/magic.png")));
+        swordAni.setFill(new ImagePattern(new Image("realSprites/sword.png")));
+        daggerAni.setFill(new ImagePattern(new Image("realSprites/slash.png")));
+        daggerAni1.setFill(new ImagePattern(new Image("realSprites/slash.png")));
 
         playerPos.setFill(sprite);
         enemyPos.setFill(new ImagePattern(battle.opponent.entSprite));

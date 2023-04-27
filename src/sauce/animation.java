@@ -93,9 +93,43 @@ public class animation {
         timeline.play();
     }
 
-    public static void daggerAttackAnimation(Rectangle attAni){
+    public static void daggerAttackAnimation(Rectangle attAni, Rectangle attAni1){
+        double startX = 0;
+        double startX1 = 0;
+        double startY = 0;
+        double startY1 = 0;
+        double endX = -100;
+        double endX1 = -100;
+        double endY = 100;
+        double endY1 = 100;
+
+        attAni.setOpacity(1);
+        attAni1.setOpacity(1);
+
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.seconds(0), new KeyValue(attAni.translateXProperty(), startX)),
+                new KeyFrame(Duration.seconds(0), new KeyValue(attAni.translateYProperty(), startY)),
+                new KeyFrame(Duration.seconds(.5), new KeyValue(attAni.translateXProperty(), endX)),
+                new KeyFrame(Duration.seconds(.5), new KeyValue(attAni.translateYProperty(), endY)),
+                new KeyFrame(Duration.seconds(1), new KeyValue(attAni.opacityProperty(), 0)),
+
+                new KeyFrame(Duration.seconds(0), new KeyValue(attAni1.translateXProperty(), startX1)),
+                new KeyFrame(Duration.seconds(0), new KeyValue(attAni1.translateYProperty(), startY1)),
+                new KeyFrame(Duration.seconds(.5), new KeyValue(attAni1.translateXProperty(), endX1)),
+                new KeyFrame(Duration.seconds(.5), new KeyValue(attAni1.translateYProperty(), endY1)),
+                new KeyFrame(Duration.seconds(1), new KeyValue(attAni1.opacityProperty(), 0))
+        );
+        timeline.setOnFinished(event -> {
+            attAni.setTranslateX(startX);
+            attAni.setTranslateY(startY);
+            attAni1.setTranslateX(startX1);
+            attAni1.setTranslateY(startY1);
+        });
+
+        timeline.play();
+    }
 
     }
 
 
-}
+

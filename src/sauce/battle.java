@@ -45,7 +45,7 @@ static TimerTask emAtkTask;
                 Main.timer.purge();
             }
         };
-        Main.timeDelay(emAtkTask, 2000);
+        Main.timeDelay(emAtkTask, 1000);
 
 
     }
@@ -85,9 +85,11 @@ static TimerTask emAtkTask;
             turnCount += 1;
             battleControl.updateBattleText(7, turnCount);
 
-            int[] damArray = Main.character.calDamage(); //needs to be changed to calSpecialDamage() when method is created
+
+            int[] damArray = Main.character.calSpecialDamage();
 
             for (int n = 0; n < damArray.length; n++) {
+
                 opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
                 battleControl.updateBattleText(1, damArray[n]);
                 battleControl.updatePlayerBars();
