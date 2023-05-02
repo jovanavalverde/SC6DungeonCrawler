@@ -126,5 +126,6 @@
             <Font size="43.0" />
          </font>
       </Text>
+      <Button layoutX="856.0" layoutY="50.0" mnemonicParsing="false" onAction="#cycleInv" text="Cycle Inventory" />
    </children>
 </AnchorPane>

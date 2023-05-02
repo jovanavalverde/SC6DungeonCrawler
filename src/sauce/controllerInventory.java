@@ -90,11 +90,31 @@ public class controllerInventory {
         app.setScreen(app.getScene(0));
     }
 
+    public void cycleInv(ActionEvent actionEvent) {
+        if (invPage == 0){
+            invPage = 10;
+            System.out.println(invPage);
+        } else if (invPage == 10) {
+            invPage = 20;
+            System.out.println(invPage);
+        } else if (invPage == 20) {
+            invPage = 0;
+            System.out.println(invPage);
+        }
+        updateInv();
+    }
+private int invPage = 0;
     public void updateInv(){
         /*This updates the sprites loaded in as inventory slots.*/
-        for (int n = 1; n <= 12; n++) {// 'n' must remain below 13
-            if (Main.character.playerInventory[n] != null) {
-                ImageView img = new ImageView(Main.character.playerInventory[n].itemSprite);
+        for (int n = 1; n <= 10; n++) {
+            if (Main.character.playerInventory[n+invPage] != null) {
+                ImageView img = new ImageView(Main.character.playerInventory[n+invPage].itemSprite);
+                img.setPreserveRatio(true);
+                img.fitWidthProperty().bind(slot1.widthProperty());
+                img.fitHeightProperty().bind(slot1.heightProperty());
+                invButtons[n].setGraphic(img);
+            }else {
+                ImageView img = new ImageView(new Image("realSprites/blankSquare.png"));
                 img.setPreserveRatio(true);
                 img.fitWidthProperty().bind(slot1.widthProperty());
                 img.fitHeightProperty().bind(slot1.heightProperty());
@@ -125,9 +145,9 @@ public class controllerInventory {
 
     public void useItem(ActionEvent actionEvent) {
         /*This method will equip the weapon/armor piece when clicked.*/
-        for (int n = 0; n <= 12; n++) {
+        for (int n = 1+invPage; n <= 10+invPage; n++) {
 
-            if (actionEvent.getSource() == invButtons[n]) {
+            if (actionEvent.getSource() == invButtons[n-invPage]) {
                 if (Main.character.playerInventory[n] instanceof itemWeapon){
                     itemWeapon hold = Main.character.eqItemWeapon;
                     Main.character.eqItemWeapon = (itemWeapon) Main.character.playerInventory[n];
@@ -155,4 +175,6 @@ public class controllerInventory {
             System.out.println("You cant use mana potions outside of battle.");
         }
     }
+
+
 }

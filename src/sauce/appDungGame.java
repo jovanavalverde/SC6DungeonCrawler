@@ -26,6 +26,11 @@ public Scene getScene(int n){
     return sceneArray[n];
 }
 
+@Override
+public void stop(){
+Main.timer.cancel();
+}
+
     @Override
     public void start(Stage window) throws Exception {
         Main.character.equipWeapon(dungeon.lvl0W);
@@ -41,6 +46,9 @@ public Scene getScene(int n){
 
         //Uncomment for test run mode
         dungeon.testRun();
+        //dungeon.quickTestRun();
+        dungeon.testInv();
+
 
         sceneArray[0] =  new Scene(gameLoader.load());
         sceneArray[1] =  new Scene(invLoader.load());
@@ -55,8 +63,6 @@ public Scene getScene(int n){
 
 
 
-
-
         controllerStart startControl = startLoader.getController();
         controllerGame gameControl = gameLoader.getController();
         controllerInventory invControl = invLoader.getController();
@@ -67,10 +73,6 @@ public Scene getScene(int n){
         battleControl.setApp(this,gameControl);
         Main.setApp(this, invControl, battleControl, gameControl);
         battle.setApp(battleControl);
-
-
-
-
 
 
 

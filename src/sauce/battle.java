@@ -8,7 +8,7 @@ import java.util.TimerTask;
 public class battle {
 
 
-    static entEnemy opponent = dungeon.lvl0E;
+    static entEnemy opponent = dungeon.lvl0E; //sets opponent to a level 0 enemy
     private static controllerBattle battleControl;
 
     static int damTaken = 0;
@@ -28,7 +28,7 @@ static TimerTask emAtkTask;
         int[] damArray = opponent.calDamage();
         System.out.println(doTurn);
 
-        TimerTask emAtkTask = new TimerTask() {
+        emAtkTask = new TimerTask() {
             @Override
             public void run() {
                 Main.character.changeHP(-damArray[0]);
@@ -39,14 +39,13 @@ static TimerTask emAtkTask;
                 battleControl.updateText();
                 battleControl.updatePlayerBars();
                 doTurn = true;
-                System.out.println(doTurn);
                 if (Main.character.playHP == 0) {
                     endBattle();
                 }
+                Main.timer.purge();
             }
         };
-        Main.timeDelay(emAtkTask, 2000);
-
+        Main.timeDelay(emAtkTask, 1000);
 
 
     }
@@ -54,12 +53,10 @@ static TimerTask emAtkTask;
     public static void playerAttack(){
 
 
-        if(doTurn == true) { //doTurn check is to stop being able to spam buttons over and over
+        if(doTurn) { //doTurn check is to stop being able to spam buttons over and over
             doTurn = false;
-            System.out.println(doTurn);
             turnCount += 1;
             battleControl.updateBattleText(7, turnCount);
-
 
             int[] damArray = Main.character.calDamage();
 
@@ -67,9 +64,6 @@ static TimerTask emAtkTask;
                 opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
                 battleControl.updateBattleText(1, damArray[n]);
                 battleControl.updatePlayerBars();
-
-
-
                 //System.out.println("play loop");
             }
 
@@ -91,9 +85,11 @@ static TimerTask emAtkTask;
             turnCount += 1;
             battleControl.updateBattleText(7, turnCount);
 
-            int[] damArray = Main.character.calDamage(); //needs to be changed to calSpecialDamage() when method is created
+
+            int[] damArray = Main.character.calSpecialDamage();
 
             for (int n = 0; n < damArray.length; n++) {
+
                 opponent.changeHP(-damArray[n]); //Needs to update health observer/ health bar
                 battleControl.updateBattleText(1, damArray[n]);
                 battleControl.updatePlayerBars();
@@ -125,8 +121,6 @@ static TimerTask emAtkTask;
         System.out.println("Enemy died.");
 
         opponent.addLoot();
-        Main.character.playerPotions[0]++;
-        Main.character.playerPotions[1]++;
 
         battleControl.endBattle();
         }else {

@@ -1,6 +1,3 @@
-/*
-Sprites: At least one small sprite for each player class.(Mage, Rogue, and Warrior)
- */
 public class player implements entity {
 
     int playHP = 100;
@@ -8,13 +5,13 @@ public class player implements entity {
     int playMP = 100;
     int playMaxMP = 100;
 
-    itemGearDecorator[] playerInventory = new itemGearDecorator[13];/*For organization purposes,
+    itemGearDecorator[] playerInventory = new itemGearDecorator[31];/*For organization purposes,
                                                                    playerInventory[0] will remain empty.*/
 
     int[] playerPotions = {0,0};//First value is amount of healing potions and second is amount of mana potions.
 
     itemWeapon eqItemWeapon;
-    itemArmor eqItemArmor;//For now, there will only be one equipable armor piece. Rather than a "Helmet","Gauntlet","Shield" etc...
+    itemArmor eqItemArmor;
     String playClass = "default";
 
     @Override
@@ -55,6 +52,18 @@ public class player implements entity {
             return calDaggerAtk();
         } else if (eqItemWeapon.weaponType == "staff") {
             return calMagicAtk();
+        }else {
+            return new int[]{555};
+        }
+
+    }
+    public int[] calSpecialDamage() {
+        if (eqItemWeapon.weaponType == "sword"){
+            return heavySwing();
+        } else if (eqItemWeapon.weaponType == "daggers") {
+            return fastSlurry();
+        } else if (eqItemWeapon.weaponType == "staff") {
+            return fireball();
         }else {
             return new int[]{555};
         }
@@ -101,6 +110,32 @@ public class player implements entity {
             playMP = playMP - 50;
         } else {
             endDam = calMagicAtk();
+        }
+        return endDam;
+    }
+
+
+    private int[] heavySwing(){
+        int[] endDam = new int[1];
+        if (playMP >= 50){
+            endDam[0] = eqItemWeapon.calItemDamage()*4;
+            playMP = playMP - 50;
+        } else {
+            endDam = calSwordAtk();
+        }
+        return endDam;
+    }
+
+    private int[] fastSlurry(){
+        int[] endDam = new int[6];
+        if (playMP >= 50){
+            for (int n = 0; n<=5; n++){
+                endDam[n] = eqItemWeapon.calItemDamage();
+
+            }
+            playMP = playMP - 50;
+        } else {
+            endDam = calDaggerAtk();
         }
         return endDam;
     }
